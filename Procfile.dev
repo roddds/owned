@@ -1,2 +1,2 @@
 sass: sass --watch owned/static/css/main.scss
-web: python manage.py run_gunicorn -b "0.0.0.0:$PORT" -w 3
+web: python manage.py runserver

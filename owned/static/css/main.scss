@@ -1,5 +1,19 @@
 body {
     .outer-container {
-        float: center;
+        width: 800px;
+        margin: 0 auto;
+
+        .leftbar {
+            float: left;
+        }
+
+        .main-content {
+            margin: 0 auto;
+            float: center;
+        }
+
+        .rightbar {
+            float: right;
+        }
     }
 }

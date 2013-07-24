@@ -1,3 +1,10 @@
 body .outer-container {
-  float: center; }
-/*lol*/
+  width: 800px;
+  margin: 0 auto; }
+  body .outer-container .leftbar {
+    float: left; }
+  body .outer-container .main-content {
+    margin: 0 auto;
+    float: center; }
+  body .outer-container .rightbar {
+    float: right; }
