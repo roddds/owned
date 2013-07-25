@@ -1,19 +1,21 @@
 body {
-    .outer-container {
+    background-color: black;
+    .left {
+        float: left;
+    }
+
+    .right {
+        float: right;
+    }
+
+    .bar {
+        img {
+            max-height: 100%;
+            height: 100%;
+            width: auto;
+        }
+    }
+    .container {
         width: 800px;
-        margin: 0 auto;
-
-        .leftbar {
-            float: left;
-        }
-
-        .main-content {
-            margin: 0 auto;
-            float: center;
-        }
-
-        .rightbar {
-            float: right;
-        }
     }
 }

@@ -7,7 +7,7 @@ TEMPLATE_DEBUG = True
 SERVE_MEDIA = True
 
 STATIC_URL = '/static/'
-STATIC_ROOT = PROJECT_DIR.child('static_root')
+# STATIC_ROOT = PROJECT_DIR.child('static_root')
 ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
 
 MEDIA_URL = '/media/'
