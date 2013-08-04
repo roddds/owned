@@ -6,27 +6,49 @@ body {
     background-color: black; }
     body .wrapper #left {
       left: 0px;
-      background-image: url(../img/left.png);
       background-position: right; }
     body .wrapper #right {
       right: 0px;
-      background-image: url(../img/right.png);
-      background-position: left; }
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1); }
     body .wrapper .bar {
-      background-size: 55%;
+      background-size: contain;
       background-repeat: no-repeat;
+      background-position: right;
       width: 25%;
       height: 100%;
-      position: fixed; }
+      position: fixed;
+      background-image: url(../img/sidebar.png);
+      opacity: 0.2; }
     body .wrapper #middle {
       background-color: black;
-      width: 50%;
+      width: 49%;
       margin: 0 auto; }
       body .wrapper #middle #topbar {
-        background-color: darkgrey;
-        height: 30px; }
+        background: #333;
+        border-top: 8px solid #555;
+        height: 50px; }
+        body .wrapper #middle #topbar form {
+          color: white;
+          float: right;
+          margin-top: 7px; }
+          body .wrapper #middle #topbar form input, body .wrapper #middle #topbar form label {
+            float: left; }
+          body .wrapper #middle #topbar form label {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-family: Armata;
+            margin: 5px 10px 10px 10px; }
+          body .wrapper #middle #topbar form .btn {
+            margin-left: 10px; }
+          body .wrapper #middle #topbar form a {
+            margin-right: 10px; }
+          body .wrapper #middle #topbar form #id_username, body .wrapper #middle #topbar form #id_password {
+            width: 140px;
+            height: 29px;
+            padding: 6px; }
       body .wrapper #middle #header {
-        background-color: lightblue;
+        background-image: url(../img/background_pattern.png);
         height: 250px; }
       body .wrapper #middle #content {
         background-color: white;

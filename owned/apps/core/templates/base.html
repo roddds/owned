@@ -10,11 +10,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <!-- <link rel="stylesheet" href="static/css/bootstrap.min.css"> -->
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+        <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet"> -->
         <!-- <link rel="stylesheet" href="static/css/bootstrap-responsive.min.css"> -->
         <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
-        <!-- <link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'> -->
+        <link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
 
     </head>
     <body>
@@ -25,15 +26,22 @@
 
         <div class="wrapper">
 
-            <div id="left" class="bar">
-            </div>
+            <div id="left" class="bar"></div>
 
-            <div id="right" class="bar">
-            </div>
+            <div id="right" class="bar"></div>
 
             <div id="middle">
                 <div id="topbar">
-                    Top Bar | Top Bar | Top Bar | Top Bar
+                    <form action="#" method="post" id="login-form"><!-- csrf token -->
+                        <label for="id_username" class="required">Login:</label>
+                        <input id="id_username" maxlength="254" name="username" type="text" class="form-control">
+                        
+                        <label for="id_password" class="required">Senha:</label>
+                        <input id="id_password" name="password" type="password" class="form-control">
+
+                        <input type="submit" value="Login" class="btn btn-default btn-small">
+                        <a href="#" class="btn btn-default btn-small">Cadastrar</a>
+                    </form>
                 </div>
 
                 <div id="header">
