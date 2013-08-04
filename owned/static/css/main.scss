@@ -1,21 +1,58 @@
 body {
-    background-color: black;
-    .left {
-        float: left;
-    }
+    
+    background-color: grey;
+    width: 100%;
+    height: 100%;
 
-    .right {
-        float: right;
-    }
+    .wrapper {
+        background-color: black;
 
-    .bar {
-        img {
-            max-height: 100%;
+        #left {
+            left: 0px;
+            background-image: url(../img/left.png);
+            background-position: right;
+        }
+
+        #right {
+            right: 0px;
+            background-image: url(../img/right.png);
+            background-position: left;
+
+        }
+
+        .bar {
+            background-size: 55%;
+            background-repeat: no-repeat;
+            width: 25%;
             height: 100%;
-            width: auto;
+            position: fixed;
+        }
+
+        #middle {
+            background-color: black;
+            width: 50%;
+            margin: 0 auto;
+
+            #topbar {
+                background-color: darkgrey;
+                height: 30px;
+            }
+
+            #header {
+                background-color: lightblue;
+                height: 250px;
+            }
+
+            #content {
+                background-color: white;
+                height: 800px;
+            }
+
+            #footer {
+                background-color: gray;
+                height: 250px;
+            }
         }
     }
-    .container {
-        width: 800px;
-    }
+    
 }

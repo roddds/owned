@@ -1,12 +1,36 @@
 body {
-  background-color: black; }
-  body .left {
-    float: left; }
-  body .right {
-    float: right; }
-  body .bar img {
-    max-height: 100%;
-    height: 100%;
-    width: auto; }
-  body .container {
-    width: 800px; }
+  background-color: grey;
+  width: 100%;
+  height: 100%; }
+  body .wrapper {
+    background-color: black; }
+    body .wrapper #left {
+      left: 0px;
+      background-image: url(../img/left.png);
+      background-position: right; }
+    body .wrapper #right {
+      right: 0px;
+      background-image: url(../img/right.png);
+      background-position: left; }
+    body .wrapper .bar {
+      background-size: 55%;
+      background-repeat: no-repeat;
+      width: 25%;
+      height: 100%;
+      position: fixed; }
+    body .wrapper #middle {
+      background-color: black;
+      width: 50%;
+      margin: 0 auto; }
+      body .wrapper #middle #topbar {
+        background-color: darkgrey;
+        height: 30px; }
+      body .wrapper #middle #header {
+        background-color: lightblue;
+        height: 250px; }
+      body .wrapper #middle #content {
+        background-color: white;
+        height: 800px; }
+      body .wrapper #middle #footer {
+        background-color: gray;
+        height: 250px; }
