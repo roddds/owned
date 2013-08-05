@@ -9,29 +9,29 @@ body {
 
         #left {
             left: 0px;
-            background-position: right;
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
         }
 
         #right {
             right: 0px;
-            -webkit-transform: scaleX(-1);
-            transform: scaleX(-1);
         }
 
         .bar {
             background-size: contain;
             background-repeat: no-repeat;
-            background-position: right;
-            width: 25%;
+            background-position: left;
+            width: 22%;
             height: 100%;
             position: fixed;
-            background-image: url(../img/sidebar.png);
+            background-image: url(../img/sidebar2.png);
             opacity: 0.2;
         }
 
         #middle {
-            background-color: black;
-            width: 49%;
+            // background-color: black;
+            background-image: url(../img/background_pattern.png);
+            width: 54%;
             margin: 0 auto;
 
             #topbar {
@@ -66,13 +66,37 @@ body {
             }
 
             #header {
-                background-image: url(../img/background_pattern.png);
+                // background-image: url(../img/background_pattern.png);
                 height: 250px;
+                border-bottom: 1px solid black;
+                border-top: 1px solid black;
             }
 
-            #content {
-                background-color: white;
-                height: 800px;
+            #content-wrapper {
+                height: 1500px;
+                #content {
+                    background-color: white;
+                    float: left;
+                    height: 95%;
+                    width: 85%;
+                    margin: 10px;
+                    border-radius: 25px;
+                    border-top-right-radius: 0;
+                    border-bottom-left-radius: 0;
+                    #square-top {
+                        float: right;
+                    }
+                    #square-bottom {
+                        bottom: 0px;
+                        left: 0px;
+                    }
+                    .square {
+                        // background-color: black;
+                        background-image: url(../img/background_pattern.png);
+                        height: 30px;
+                        width: 30px;
+                    }
+                }
             }
 
             #footer {

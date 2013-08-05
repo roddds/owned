@@ -6,23 +6,22 @@ body {
     background-color: black; }
     body .wrapper #left {
       left: 0px;
-      background-position: right; }
-    body .wrapper #right {
-      right: 0px;
       -webkit-transform: scaleX(-1);
       transform: scaleX(-1); }
+    body .wrapper #right {
+      right: 0px; }
     body .wrapper .bar {
       background-size: contain;
       background-repeat: no-repeat;
-      background-position: right;
-      width: 25%;
+      background-position: left;
+      width: 22%;
       height: 100%;
       position: fixed;
-      background-image: url(../img/sidebar.png);
+      background-image: url(../img/sidebar2.png);
       opacity: 0.2; }
     body .wrapper #middle {
-      background-color: black;
-      width: 49%;
+      background-image: url(../img/background_pattern.png);
+      width: 54%;
       margin: 0 auto; }
       body .wrapper #middle #topbar {
         background: #333;
@@ -48,11 +47,29 @@ body {
             height: 29px;
             padding: 6px; }
       body .wrapper #middle #header {
-        background-image: url(../img/background_pattern.png);
-        height: 250px; }
-      body .wrapper #middle #content {
-        background-color: white;
-        height: 800px; }
+        height: 250px;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black; }
+      body .wrapper #middle #content-wrapper {
+        height: 1500px; }
+        body .wrapper #middle #content-wrapper #content {
+          background-color: white;
+          float: left;
+          height: 95%;
+          width: 85%;
+          margin: 10px;
+          border-radius: 25px;
+          border-top-right-radius: 0;
+          border-bottom-left-radius: 0; }
+          body .wrapper #middle #content-wrapper #content #square-top {
+            float: right; }
+          body .wrapper #middle #content-wrapper #content #square-bottom {
+            bottom: 0px;
+            left: 0px; }
+          body .wrapper #middle #content-wrapper #content .square {
+            background-image: url(../img/background_pattern.png);
+            height: 30px;
+            width: 30px; }
       body .wrapper #middle #footer {
         background-color: gray;
         height: 250px; }
