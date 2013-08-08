@@ -20,7 +20,7 @@ body {
       background-image: url(../img/sidebar2.png);
       opacity: 0.2; }
     body .wrapper #middle {
-      background-image: url(../img/background_pattern.png);
+      background-color: #2c3e50;
       width: 54%;
       margin: 0 auto; }
       body .wrapper #middle #topbar {
@@ -67,7 +67,7 @@ body {
             bottom: 0px;
             left: 0px; }
           body .wrapper #middle #content-wrapper #content .square {
-            background-image: url(../img/background_pattern.png);
+            background-color: #2c3e50;
             height: 30px;
             width: 30px; }
       body .wrapper #middle #footer {
