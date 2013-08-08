@@ -17,10 +17,10 @@ body {
       width: 22%;
       height: 100%;
       position: fixed;
-      background-image: url(../img/sidebar2.png);
+      background-image: url(../img/sidebar.png);
       opacity: 0.2; }
     body .wrapper #middle {
-      background-color: #2c3e50;
+      background-color: #5E7F8B;
       width: 54%;
       margin: 0 auto; }
       body .wrapper #middle #topbar {
@@ -67,7 +67,6 @@ body {
             bottom: 0px;
             left: 0px; }
           body .wrapper #middle #content-wrapper #content .square {
-            background-color: #2c3e50;
             height: 30px;
             width: 30px; }
       body .wrapper #middle #footer {
