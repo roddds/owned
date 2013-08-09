@@ -30,8 +30,11 @@ body {
 
         #middle {
             background-color: #AAA;
-            width: 54%;
+            width: 850px;
+            min-width: 850px;
             margin: 0 auto;
+            position: relative;
+            z-index: 100;
 
             #topbar {
                 background: #333;
@@ -86,6 +89,7 @@ body {
                                 text-decoration: none;
                                 background: #333;
                                 width: 180px;
+                                min-width: 165px;
                                 font-family: 'Fauna One', sans-serif;
                             }
                             a:hover {background: #6DD2E5;}
