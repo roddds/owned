@@ -67,7 +67,7 @@ body {
                 text-decoration: none;
                 background: #333;
                 width: 180px;
-                font-family: 'Kite One', sans-serif; }
+                font-family: 'Fauna One', sans-serif; }
               body .wrapper #middle #header .navigation-wrapper .navigation-buttons li a:hover {
                 background: #6DD2E5; }
           body .wrapper #middle #header .navigation-wrapper #nav-right {
@@ -89,6 +89,7 @@ body {
             bottom: 0px;
             left: 0px; }
           body .wrapper #middle #content-wrapper #content .square {
+            background-color: #AAA;
             height: 30px;
             width: 30px; }
       body .wrapper #middle #footer {

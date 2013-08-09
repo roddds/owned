@@ -18,7 +18,7 @@
         <!-- <link rel="stylesheet" href="static/css/bootstrap-responsive.min.css"> -->
         <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Kite+One' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
 
     </head>
     <body>
@@ -35,7 +35,7 @@
 
             <div id="middle">
                 <div id="topbar">
-                    <form action="#" method="post" id="login-form"><!-- csrf token -->
+                    <form action="#" method="post" id="login-form">{% csrf_token %}
                         <label for="id_username" class="required">Login:</label>
                         <input id="id_username" maxlength="254" name="username" type="text" class="form-control">
                         
@@ -69,7 +69,7 @@
                 <div id="content-wrapper">
                     <div id="content">
                         <div class="square" id="square-top"></div>
-                        <div class="square" id="square-bottom"></div>
+                        <!-- <div class="square" id="square-bottom"></div> -->
                     </div>
                 </div>
 
