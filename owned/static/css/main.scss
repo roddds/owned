@@ -29,8 +29,6 @@ body {
         }
 
         #middle {
-            // background-color: black;
-            // background-image: url(../img/background_pattern.png);
             background-color: #5E7F8B;
             width: 54%;
             margin: 0 auto;
@@ -49,7 +47,7 @@ body {
                     label {
                         text-transform: uppercase;
                         font-weight: bold;
-                        font-family: Armata;
+                        font-family: 'Armata';
                         margin: 5px 10px 10px 10px;
                     }
                     .btn {
@@ -67,10 +65,36 @@ body {
             }
 
             #header {
-                // background-image: url(../img/background_pattern.png);
+                background-image: url(../img/logo_flat.png);
+                background-size: 60%;
+                background-repeat: no-repeat;
+                background-position: 5%;
                 height: 250px;
                 border-bottom: 1px solid black;
                 border-top: 1px solid black;
+
+                .navigation-wrapper {
+                    height: 350px;
+                    margin-top: 60px;
+                    .navigation-buttons {
+                        float: right;
+                        list-style: none;
+                        padding: 1px;
+                        li {
+                            padding-bottom: 2px;
+                            a {
+                                text-decoration: none;
+                                background: #9E9E9E;
+                                width: 100%;
+                                font-family: 'Kite One', sans-serif;
+                            }
+                            a:hover {background: #15D5FA;}
+                        }
+                    }
+                    #nav-right {
+                        padding-right: 5px;
+                    }
+                }
             }
 
             #content-wrapper {

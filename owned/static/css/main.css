@@ -36,7 +36,7 @@ body {
           body .wrapper #middle #topbar form label {
             text-transform: uppercase;
             font-weight: bold;
-            font-family: Armata;
+            font-family: 'Armata';
             margin: 5px 10px 10px 10px; }
           body .wrapper #middle #topbar form .btn {
             margin-left: 10px; }
@@ -47,9 +47,31 @@ body {
             height: 29px;
             padding: 6px; }
       body .wrapper #middle #header {
+        background-image: url(../img/logo_flat.png);
+        background-size: 60%;
+        background-repeat: no-repeat;
+        background-position: 5%;
         height: 250px;
         border-bottom: 1px solid black;
         border-top: 1px solid black; }
+        body .wrapper #middle #header .navigation-wrapper {
+          height: 350px;
+          margin-top: 60px; }
+          body .wrapper #middle #header .navigation-wrapper .navigation-buttons {
+            float: right;
+            list-style: none;
+            padding: 1px; }
+            body .wrapper #middle #header .navigation-wrapper .navigation-buttons li {
+              padding-bottom: 2px; }
+              body .wrapper #middle #header .navigation-wrapper .navigation-buttons li a {
+                text-decoration: none;
+                background: #9E9E9E;
+                width: 100%;
+                font-family: 'Kite One', sans-serif; }
+              body .wrapper #middle #header .navigation-wrapper .navigation-buttons li a:hover {
+                background: #15D5FA; }
+          body .wrapper #middle #header .navigation-wrapper #nav-right {
+            padding-right: 5px; }
       body .wrapper #middle #content-wrapper {
         height: 1500px; }
         body .wrapper #middle #content-wrapper #content {
