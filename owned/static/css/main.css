@@ -65,11 +65,11 @@ body {
               padding-bottom: 2px; }
               body .wrapper #middle #header .navigation-wrapper .navigation-buttons li a {
                 text-decoration: none;
-                background: #9E9E9E;
+                background: #333;
                 width: 100%;
                 font-family: 'Kite One', sans-serif; }
               body .wrapper #middle #header .navigation-wrapper .navigation-buttons li a:hover {
-                background: #15D5FA; }
+                background: #6DD2E5; }
           body .wrapper #middle #header .navigation-wrapper #nav-right {
             padding-right: 5px; }
       body .wrapper #middle #content-wrapper {
