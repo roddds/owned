@@ -29,7 +29,7 @@ body {
         }
 
         #middle {
-            background-color: #5E7F8B;
+            background-color: #AAA;
             width: 54%;
             margin: 0 auto;
 
@@ -66,33 +66,33 @@ body {
 
             #header {
                 background-image: url(../img/logo_flat.png);
-                background-size: 60%;
+                background-size: 50%;
                 background-repeat: no-repeat;
                 background-position: 5%;
-                height: 250px;
+                height: 180px;
                 border-bottom: 1px solid black;
                 border-top: 1px solid black;
 
                 .navigation-wrapper {
-                    height: 350px;
-                    margin-top: 60px;
+                    margin-top: 12px;
                     .navigation-buttons {
                         float: right;
                         list-style: none;
                         padding: 1px;
+                        padding-right: 5px;
                         li {
-                            padding-bottom: 2px;
+                            padding-bottom: 7px;
                             a {
                                 text-decoration: none;
                                 background: #333;
-                                width: 100%;
+                                width: 180px;
                                 font-family: 'Kite One', sans-serif;
                             }
                             a:hover {background: #6DD2E5;}
                         }
                     }
                     #nav-right {
-                        padding-right: 5px;
+                        padding-right: 20px;
                     }
                 }
             }

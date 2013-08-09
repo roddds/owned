@@ -20,7 +20,7 @@ body {
       background-image: url(../img/sidebar.png);
       opacity: 0.2; }
     body .wrapper #middle {
-      background-color: #5E7F8B;
+      background-color: #AAA;
       width: 54%;
       margin: 0 auto; }
       body .wrapper #middle #topbar {
@@ -48,30 +48,30 @@ body {
             padding: 6px; }
       body .wrapper #middle #header {
         background-image: url(../img/logo_flat.png);
-        background-size: 60%;
+        background-size: 50%;
         background-repeat: no-repeat;
         background-position: 5%;
-        height: 250px;
+        height: 180px;
         border-bottom: 1px solid black;
         border-top: 1px solid black; }
         body .wrapper #middle #header .navigation-wrapper {
-          height: 350px;
-          margin-top: 60px; }
+          margin-top: 12px; }
           body .wrapper #middle #header .navigation-wrapper .navigation-buttons {
             float: right;
             list-style: none;
-            padding: 1px; }
+            padding: 1px;
+            padding-right: 5px; }
             body .wrapper #middle #header .navigation-wrapper .navigation-buttons li {
-              padding-bottom: 2px; }
+              padding-bottom: 7px; }
               body .wrapper #middle #header .navigation-wrapper .navigation-buttons li a {
                 text-decoration: none;
                 background: #333;
-                width: 100%;
+                width: 180px;
                 font-family: 'Kite One', sans-serif; }
               body .wrapper #middle #header .navigation-wrapper .navigation-buttons li a:hover {
                 background: #6DD2E5; }
           body .wrapper #middle #header .navigation-wrapper #nav-right {
-            padding-right: 5px; }
+            padding-right: 20px; }
       body .wrapper #middle #content-wrapper {
         height: 1500px; }
         body .wrapper #middle #content-wrapper #content {
