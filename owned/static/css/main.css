@@ -14,11 +14,11 @@ body {
       background-size: contain;
       background-repeat: no-repeat;
       background-position: left;
-      width: 22%;
+      width: 23%;
       height: 100%;
       position: fixed;
       background-image: url(../img/sidebar.png);
-      opacity: 0.2; }
+      opacity: 0.5; }
     body .wrapper #middle {
       background-color: #AAA;
       width: 850px;
@@ -38,7 +38,6 @@ body {
             float: left; }
           body .wrapper #middle #topbar form label {
             text-transform: uppercase;
-            font-weight: bold;
             font-family: 'Armata';
             margin: 5px 10px 10px 10px; }
           body .wrapper #middle #topbar form .btn {
@@ -81,6 +80,7 @@ body {
         body .wrapper #middle #content-wrapper #content {
           background-color: white;
           float: left;
+          position: relative;
           height: 95%;
           width: 85%;
           margin: 10px;
@@ -90,6 +90,7 @@ body {
           body .wrapper #middle #content-wrapper #content #square-top {
             float: right; }
           body .wrapper #middle #content-wrapper #content #square-bottom {
+            position: absolute;
             bottom: 0px;
             left: 0px; }
           body .wrapper #middle #content-wrapper #content .square {
