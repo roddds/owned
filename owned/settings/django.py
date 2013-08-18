@@ -127,6 +127,7 @@ INSTALLED_APPS = (
 
     #apps
     'core',
+    'player',
 
     #other
     'django_extensions',
