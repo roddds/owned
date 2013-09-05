@@ -97,6 +97,8 @@ body {
             background-color: #AAA;
             height: 30px;
             width: 30px; }
+          body .wrapper #middle #content-wrapper #content .book-text {
+            padding: 50px; }
       body .wrapper #middle #footer {
         position: relative;
         background: #3D3D3D;
