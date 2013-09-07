@@ -45,6 +45,7 @@ class Paragraph(models.Model):
     title = models.TextField()
     text = models.TextField()
     adds_items = models.ManyToManyField('book.Item', related_name='adds_items', blank=True)
+    removes_items = models.ManyToManyField('book.Item', related_name='removes_items', blank=True)
     adds_events = models.ManyToManyField('book.Event', related_name='adds_events', blank=True)
     is_ending = models.BooleanField(default=False)
 
