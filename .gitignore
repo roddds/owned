@@ -5,3 +5,4 @@ owned/static_root/*
 *.png
 *.ipynb
 *.json
+static_root/*
