@@ -2,3 +2,6 @@ venv
 *.pyc
 .sass-cache/*
 owned/static_root/*
+*.png
+*.ipynb
+*.json

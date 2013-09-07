@@ -2,8 +2,10 @@
 
 import json
 import sys
+import re
 from book.models import Option, Paragraph, Event, Item
 from itertools import izip
+
 
 def parse_flags(flags):
     f = flags.split('{')[1][:-1]
@@ -60,36 +62,40 @@ EVENTS = {1:  u"Esteve num acampamento",
           16: u"Entrou num quarto fechado usando uma chave-mestra",
           17: u"Deu o Amuleto a alguém (Rosana)"}
 
+
 def run():
     print "reading json file..."
     with open("dump.json") as f:
         jsonfile = json.load(f)
-
 
     print "creating items..."
     for key, name in ITEMS.iteritems():
         i = Item.objects.create(name=name)
         i.save()
 
-
     print "creating events..."
     for key, label in EVENTS.iteritems():
         i = Event.objects.create(label=label)
         i.save()
-
 
     print "parsing paragraphs..."
     paragraphs = []
     for item in sorted([int(x) for x in jsonfile.keys()]):
         paragraphs.append(jsonfile[str(item)])
 
-
     print "creating paragraph objects..."
     for item in paragraphs:
-        paragraph = Paragraph.objects.create(
-            title=item['title'],
-            text=item['text'])
+        text = item['text']
+        text = '\n'.join([x.strip() for x in text.split('\n')])
+        text = text.replace("<br />", "</p>\n<p>")
+        text = text.replace("<p>\n", "<p>")
+        if re.findall('<a.+">', text):
+            text = text.replace(re.findall('<a.+">', text)[0], '')
+        text = text.replace("</a>", "")
 
+        paragraph = Paragraph.objects.create(
+                title = item['title'],
+                text  = text)
         paragraph.save()
 
         if "Iniciar novo jogo" in item['option1']:
@@ -101,9 +107,8 @@ def run():
         for i in range(1, 6):
             if item.get('option%d' % i):
                 op = Option.objects.create(
-                    text = item['option%d' % i],
-                    target = item['target%d' % i]
-                    )
+                    text   = item['option%d' % i],
+                    target = item['target%d' % i])
                 op.save()
 
                 if item.get('flags%d' % i):

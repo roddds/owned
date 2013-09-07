@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="text-title">
+    {{ paragraph.title }}
+</div>
+
+<div class="text-body">
+    {{ paragraph.text | safe}}
+</div>
+
+<div class="text-options">
+    {% for option in options %}
+        <div class="option"><a href="/book/read/{{ option.target }}">{{ option.text | safe }}</a></div>
+    {% endfor %}
+</div>
+
+<div class="spacer"></div>
+
+{% endblock %}

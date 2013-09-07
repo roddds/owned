@@ -19,7 +19,8 @@
         <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
-
+        <link href='http://fonts.googleapis.com/css?family=Inika:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -49,6 +50,9 @@
 
                 <div id="header">
                     <div class="navigation-wrapper">
+                        
+                        <a href="/"><div class="headerlogo"></div></a>
+
                         <ul class="navigation-buttons" id="nav-right">
                             <li><a class="button button-flat-highlight" href="#">Como Jogar</a></li>
                             <li><a class="button button-flat-highlight" href="#">Créditos</a></li>
@@ -68,20 +72,31 @@
                     <div id="content">
                         <div class="square" id="square-top"></div>
                         <div class="book-text">
-                            {{ content | safe}}
+                            {% block content %}{% endblock %}
                         </div>
                         <div class="square" id="square-bottom"></div>
                     </div>
                 </div>
 
                 <div id="footer">
-                    <div id="logo">
+                    <div id="footerlogo">
                         <img src="{{STATIC_URL}}img/logo_flat.png"></img>
                     </div>
 
                     <div id="license">
                         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
                     </div>
+
+                    <ul>
+                        <li>
+                            <ul><a href="#">&gt; Baixe OWNED</a></ul>
+                            <ul><a href="#">&gt; Blog do OWNED</a></ul>
+                            <ul><a href="#">&gt; Recomendações</a></ul>
+                            <ul><a href="#">&gt; Participe</a></ul>
+                            <ul><a href="#">&gt; Créditos</a></ul>
+                            <ul><a href="#">&gt; FAQ</a></ul>
+                        </li>
+                    </ul>
 
                 </div>
             </div>
