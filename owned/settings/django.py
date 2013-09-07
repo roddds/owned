@@ -1,6 +1,7 @@
 # Django settings for owned project.
-import os
+print "Read", __file__
 
+import os
 
 ABSOLUTE_PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 
@@ -8,7 +9,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Rodrigo Deodoro', 'roddds@gmail.com'),
 )
 
 MANAGERS = ADMINS

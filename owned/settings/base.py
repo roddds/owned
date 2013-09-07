@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+print "Read", __file__
 import os
 import sys
 from unipath import Path
