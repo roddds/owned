@@ -9,7 +9,5 @@ urlpatterns = patterns('',
     # url(r'game/$', include('game.urls')),
     url(r'^book/', include('book.urls')),
 
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
