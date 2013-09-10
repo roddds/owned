@@ -2,7 +2,7 @@ venv
 *.pyc
 .sass-cache/*
 owned/static_root/*
-*.png
+/*.png
 *.ipynb
 *.json
 static_root/*
