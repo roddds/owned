@@ -14,7 +14,7 @@ body {
         background: #333;
         width: 180px;
         min-width: 165px;
-        font-family: 'Armata'; }
+        font-family: 'Armata', sans-serif; }
       body .navigation-buttons li a:hover {
         background: #6DD2E5; }
   body .wrapper {
@@ -53,7 +53,7 @@ body {
             float: left; }
           body .wrapper #middle #topbar form label {
             text-transform: uppercase;
-            font-family: 'Armata';
+            font-family: 'Armata', sans-serif;
             margin: 5px 10px 10px 10px; }
           body .wrapper #middle #topbar form .btn {
             margin-left: 10px; }
@@ -103,21 +103,54 @@ body {
         position: relative;
         background: #3D3D3D;
         background: linear-gradient(to bottom, #3d3d3d 0%, black 49%, black 100%);
-        height: 150px; }
+        height: 150px;
+        font-family: 'Armata', sans-serif;
+        overflow: hidden; }
         body .wrapper #middle #footer #footerlogo {
           box-shadow: 0px 0px 5px #00A3FF;
           border-radius: 22px;
           width: 125px;
-          position: absolute;
+          position: relative;
+          display: inline-block;
           top: 25px;
           left: 15px; }
           body .wrapper #middle #footer #footerlogo img {
             width: 125px; }
-        body .wrapper #middle #footer #license {
+        body .wrapper #middle #footer #license img {
+          border-width: 0;
           box-shadow: 0px 0px 5px white;
+          position: relative;
+          display: inline-block;
+          left: 32px;
+          top: 40px; }
+        body .wrapper #middle #footer ul#footer-navigation {
+          width: 450px;
+          position: relative;
+          display: inline-block;
+          bottom: 50px;
+          left: 160px;
+          padding: 0; }
+          body .wrapper #middle #footer ul#footer-navigation li {
+            width: 33%;
+            float: left;
+            list-style: none; }
+        body .wrapper #middle #footer #copyright-notice {
+          width: 450px;
+          height: 50px;
+          position: relative;
+          display: inline-block;
+          bottom: 42px;
+          left: 160px;
+          padding: 0; }
+          body .wrapper #middle #footer #copyright-notice p {
+            font-size: 9px;
+            color: white;
+            display: inline-block; }
+        body .wrapper #middle #footer #badges {
+          list-style: none;
           position: absolute;
-          left: 34px;
-          top: 90px; }
+          top: 0;
+          right: 0; }
   body .book-text {
     padding: 50px;
     min-height: 600px;
