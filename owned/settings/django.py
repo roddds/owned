@@ -1,6 +1,4 @@
 # Django settings for owned project.
-print "Read", __file__
-
 import os
 
 ABSOLUTE_PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))

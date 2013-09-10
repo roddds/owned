@@ -1,5 +1,3 @@
-print "Read", __file__
-
 import os
 from .base import *
 
