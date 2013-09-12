@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from core.views import HomeView, LoginView
+from core.views import HomeView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = patterns('',
