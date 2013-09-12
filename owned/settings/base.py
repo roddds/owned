@@ -5,6 +5,7 @@ from unipath import Path
 from datetime import datetime
 
 from .django import *
+from .email import *
 
 
 PROJECT_DIR = Path(__file__).parent.parent

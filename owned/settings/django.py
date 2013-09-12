@@ -111,6 +111,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'owned.urls'
+APPEND_SLASH = True
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'owned.wsgi.application'
@@ -128,6 +129,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -143,7 +145,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'south',
     'gunicorn',
-    'registration'
+    'registration',
 )
 
 # A sample logging configuration. The only tangible logging
