@@ -1,8 +1,10 @@
 from django.db import models
 from book.models import Paragraph
+from registration.signals import user_registered, user_activated
 
 
 class SaveSlot(models.Model):
+    player_owner = models.ForeignKey('Player')
     inventory = models.ManyToManyField('book.Item')
     events = models.ManyToManyField('book.Event')
     progress = models.ManyToManyField('book.Paragraph', through='Progress')
@@ -13,11 +15,15 @@ class SaveSlot(models.Model):
 
 class Player(models.Model):
     user = models.OneToOneField('auth.User', related_name='player')
-    active = models.BooleanField('Ativado', default=True)
-    save_slot = models.ManyToManyField('player.SaveSlot', related_name="player_save_slot")
+    endings = models.CharField(max_length=35, default="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0")
+    # active = models.BooleanField('Ativado', default=True)
+    # save_slot = models.ManyToManyField('player.SaveSlot', related_name="player_save_slot")
 
     class Meta:
         app_label = "player"
+
+    def __unicode__(self):
+        return self.user.username
 
 
 class Progress(models.Model):
@@ -27,3 +33,11 @@ class Progress(models.Model):
 
     class Meta:
         app_label = "player"
+
+
+def make_player(sender, **kwargs):
+    new_user = kwargs['user']
+    new_player = Player.objects.create(user=new_user)
+    new_player.save()
+
+user_activated.connect(make_player)
