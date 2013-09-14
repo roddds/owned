@@ -58,28 +58,44 @@ body {
                 background: #333;
                 border-top: 8px solid #555;
                 height: 50px;
-                form {
-                    color: white;
-                    float: right;
+                color: white;
+                a {
+                    margin-right: 10px;
+                }
+                
+                .loginbar {
+                    text-transform: uppercase;
+                    font-family: 'Armata', sans-serif;
                     margin-top: 7px;
-                    input, label {
-                        float: left;
+                    overflow: hidden;
+                    form {
+                        float: right;
+                        input, label {
+                            float: left;
+                        }
+                        label {
+                            text-transform: uppercase;
+                            font-family: 'Armata', sans-serif;
+                            margin: 5px 10px 10px 10px;
+                        }
+                        .btn {
+                            margin-left: 10px;
+                        }
+                        #id_username, #id_password {
+                            width: 140px;
+                            height: 29px;
+                            padding: 6px;
+                        }
                     }
-                    label {
-                        text-transform: uppercase;
-                        font-family: 'Armata', sans-serif;
-                        margin: 5px 10px 10px 10px;
+
+                    .btn-logout {
+                        float: right;
                     }
-                    .btn {
+
+                    .userinfo {
+                        margin-top: 4px;
                         margin-left: 10px;
-                    }
-                    a {
-                        margin-right: 10px;
-                    }
-                    #id_username, #id_password {
-                        width: 140px;
-                        height: 29px;
-                        padding: 6px;
+                        float: left;
                     }
                 }
             }

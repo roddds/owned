@@ -44,25 +44,35 @@ body {
       body .wrapper #middle #topbar {
         background: #333;
         border-top: 8px solid #555;
-        height: 50px; }
-        body .wrapper #middle #topbar form {
-          color: white;
-          float: right;
-          margin-top: 7px; }
-          body .wrapper #middle #topbar form input, body .wrapper #middle #topbar form label {
+        height: 50px;
+        color: white; }
+        body .wrapper #middle #topbar a {
+          margin-right: 10px; }
+        body .wrapper #middle #topbar .loginbar {
+          text-transform: uppercase;
+          font-family: 'Armata', sans-serif;
+          margin-top: 7px;
+          overflow: hidden; }
+          body .wrapper #middle #topbar .loginbar form {
+            float: right; }
+            body .wrapper #middle #topbar .loginbar form input, body .wrapper #middle #topbar .loginbar form label {
+              float: left; }
+            body .wrapper #middle #topbar .loginbar form label {
+              text-transform: uppercase;
+              font-family: 'Armata', sans-serif;
+              margin: 5px 10px 10px 10px; }
+            body .wrapper #middle #topbar .loginbar form .btn {
+              margin-left: 10px; }
+            body .wrapper #middle #topbar .loginbar form #id_username, body .wrapper #middle #topbar .loginbar form #id_password {
+              width: 140px;
+              height: 29px;
+              padding: 6px; }
+          body .wrapper #middle #topbar .loginbar .btn-logout {
+            float: right; }
+          body .wrapper #middle #topbar .loginbar .userinfo {
+            margin-top: 4px;
+            margin-left: 10px;
             float: left; }
-          body .wrapper #middle #topbar form label {
-            text-transform: uppercase;
-            font-family: 'Armata', sans-serif;
-            margin: 5px 10px 10px 10px; }
-          body .wrapper #middle #topbar form .btn {
-            margin-left: 10px; }
-          body .wrapper #middle #topbar form a {
-            margin-right: 10px; }
-          body .wrapper #middle #topbar form #id_username, body .wrapper #middle #topbar form #id_password {
-            width: 140px;
-            height: 29px;
-            padding: 6px; }
       body .wrapper #middle #header {
         height: 180px;
         border-bottom: 1px solid black;
