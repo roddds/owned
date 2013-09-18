@@ -7,12 +7,5 @@ class HomeView(TemplateResponseMixin, View):
     def get(self, request, *args, **kwargs):
         context = {}
         context['user_authenticated'] = request.user.is_authenticated()
+        context['title'] = "Owned"
         return self.render_to_response(context)
-
-
-class LoginView(View):
-    def post(self, request, *args, **kwargs):
-        context = {}
-        import ipdb; ipdb.set_trace()
-        return self.render_to_response(context)
-
