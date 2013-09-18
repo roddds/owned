@@ -156,11 +156,6 @@ body {
             font-size: 9px;
             color: white;
             display: inline-block; }
-        body .wrapper #middle #footer #badges {
-          list-style: none;
-          position: absolute;
-          top: 0;
-          right: 0; }
   body .book-text {
     padding: 50px;
     min-height: 600px;
