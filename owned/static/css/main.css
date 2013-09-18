@@ -49,7 +49,6 @@ body {
         body .wrapper #middle #topbar a {
           margin-right: 10px; }
         body .wrapper #middle #topbar .loginbar {
-          text-transform: uppercase;
           font-family: 'Armata', sans-serif;
           margin-top: 7px;
           overflow: hidden; }
@@ -62,7 +61,8 @@ body {
               font-family: 'Armata', sans-serif;
               margin: 5px 10px 10px 10px; }
             body .wrapper #middle #topbar .loginbar form .btn {
-              margin-left: 10px; }
+              margin-left: 10px;
+              border-radius: 0px; }
             body .wrapper #middle #topbar .loginbar form #id_username, body .wrapper #middle #topbar .loginbar form #id_password {
               width: 140px;
               height: 29px;

@@ -64,7 +64,6 @@ body {
                 }
                 
                 .loginbar {
-                    text-transform: uppercase;
                     font-family: 'Armata', sans-serif;
                     margin-top: 7px;
                     overflow: hidden;
@@ -80,6 +79,7 @@ body {
                         }
                         .btn {
                             margin-left: 10px;
+                            border-radius: 0px;
                         }
                         #id_username, #id_password {
                             width: 140px;
