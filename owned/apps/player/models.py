@@ -1,6 +1,6 @@
 from django.db import models
 from book.models import Paragraph
-from registration.signals import user_registered, user_activated
+from registration.signals import user_activated
 
 
 class SaveSlot(models.Model):
@@ -14,7 +14,7 @@ class SaveSlot(models.Model):
 
 
 class Player(models.Model):
-    user = models.OneToOneField('auth.User', related_name='player')
+    user = models.OneToOneField('auth.User', related_name='player', primary_key=True)
     endings = models.CharField(max_length=35, default="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0")
     # active = models.BooleanField('Ativado', default=True)
     # save_slot = models.ManyToManyField('player.SaveSlot', related_name="player_save_slot")
@@ -37,7 +37,7 @@ class Progress(models.Model):
 
 def make_player(sender, **kwargs):
     new_user = kwargs['user']
+    # new_player, status = Player.objects.get_or_create(user=new_user)
     new_player = Player.objects.create(user=new_user)
-    new_player.save()
-
-user_activated.connect(make_player)
+    
+user_activated.connect(make_player, dispatch_uid="player.models")
