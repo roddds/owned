@@ -1,27 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Log in{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
 
-<h1>Log in</h1>
+<div class="signup">
+    <h1>Login</h1>
 
-{% if form.errors %}
-<p class="error">Please correct the errors below:</p>
-{% endif %}
+    <form method="post" action="?next={{ next|default:"/" }}" class="signinform">{% csrf_token %}
 
-<form method="post" action="?next={{ next|default:"/" }}">{% csrf_token %}
-<dl>
-<dt><label for="id_username">Username:</label>{% if form.username.errors %} <span class="error">{{ form.username.errors|join:", " }}</span>{% endif %}</dt>
-<dd>{{ form.username }}</dd>
-<dt><label for="id_password">Password:</label>{% if form.password.errors %} <span class="error">{{ form.password.errors|join:", " }}</span>{% endif %}</dt>
-<dd>{{ form.password }}</dd>
-<dt><input type="submit" value="Log in" /></dt>
-</dl>
-</form>
-{% endblock %}
+        <div class="field">
+            <label for="username">Username</label>
+            <input class="{% if form.username.errors %}red{% endif %}" id="user_username" name="username" size="30" type="text" value="{{ form.data.username }}">
+            {{ form.username.errors }}
+        </div>
 
-{% block content-related %}
-<p>If you don't have an account, you can <a href="/accounts/register/">sign
-up</a> for one.
-{% endblock %}
+        <div class="field">
+            <label class="password-label" for="password">Senha</label>
+            <input class="{% if form.password1.errors %}red{% endif %}" id="password" name="password" size="30" type="password">
+            {{ form.password1.errors }}
+        </div>
+
+        <input class="btn btn-default btn-small" type="submit" value="Pronto">
+    </form>
+    {% endblock %}
+
+</div>

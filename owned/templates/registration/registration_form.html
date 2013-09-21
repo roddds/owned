@@ -1,58 +1,40 @@
 {% extends "base.html" %}
 
-{% block title %}Sign up{% endblock %}
+{% block title %}Registro{% endblock %}
 
 {% block content %}
 
-  {% if form.errors %}
-  <p class="errors">Please correct the errors below: {{ form.non_field_errors }}</p>
-  {% endif %}
+<div class="signup">
+    <h1>Criar conta</h1>
 
-  <h1>Create an account</h1>
-  
-  <form method="post" action="" class="wide">
-	{% csrf_token %}
-    <p>
-      <label for="id_username">Username:</label>
-      {% if form.username.errors %}
-        <p class="errors">{{ form.username.errors.as_text }}</p>
-      {% endif %}
-      {{ form.username }}
-    </p>
-    <p>
-      <label for="id_email">Email address:</label>
-      {% if form.email.errors %}
-        <p class="errors">{{ form.email.errors.as_text }}</p>
-      {% endif %}
-      {{ form.email }}
-    </p>
-    <p>
-      <label for="id_password1">Password:</label>
-      {% if form.password1.errors %}
-        <p class="errors">{{ form.password1.errors.as_text }}</p>
-      {% endif %}
-      {{ form.password1 }}
-    </p>
-    <p>
-      <label for="id_password2">Password (type again to catch typos):</label>
-      {% if form.password2.errors %}
-        <p class="errors">{{ form.password2.errors.as_text }}</p>
-      {% endif %}
-      {{ form.password2 }}
-    </p>
-    <p class="submit"><input type="submit" value="Register &rarr;"></p>
-  </form>
-  
+    <form method="post" class="signupform">{% csrf_token %}
+      <div class="field">
+        <label for="username">Username</label>
+        <input class="{% if form.username.errors %}red{% endif %}" id="user_username" name="username" size="30" type="text" value="{{ form.data.username }}">
+        {{ form.username.errors }}
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="{% if form.email.errors %}red{% endif %}" id="user_email" name="email" size="30" type="text"value="{{ form.data.email }}">
+        {{ form.email.errors }}
+
+      </div>
+
+      <div class="field">
+        <label class="password-label" for="password">Senha</label>
+        <input class="{% if form.password1.errors %}red{% endif %}" id="password1" name="password1" size="30" type="password">
+        {{ form.password1.errors }}
+      </div>
+
+      <div class="field">
+        <label class="password-label" for="password2">Confirme sua senha</label>
+        <input class="{% if form.password2.errors %}red{% endif %}" id="password2" name="password2" size="30" type="password">
+        {{ form.password2.errors }}
+      </div>
+
+          <input class="btn btn-default btn-small" type="submit" value="Pronto">
+    </form>
+</div>
 {% endblock %}
 
-{% block content-related %}
-<p>Fill out the form to the left (all fields are required), and your
-account will be created; you'll be sent an email with instructions on how
-to finish your registration.</p>
-
-<p>We'll only use your email to send you signup instructions. We hate spam
-as much as you do.</p>
-
-<p>This account will let you log into the ticket tracker, claim tickets,
-and be exempt from spam filtering.</p>
-{% endblock %}
