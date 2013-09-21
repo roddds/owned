@@ -1,5 +1,5 @@
 #! -*- coding: utf-8 -*-
-
+import os
 import json
 import sys
 import re
@@ -147,8 +147,16 @@ def run():
                 req.save()
                 paragraph.adds_items.add(req)
 
+    print "restoring custom paragraphs"
+    files = os.listdir("chapters/")
+    for i in files:
+        with open(os.path.join("chapters/", i)) as f:
+            text = f.read()
+            p = Paragraph.objects.get(id=i)
+            p.text = text
+            p.save()
+            print "restored %s" % i
 
 
-    
 
     print "finished!"
