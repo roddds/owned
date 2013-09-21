@@ -188,3 +188,33 @@ body {
       body .book-text .navigation-buttons li {
         padding: 10px;
         display: inline-block; }
+  body .signup h1, body .signup form, body .signup p {
+    font-family: "Armata", sans-serif; }
+  body .signup .signupform ul, body .signup .signupform li, body .signup .signinform ul, body .signup .signinform li {
+    display: inline;
+    float: right;
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+    text-align: right;
+    width: 215px; }
+  body .signup .signupform label, body .signup .signinform label {
+    display: block; }
+  body .signup .signupform input, body .signup .signinform input {
+    margin-bottom: 20px;
+    border: 1px solid #d7dae0;
+    box-shadow: 0 0 0 4px #eef6ff;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: box-shadow 100ms,border 100ms;
+    width: 400px;
+    display: inline-block; }
+  body .signup .signupform input:focus, body .signup .signinform input:focus {
+    -webkit-box-shadow: 0 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 1px 4px rgba(0, 0, 0, 0.2); }
+  body .signup .signupform input.red, body .signup .signinform input.red {
+    border: 1px solid #fd9898;
+    box-shadow: 0px 0px 5px 2px rgba(235, 187, 187, 0.6); }
+  body .signup .signupform input[type=submit], body .signup .signinform input[type=submit] {
+    width: 33%; }
