@@ -112,6 +112,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'owned.urls'
 LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "/login"
 APPEND_SLASH = True
 
 # Python dotted path to the WSGI application used by Django's runserver.
