@@ -5,17 +5,15 @@ from book.models import Paragraph
 class ReadChapter(TemplateView):
     template_name = 'read.html'
 
-    def get_base_context(self):
+    def get_context(self):
         cxt = {}
-        paragraph = Paragraph.objects.get(pk=self.kwargs['chapter'])
-        options = paragraph.option_set.all()
-        cxt['paragraph'] = paragraph
-        cxt['options'] = options
+        cxt['paragraph'] = Paragraph.objects.get(pk=self.kwargs['chapter'])
+        cxt['options'] = cxt['paragraph'].option_set.all()
 
         return cxt
 
     def get(self, request, **kwargs):
-        cxt = self.get_base_context()
+        cxt = self.get_context()
         return self.render_to_response(cxt)
 
 
