@@ -6,7 +6,7 @@
 <div class="signup">
     <h1>Ativação da conta</h1>
     {% if account %}
-        <p>Obrigado por confirmar seu email! Agora você pode fazer <a href="/accounts/login/">login</a> e começar a jogar.</p>
+        <p>Obrigado por confirmar seu email! Agora você pode fazer <a href="{{ login_url }}">login</a> e começar a jogar.</p>
     {% else %}
         <p>Desculpe, algo deu errado. É possível que o seu link de ativação esteja incorreto, ou que a sua chave de ativação tenha expirado; elas são válidas por apenas 7 dias após o registro.</p>
     {% endif %}
