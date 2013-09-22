@@ -200,7 +200,7 @@ body {
     width: 215px; }
   body .signup .signupform label, body .signup .signinform label {
     display: block; }
-  body .signup .signupform input, body .signup .signinform input {
+  body .signup .signupform input, body .signup .signupform a, body .signup .signinform input, body .signup .signinform a {
     margin-bottom: 20px;
     border: 1px solid #d7dae0;
     box-shadow: 0 0 0 4px #eef6ff;
@@ -217,4 +217,6 @@ body {
     border: 1px solid #fd9898;
     box-shadow: 0px 0px 5px 2px rgba(235, 187, 187, 0.6); }
   body .signup .signupform input[type=submit], body .signup .signinform input[type=submit] {
-    width: 33%; }
+    width: 28%; }
+  body .signup .signupform a, body .signup .signinform a {
+    width: 35%; }
