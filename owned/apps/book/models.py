@@ -3,7 +3,6 @@ from django.db import models
 
 class Event(models.Model):
     label = models.TextField()
-    happened = models.BooleanField(default=False)
 
     class Meta:
         app_label = 'book'
@@ -17,7 +16,6 @@ class Item(models.Model):
     item_id = models.IntegerField(null=True)
     description = models.TextField(null=True)
     image = models.ImageField(upload_to="images")
-    has = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
@@ -33,6 +31,21 @@ class Option(models.Model):
     event_requirements = models.ManyToManyField('book.Event', blank=True)
 
     paragraph = models.ForeignKey('Paragraph', null=True)
+
+    def requirements_met(self, saveslot):
+        inventory = saveslot.inventory.all()
+        events = saveslot.events.all()
+
+        for item in self.item_requirements.all():
+            if item not in inventory:
+                return False
+
+        for item in self.item_requirements.all():
+            if item not in inventory:
+                return False
+
+        return True
+
 
     class Meta:
         app_label = 'book'
