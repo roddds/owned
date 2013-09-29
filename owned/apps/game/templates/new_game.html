@@ -2,6 +2,18 @@
 
 {% block content %}
 
-New Game
+{% if not user.is_authenticated %}
+
+    <p>Usuario não autenticado</p>
+
+{% else %}
+
+    <p>Olá, {{ user.username }}</p>
+    <ul class="navigation-buttons">
+        {% for slot in save_slots %}
+            <li><button type="submit" name="slot" value="{{ slot.id }}" class="button button-flat-highlight">Slot {{ slot.id }}</button></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 {% endblock %}
