@@ -5,6 +5,7 @@ from book.models import Paragraph
 class BaseBookView(TemplateView):
     def get_context(self):
         cxt = {}
+        cxt['url_prefix'] = "/book/read/"
         cxt['paragraph'] = Paragraph.objects.get(pk=self.kwargs['chapter'])
         cxt['options'] = cxt['paragraph'].option_set.all()
         cxt['player'] = self.request.user.player
