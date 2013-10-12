@@ -9,11 +9,11 @@
 {% else %}
 
     <p>Olá, {{ user.username }}</p>
-    <ul class="navigation-buttons">
+    <form method="post" class="navigation-buttons">{% csrf_token %}
         {% for slot in save_slots %}
-            <li><button type="submit" name="slot" value="{{ slot.id }}" class="button button-flat-highlight">Slot {{ slot.id }}</button></li>
+            <li><button type="submit" name="slot" value="{{ slot.id }}" class="btn btn-default btn-small">Slot {{ slot.id }}</button></li>
         {% endfor %}
-    </ul>
+    </form>
 {% endif %}
 
 {% endblock %}

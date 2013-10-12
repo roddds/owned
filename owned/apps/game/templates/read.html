@@ -12,7 +12,17 @@
 
 <div class="text-options">
     {% for option in options %}
-        <div class="option"><a href="/book/read/{{ option.target }}">{{ option.text | safe }}</a></div>
+        <div class="option">
+        {% if option.requirements_met %}
+            <a class="btn btn-default btn-small" href="{{ url_prefix }}{{ option.choice.target }}">
+                {{ option.choice.text | safe }}
+            </a>
+        {% else %}
+            <a class="btn btn-default btn-small disabled" href="">
+                {{ option.choice.text | safe }}
+            </a>
+        {% endif %}
+        </div>
     {% endfor %}
 </div>
 
