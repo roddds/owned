@@ -248,8 +248,11 @@ body {
 
         .text-options {
             a {
-                color: #333;
+                text-decoration: none;
+                background: #333;
+                font-family: 'Armata', sans-serif;
             }
+
         }
 
         .spacer {
@@ -267,6 +270,9 @@ body {
             li {
                 padding: 10px;
                 display: inline-block;
+                button {
+                    width: 150px;
+                }
             }
         }
     }

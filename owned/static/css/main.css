@@ -176,7 +176,9 @@ body {
         body .book-text .text-body p .warning {
           color: #800000; }
     body .book-text .text-options a {
-      color: #333; }
+      text-decoration: none;
+      background: #333;
+      font-family: 'Armata', sans-serif; }
     body .book-text .spacer {
       height: 80px; }
     body .book-text .bold-paragraph {
@@ -188,6 +190,8 @@ body {
       body .book-text .navigation-buttons li {
         padding: 10px;
         display: inline-block; }
+        body .book-text .navigation-buttons li button {
+          width: 150px; }
   body .signup h1, body .signup form, body .signup p {
     font-family: "Armata", sans-serif; }
   body .signup .signupform ul, body .signup .signupform li, body .signup .signinform ul, body .signup .signinform li {
