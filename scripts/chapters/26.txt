@@ -1,0 +1,20 @@
+<p>Sem dúvida alguma, Laila era maluca. Mas eu precisava do serviço e estava disposto a rastejar por ele. Mandei um e-mail de duas linhas à maluca pedindo desculpas pelo que quer que eu tivesse dito ou feito, e garantindo que não sabia o que era. Assim que mandei, recebi isto:</p>
+
+<div width="100%" style="font-family:Consolas, Ubuntu Mono, monospace; border:solid 1px black; padding: 10px; margin: 10px 0 10px;">
+    <p>Ass.: CONFIRMAÇÃO DE RECEBIMENTO</p>
+    <p>Obrigada por entrar em contato conosco. Você será respondido em breve.</p>
+    <p>Laila C. Zenha</p>
+    <p>Gerente – ZYX Traduções</p>
+    <span style="color: #999">
+    <p>As informacoes contidas nesta mensagem e nos arquivos anexos sao para uso exclusivo do destinatario da mesma e podem conter assuntos comerciais, de propriedade intelectual e/ou outras informacoes confidenciais, protegidas pelas leis aplicaveis.</p>
+    <p>Caso nao seja o destinatario correto, por favor notifique o remetente imediatamente e elimine esta mensagem, uma vez que qualquer revisao, leitura, copia e/ou divulgacao do conteudo desta mensagem sao estritamente proibidas e nao autorizadas.</p>
+    <p>Pense antes de imprimir. Respeite o meio ambiente.</p>
+    <p>Obrigado por sua cooperacao.</p>
+    </span>
+</div>
+
+<p><strong>Novo item: E-mail de confirmação</strong></p>
+<p>Nisso, vi que tinham me achado pelo apelido no <em>Wisdom Islands</em> e estavam me convidando para jogar. Era uma Troll Maga, de óculos.</p>
+<p>– Rosana? – perguntei.</p>
+<p>– Certa a resposta. Mas, aqui, é “Roxanne”. E aí, topa uma missãozinha?</p>
+<p>Eu é que não ia recusar.</p>
