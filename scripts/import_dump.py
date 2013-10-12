@@ -3,6 +3,8 @@ import os
 import json
 import sys
 import re
+from django.contrib.auth.models import User
+from player.models import Player, SaveSlot
 from book.models import Option, Paragraph, Event, Item
 from itertools import izip
 
@@ -38,8 +40,6 @@ ITEMS = {1:  u'Amuleto',
          23: u'Chave Comum',
          24: u'Fuzil',
          25: u'Granadas',
-         26: u'DUMMY',
-         27: u'DUMMY',
          28: u'Mochila',
          29: u'Kit de Primeiros Socorros',
          30: u'Óculos de Sol Modelo Audrey Hepburn'}
@@ -72,11 +72,13 @@ def run():
     for key, name in ITEMS.iteritems():
         i = Item.objects.create(name=name)
         i.save()
+        print "\tcreated item %s" % i.name
 
     print "creating events..."
     for key, label in EVENTS.iteritems():
         i = Event.objects.create(label=label)
         i.save()
+        print "\tcreated event %s" % label
 
     print "parsing paragraphs..."
     paragraphs = []
@@ -97,6 +99,7 @@ def run():
                 title = item['title'],
                 text  = text)
         paragraph.save()
+        print "created paragraph #%d" % paragraph.pk
 
         if "Iniciar novo jogo" in item['option1']:
             paragraph.is_ending = True
@@ -110,16 +113,33 @@ def run():
                     text   = item['option%d' % i],
                     target = item['target%d' % i])
                 op.save()
+                print "created option %d" % op.pk
 
+                print "setting option flags for option %d" % op.pk
                 if item.get('flags%d' % i):
                     option_flags = parse_flags(item['flags%d' % i])
                     for flag in option_flags:
                         pk, status = flag
-                        req = Item.objects.get(pk=pk)
-                        req.has = False if status=='0' else True
-                        req.save()
-                        op.item_requirements.add(req)
+                        req = Event.objects.get(pk=pk)
+                        if status == "1":
+                            op.events_required_to_have.add(req)
+                            print "added event requirement of having %s to option %d on paragraph %d" % (req.label, i, paragraph.pk)
+                        else:
+                            op.events_required_not_to_have.add(req)
+                            print "added item requirement of not having %s to option %d on paragraph %d" % (req.label, i, paragraph.pk)
+                        op.save()
 
+                if item.get('itens%d' % i):
+                    option_flags = parse_flags(item['itens%d' % i])
+                    for flag in option_flags:
+                        pk, status = flag
+                        req = Item.objects.get(pk=pk)
+                        if status == "1":
+                            op.items_required_to_have.add(req)
+                            print "added item requirement of having %s to option %d on paragraph %d" % (req.name, i, paragraph.pk)
+                        else:
+                            op.items_required_not_to_have.add(req)
+                            print "added item requirement of not having %s to option %d on paragraph %d" % (req.name, i, paragraph.pk)
                         op.save()
 
                 op.paragraph = paragraph
@@ -133,30 +153,45 @@ def run():
                 if int(pk) >= 18:
                     break
                 req = Event.objects.get(pk=pk)
-                req.has = False if status=='0' else True
-                req.save()
-                paragraph.adds_events.add(req)
+                # req.has = False if status=='0' else True
+                # req.save()
+                if status != "0":
+                    paragraph.adds_events.add(req)
+                    print "paragraph %d adds event %s" % (paragraph.pk,
+                                                          req.label)
 
         if item.get('itens'):
-            print "adding flag setters"
+            print "adding item setters"
             items = parse_flags(item['itens'])
             for flag in items:
                 pk, status = flag
                 req = Item.objects.get(pk=pk)
-                req.has = False if status=='0' else True
-                req.save()
-                paragraph.adds_items.add(req)
+                # req.has = False if status=='0' else True
+                # req.save()
+                if status != "0":
+                    paragraph.adds_items.add(req)
+                    print "paragraph %d adds item %s" % (paragraph.pk,
+                                                         req.name)
+                else:
+                    paragraph.removes_items.add(req)
+                    print "paragraph %d removes item %s" % (paragraph.pk,
+                                                            req.name)
 
     print "restoring custom paragraphs"
-    files = os.listdir("chapters/")
+    files = os.listdir("scripts/chapters/")
     for i in files:
-        with open(os.path.join("chapters/", i)) as f:
+        with open(os.path.join("scripts/chapters/", i)) as f:
             text = f.read()
-            p = Paragraph.objects.get(id=i)
+            p = Paragraph.objects.get(pk=i.split(".")[0])
             p.text = text
             p.save()
             print "restored %s" % i
 
-
+    print "fixing logic from previous code"
+    p = Paragraph.objects.get(pk=1)
+    p.adds_items.clear()
+    p.removes_items.clear()
+    p.adds_events.clear()
+    p.save()
 
     print "finished!"
