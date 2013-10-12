@@ -1,23 +1,84 @@
 from django.db import models
-from book.models import Paragraph
+from book.models import Paragraph, Item, Event
 from registration.signals import user_activated
+
+import logging
+logger = logging.getLogger(__name__)
 
 
 class SaveSlot(models.Model):
-    player_owner = models.ForeignKey('Player')
+    player_owner = models.ForeignKey('Player', related_name='save_slots')
     inventory = models.ManyToManyField('book.Item')
     events = models.ManyToManyField('book.Event')
-    progress = models.ManyToManyField('book.Paragraph', through='Progress')
+
+    progress = models.ManyToManyField('book.Paragraph', through='player.Progress')
+
+    is_started = models.BooleanField(default=False)
+    is_finished = models.BooleanField(default=False)
+
+    current_chapter = models.SmallIntegerField(default=1)
+
+    def set_as_active(self):
+        self.player_owner.active_save_slot = self
+        self.player_owner.save()
+
+    def add_item(self, item):
+        self.inventory.add(item)
+
+    def has_item(self, item):
+        return self.inventory.filter(id=item.id).exists()
+
+    def add_event(self, event):
+        self.events.add(event)
+
+    def has_event(self, event):
+        return self.events.filter(id=event.id).exists()
+
+    def play_chapter(self, chapter):
+        self.current_chapter = chapter
+        paragraph = Paragraph.objects.get(pk=chapter)
+
+        for item in paragraph.adds_items.all():
+            self.inventory.add(item)
+            logger.debug('\
+Added item "%s" to player %s\'s inventory' % (item.name,
+                                              self.player_owner.user.username))
+
+        for item in paragraph.removes_items.all():
+            self.inventory.add(item)
+            logger.debug('\
+Removed item "%s" from player %s\'s inventory' % (item.name,
+                                                  self.player_owner.user.username))
+
+        for event in paragraph.adds_events.all():
+            self.events.add(event)
+            logger.debug('\
+Added event "%s" to player %s\'s events' % (event.label,
+                                            self.player_owner.user.username))
+
+        if paragraph.is_ending:
+            self.is_finished = True
+            logger.debug('\
+Player %s reached an ending on chapter %s' % (self.player_owner.user.username,
+                                              paragraph.id))
+
+        p = Progress(paragraph=paragraph, save_slot=self)
+        p.save()
+
+    def __unicode__(self):
+        return "SaveSlot %d for player %s" % (self.pk, self.player_owner)
 
     class Meta:
         app_label = "player"
 
 
 class Player(models.Model):
-    user = models.OneToOneField('auth.User', related_name='player', primary_key=True)
-    endings = models.CharField(max_length=35, default="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0")
-    # active = models.BooleanField('Ativado', default=True)
-    # save_slot = models.ManyToManyField('player.SaveSlot', related_name="player_save_slot")
+    user = models.OneToOneField('auth.User', related_name='player',
+                                primary_key=True)
+    endings = models.CharField(max_length=35,
+                               default="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0")
+    is_active = models.BooleanField('Ativado', default=True)
+    active_save_slot = models.ForeignKey('player.SaveSlot', blank=True, null=True)
 
     class Meta:
         app_label = "player"
@@ -27,17 +88,24 @@ class Player(models.Model):
 
 
 class Progress(models.Model):
-    player = models.ForeignKey(Player)
-    paragraph = models.ForeignKey(Paragraph)
-    save_slot = models.ForeignKey(SaveSlot, related_name="progress_save_slot")
+    paragraph = models.ForeignKey('book.Paragraph')
+    save_slot = models.ForeignKey('player.SaveSlot', related_name="progress_save_slot")
+    time_played = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         app_label = "player"
 
 
 def make_player(sender, **kwargs):
-    new_user = kwargs['user']
-    # new_player, status = Player.objects.get_or_create(user=new_user)
-    new_player = Player.objects.create(user=new_user)
-    
+    try:
+        new_user = kwargs['user']
+        new_player = Player.objects.create(user=new_user)
+        logger.debug("Player %s created" % new_player.user.username)
+        save_slots = [SaveSlot.objects.create(player_owner=new_player) for x in range(3)]
+        logger.debug("Created 3 save slots for player %s" % new_player.user.username)
+    except Exception, e:
+        logger.error("Error creating user")
+        logger.error(e)
+
+
 user_activated.connect(make_player, dispatch_uid="player.models")
