@@ -1,22 +1,69 @@
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.contrib import auth
+from book.models import Paragraph
 
 
 class BaseGameView(TemplateView):
     def get_context(self):
         cxt = {}
+        cxt['url_prefix'] = "/game/continue/"
+        cxt['paragraph'] = Paragraph.objects.get(pk=self.kwargs['chapter'])
+        cxt['player'] = self.request.user.player
+        cxt['slot'] = self.request.user.player.active_save_slot
+        cxt['options'] = [{'choice': x, 'requirements_met': x.requirements_met(cxt['slot'])} for x in cxt['paragraph'].option_set.all()]
+        cxt['chapter'] = self.request.user.player.active_save_slot.current_chapter
+        return cxt
 
-class NewGameView(TemplateView):
+
+class NewGameView(BaseGameView):
     template_name = "new_game.html"
 
     def get(self, *args, **kwargs):
-        return self.render_to_response({})
+        cxt = {}
+
+        user = self.request.user
+
+        if not user.is_authenticated():
+            return redirect("auth_login")
+        else:
+            cxt['player'] = self.request.user.player
+            cxt['save_slots'] = self.request.user.player.save_slots.all()
+
+        return self.render_to_response(cxt)
+
+    def post(self, request, *args, **kwargs):
+        selected_slot = request.POST['slot']
+
+        if selected_slot not in ("1", "2", "3"):
+            return HttpResponse(400)
+
+        player = self.request.user.player
+        slot = player.save_slots.get(pk=selected_slot)
+
+        if not slot.is_started:
+            slot.is_started = True
+            slot.set_as_active()
+
+        return redirect('play-chapter', chapter=slot.current_chapter)
 
 
-class ContinueGameView(TemplateView):
-    pass
+class PlayChapterView(BaseGameView):
+    template_name = 'read.html'
+
+    def get(self, request, chapter, *args, **kwargs):
+        cxt = self.get_context()
+        slot = cxt['slot']
+
+        slot.play_chapter(chapter)
+
+        return self.render_to_response(cxt)
 
 
-class PlayChapterView(TemplateView):
-    pass
+class ContinueGameView(BaseGameView):
+
+    def get(self, request, *args, **kwargs):
+        cxt = self.get_context()
+        chapter = cxt['chapter']
+        return redirect("chapter", chapter=chapter)
