@@ -16,9 +16,8 @@ class Event(models.Model):
 
 class Item(models.Model):
     name = models.TextField()
-    item_id = models.IntegerField(null=True)
-    description = models.TextField(null=True)
-    image = models.ImageField(upload_to="images")
+    description = models.TextField(null=True, blank=True)
+    image_filename = models.TextField(null=True, blank=True)
 
     def __unicode__(self):
         return self.name
