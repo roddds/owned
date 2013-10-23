@@ -3,7 +3,7 @@ from book.models import Paragraph, Item, Event
 from registration.signals import user_activated
 
 import logging
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("player")
 
 
 class SaveSlot(models.Model):
@@ -21,6 +21,7 @@ class SaveSlot(models.Model):
     def set_as_active(self):
         self.player_owner.active_save_slot = self
         self.player_owner.save()
+        logger.debug('Slot number %d set as active for player %s' % (self.pk, self.player_owner.user.username))
 
     def add_item(self, item):
         self.inventory.add(item)
@@ -36,7 +37,10 @@ class SaveSlot(models.Model):
 
     def play_chapter(self, chapter):
         self.current_chapter = chapter
+        self.save()
         paragraph = Paragraph.objects.get(pk=chapter)
+        if paragraph in self.progress.all():
+            return
 
         for item in paragraph.adds_items.all():
             self.inventory.add(item)
@@ -45,7 +49,7 @@ Added item "%s" to player %s\'s inventory' % (item.name,
                                               self.player_owner.user.username))
 
         for item in paragraph.removes_items.all():
-            self.inventory.add(item)
+            self.inventory.remove(item)
             logger.debug('\
 Removed item "%s" from player %s\'s inventory' % (item.name,
                                                   self.player_owner.user.username))
