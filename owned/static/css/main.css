@@ -91,11 +91,23 @@ body {
             display: block; }
           body .wrapper #middle #header .navigation-wrapper #nav-right {
             padding-right: 20px; }
+      body .wrapper #middle .inventory {
+        float: right;
+        margin-top: 50px;
+        margin-right: 35px;
+        background-color: #000;
+        width: 110px;
+        opacity: 0.60; }
+        body .wrapper #middle .inventory img {
+          width: 42px;
+          margin: 5px;
+          border-radius: 10px; }
+      body .wrapper #middle .clear {
+        clear: both; }
       body .wrapper #middle #content-wrapper #content {
         background-color: white;
         position: relative;
         height: 95%;
-        width: 85%;
         margin: 10px;
         border-radius: 25px;
         border-top-right-radius: 0;
@@ -159,6 +171,7 @@ body {
   body .book-text {
     padding: 50px;
     min-height: 600px;
+    width: 85%;
     font-family: 'Open sans', serif; }
     body .book-text .text-title {
       text-align: center;

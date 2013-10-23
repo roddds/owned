@@ -127,13 +127,30 @@ body {
                     }
                 }
             }
+    
+            .inventory {
+                float: right;
+                margin-top: 50px;
+                margin-right: 35px;
+                background-color: #000;
+                width: 110px;
+                opacity: 0.60;
+                img {
+                    width: 42px;
+                    margin: 5px;
+                    border-radius: 10px
+                }
+            }
+
+            .clear {
+                clear: both;
+            }
 
             #content-wrapper {
                 #content {
                     background-color: white;
                     position: relative;
                     height: 95%;
-                    width: 85%;
                     margin: 10px;
                     border-radius: 25px;
                     border-top-right-radius: 0;
@@ -219,6 +236,7 @@ body {
     .book-text {
         padding: 50px;
         min-height: 600px;
+        width: 85%;
         font-family: 'Open sans', serif;
 
         .text-title {
