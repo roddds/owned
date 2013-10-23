@@ -3,6 +3,10 @@ from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.contrib import auth
 from book.models import Paragraph
+from player.models import Player
+
+import logging
+logger = logging.getLogger("game")
 
 
 class BaseGameView(TemplateView):
@@ -29,7 +33,8 @@ class NewGameView(BaseGameView):
             return redirect("auth_login")
         else:
             cxt['player'] = self.request.user.player
-            cxt['save_slots'] = self.request.user.player.save_slots.all()
+            slots = self.request.user.player.save_slots.all()
+            cxt['save_slots'] = sorted(slots, key=lambda x: x.pk)
 
         return self.render_to_response(cxt)
 
@@ -44,8 +49,14 @@ class NewGameView(BaseGameView):
 
         if not slot.is_started:
             slot.is_started = True
-            slot.set_as_active()
 
+        slot.set_as_active()
+        slot.current_chapter = 1
+        slot.inventory.clear()
+        slot.events.clear()
+        slot.progress.clear()
+        slot.save()
+        logger.debug('Started a new game for player %s on their slot #%d' % (player.user.username, slot.current_chapter))
         return redirect('play-chapter', chapter=slot.current_chapter)
 
 
@@ -55,15 +66,20 @@ class PlayChapterView(BaseGameView):
     def get(self, request, chapter, *args, **kwargs):
         cxt = self.get_context()
         slot = cxt['slot']
-
         slot.play_chapter(chapter)
+        cxt['inventory'] = slot.inventory.all()
 
         return self.render_to_response(cxt)
 
 
 class ContinueGameView(BaseGameView):
-
     def get(self, request, *args, **kwargs):
-        cxt = self.get_context()
-        chapter = cxt['chapter']
-        return redirect("chapter", chapter=chapter)
+        user = self.request.user
+
+        if not user.is_authenticated():
+            return redirect("auth_login")
+
+        player = Player.objects.get(user=user)
+
+        chapter = player.active_save_slot.current_chapter
+        return redirect("play-chapter", chapter=chapter)
