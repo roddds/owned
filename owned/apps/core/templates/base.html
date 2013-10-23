@@ -64,6 +64,8 @@
                 <div id="content-wrapper">
                     <div id="content">
                         <div class="square" id="square-top"></div>
+                        <div class="clear"></div>
+                        <div class="inventory">{% block inventory_block %}{% endblock %}</div>
                         <div class="book-text">
                             {% block content %}{% endblock %}
                         </div>

@@ -25,7 +25,13 @@
         </div>
     {% endfor %}
 </div>
-
 <div class="spacer"></div>
+
+{% endblock %}
+
+{% block inventory_block %}
+{% for item in inventory %}
+    <img src="{{ STATIC_URL }}img/inventory/{{ item.image_filename }}" title="{{ item.name }}"></img>
+{% endfor %}
 
 {% endblock %}
