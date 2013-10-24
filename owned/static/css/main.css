@@ -97,11 +97,22 @@ body {
         margin-right: 35px;
         background-color: #000;
         width: 110px;
-        opacity: 0.60; }
-        body .wrapper #middle .inventory img {
+        opacity: 0.65; }
+        body .wrapper #middle .inventory .inventory-items img {
+          opacity: 0.65;
           width: 42px;
           margin: 5px;
-          border-radius: 10px; }
+          transition: opacity 500ms; }
+        body .wrapper #middle .inventory .inventory-items img:hover {
+          opacity: 1; }
+        body .wrapper #middle .inventory .inventory-title {
+          text-align: center;
+          font-family: 'Armata', sans-serif;
+          font-weight: bold;
+          color: #CCC;
+          letter-spacing: 1px;
+          margin-bottom: 5px;
+          margin-top: 10px; }
       body .wrapper #middle .clear {
         clear: both; }
       body .wrapper #middle #content-wrapper #content {
