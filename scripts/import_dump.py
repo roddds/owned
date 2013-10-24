@@ -44,6 +44,36 @@ ITEMS = {1:  u'Amuleto',
          29: u'Kit de Primeiros Socorros',
          30: u'Óculos de Sol Modelo Audrey Hepburn'}
 
+
+ITEM_IMAGES = {u"Amuleto":                             'amuleto.png',
+               u"Chave-Mestra":                        'chave_mestra.png',
+               u"Cópia do HD de Laila":                'copia_hd_laila.png',
+               u"E-Mail de Confirmação":               'email.png',
+               u"iPod de Mayumi":                      'ipod.png',
+               u"Moedeira":                            'moedeira.png',
+               u"Nota de Cem Reais":                   'nota_de_100.png',
+               u"Tupperware da Mayumi":                'tupperware.png',
+               u"Panfleto":                            'panfleto.png',
+               u"Moedeira (cheia)":                    'moedeira_cheia.png',
+               u"Console Vintage Original":            'console_vintage.png',
+               u"Coxinha":                             'coxinha.png',
+               u"HD Externo do Edgar":                 'hd_do_edgar.png',
+               u"Prejuízo de 10%":                     'prejuizo.png',
+               u"Submetralhadora":                     'submetralhadora.png',
+               u"Munição de Submetralhadora":          'municao.png',
+               u"Pistola":                             'pistola.png',
+               u"Saquinho (Patuá)":                    'saquinho.png',
+               u"Maleta 007":                          'maleta_007.png',
+               u"Chave de Saída":                      'chave_de_saida.png',
+               u"Chave de Fenda":                      'chave_de_fenda.png',
+               u"Vassoura":                            'vassoura.png',
+               u"Chave Comum":                         'chave_comum.png',
+               u"Fuzil":                               'fuzil.png',
+               u"Granadas":                            'granada.png',
+               u"Mochila":                             'mochila.png',
+               u"Kit de Primeiros Socorros":           'kit_primeiros_socorros.png',
+               u"Óculos de Sol Modelo Audrey Hepburn": 'oculos.png'}
+
 EVENTS = {1:  u"Esteve num acampamento",
           2:  u"Jantou na casa de alguém",
           3:  u"Foi ao cinema",
@@ -61,7 +91,6 @@ EVENTS = {1:  u"Esteve num acampamento",
           15: u"Dassou por um temporal",
           16: u"Entrou num quarto fechado usando uma chave-mestra",
           17: u"Deu o Amuleto a alguém (Rosana)"}
-
 
 def run():
     print "reading json file..."
@@ -193,5 +222,11 @@ def run():
     p.removes_items.clear()
     p.adds_events.clear()
     p.save()
+
+    print "adding item image filenames"
+    for name, filename in ITEM_IMAGES.iteritems():
+        item = Item.objects.get(name=name)
+        item.image_filename = filename
+        item.save()
 
     print "finished!"
