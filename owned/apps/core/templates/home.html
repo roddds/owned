@@ -13,7 +13,12 @@
 <p><span class="warning">Recomendado para maiores de 18 anos.</span></p>
 
 <ul class="navigation-buttons">
-    <li><a class="button button-flat-highlight" data-toggle="modal" href="#new_game">New game</a></li>
+    {% if user.is_authenticated %}
+        <li><a class="button button-flat-highlight" data-toggle="modal" href="/new_game">New game</a></li>
+    {% else %}
+        <li><a class="button button-flat-highlight" data-toggle="modal" href="#new_game">New game</a></li>
+    {% endif %}
+
     <li><a class="button button-flat-highlight" href="/continue">Continue</a></li>
 </ul>
 
