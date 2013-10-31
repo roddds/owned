@@ -13,8 +13,29 @@
 <p><span class="warning">Recomendado para maiores de 18 anos.</span></p>
 
 <ul class="navigation-buttons">
-    <li><a class="button button-flat-highlight" href="/new_game">New game</a></li>
+    <li><a class="button button-flat-highlight" data-toggle="modal" href="#new_game">New game</a></li>
     <li><a class="button button-flat-highlight" href="/continue">Continue</a></li>
 </ul>
 
+{% endblock %}
+
+{% block modal %}
+    <div class="modal fade" id="new_game" tabindex="-1" role="dialog" aria-labelledby="new_game_label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">New game</h4>
+        </div>
+        <div class="modal-body">
+          Para poder salvar o jogo, você precisa estar logado. Escolha uma opção:
+        </div>
+        <div class="modal-footer">
+          <p><button type="button" class="btn btn-default">Criar sua conta</button></p>
+          <p><button type="button" class="btn btn-primary">Fazer seu login</button></p>
+          <p><button type="button" class="btn btn-danger">Jogar sem salvar</button></p>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 {% endblock %}
