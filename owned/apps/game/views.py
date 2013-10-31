@@ -31,10 +31,13 @@ class NewGameView(BaseGameView):
 
         if not user.is_authenticated():
             return redirect("auth_login")
-        else:
-            cxt['player'] = self.request.user.player
-            slots = self.request.user.player.save_slots.all()
-            cxt['save_slots'] = sorted(slots, key=lambda x: x.pk)
+
+        if not hasattr(user, 'player'):
+            Player.setup(user)
+
+        cxt['player'] = self.request.user.player
+        slots = self.request.user.player.save_slots.all()
+        cxt['save_slots'] = sorted(slots, key=lambda x: x.pk)
 
         return self.render_to_response(cxt)
 

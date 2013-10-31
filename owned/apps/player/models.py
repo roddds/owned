@@ -84,6 +84,15 @@ class Player(models.Model):
     is_active = models.BooleanField('Ativado', default=True)
     active_save_slot = models.ForeignKey('player.SaveSlot', blank=True, null=True)
 
+    @staticmethod
+    def setup(user):
+        new_player = Player.objects.create(user=user)
+        logger.debug("Player %s created" % new_player.user.username)
+        save_slots = [SaveSlot.objects.create(player_owner=new_player) for x in range(3)]
+        logger.debug("Created 3 save slots for player %s" % new_player.user.username)
+        new_player.save()
+        return new_player
+
     class Meta:
         app_label = "player"
 
@@ -98,18 +107,3 @@ class Progress(models.Model):
 
     class Meta:
         app_label = "player"
-
-
-def make_player(sender, **kwargs):
-    try:
-        new_user = kwargs['user']
-        new_player = Player.objects.create(user=new_user)
-        logger.debug("Player %s created" % new_player.user.username)
-        save_slots = [SaveSlot.objects.create(player_owner=new_player) for x in range(3)]
-        logger.debug("Created 3 save slots for player %s" % new_player.user.username)
-    except Exception, e:
-        logger.error("Error creating user")
-        logger.error(e)
-
-
-user_activated.connect(make_player, dispatch_uid="player.models")
