@@ -10,11 +10,11 @@
 
     <p>Olá, {{ user.username }}</p>
     <form method="post" class="navigation-buttons">{% csrf_token %}
-        {% for slot in save_slots %}
+        {% for i in '123' %}
             <li>
-                <button type="submit" name="slot" value="{{ slot.id }}" class="btn btn-default btn-small">
-                        <div>Slot {{ slot.id }}</div>
-                    {% if not slot.is_started %}
+                <button type="submit" name="slot" value="{{ i }}" class="btn btn-default btn-small">
+                    <div>Slot {{ i }}</div>
+                    {% if not slot.i.is_started %}
                         <div>NEW GAME</div>
                     {% else %}
                         <div>Capitulo {{ slot.current_chapter }}</div>

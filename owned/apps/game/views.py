@@ -42,13 +42,13 @@ class NewGameView(BaseGameView):
         return self.render_to_response(cxt)
 
     def post(self, request, *args, **kwargs):
-        selected_slot = request.POST['slot']
+        selected_slot = int(request.POST['slot'])
 
-        if selected_slot not in ("1", "2", "3"):
+        if selected_slot not in (1, 2, 3):
             return HttpResponse(400)
 
         player = self.request.user.player
-        slot = player.save_slots.get(pk=selected_slot)
+        slot = player.save_slots.all()[selected_slot-1]
 
         if not slot.is_started:
             slot.is_started = True
