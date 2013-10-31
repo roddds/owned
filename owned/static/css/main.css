@@ -2,8 +2,13 @@ body {
   background-color: grey;
   width: 100%;
   height: 100%; }
+  body .modal-dialog button.btn {
+    width: 180px; }
+  body .modal-dialog .modal-footer {
+    text-align: center; }
   body .btn {
-    border-radius: 0px; }
+    border-radius: 0px;
+    font-family: 'Armata', sans-serif; }
   body .navigation-buttons {
     float: right;
     list-style: none;
@@ -224,8 +229,7 @@ body {
     margin: 0;
     color: #666;
     font-size: 12px;
-    text-align: right;
-    width: 215px; }
+    text-align: right; }
   body .signup .signupform label, body .signup .signinform label {
     display: block; }
   body .signup .signupform input, body .signup .signupform a, body .signup .signinform input, body .signup .signinform a {
