@@ -14,10 +14,10 @@ class BaseGameView(TemplateView):
         cxt = {}
         cxt['url_prefix'] = "/game/continue/"
         cxt['paragraph'] = Paragraph.objects.get(pk=self.kwargs['chapter'])
-        cxt['player'] = self.request.user.player
-        cxt['slot'] = self.request.user.player.active_save_slot
+        cxt['player'] = self.request.user.player.get()
+        cxt['slot'] = self.request.user.player.get().active_save_slot
         cxt['options'] = [{'choice': x, 'requirements_met': x.requirements_met(cxt['slot'])} for x in cxt['paragraph'].option_set.all()]
-        cxt['chapter'] = self.request.user.player.active_save_slot.current_chapter
+        cxt['chapter'] = self.request.user.player.get().active_save_slot.current_chapter
         return cxt
 
 
@@ -35,7 +35,7 @@ class NewGameView(BaseGameView):
         if not hasattr(user, 'player'):
             Player.setup(user)
 
-        cxt['player'] = self.request.user.player
+        cxt['player'] = self.request.user.player.get()
         sorted_slots = sorted(cxt['player'].save_slots.all(), key=lambda x: x.index)
 
         cxt['save_slots'] = sorted_slots
@@ -47,7 +47,7 @@ class NewGameView(BaseGameView):
         if selected_slot not in (1, 2, 3):
             return HttpResponse(400)
 
-        player = self.request.user.player
+        player = self.request.user.player.get()
         slots = [x for x in player.save_slots.all()]
         slot = slots[selected_slot-1]
 

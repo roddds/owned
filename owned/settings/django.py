@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'south',
     'gunicorn',
     'registration',
+    'lazysignup'
 )
 
 # A sample logging configuration. The only tangible logging
