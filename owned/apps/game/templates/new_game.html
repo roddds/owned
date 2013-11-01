@@ -2,19 +2,13 @@
 
 {% block content %}
 
-{% if not user.is_authenticated %}
-
-    <p>Usuario não autenticado</p>
-
-{% else %}
-
     <p>Olá, {{ user.username }}</p>
     <form method="post" class="navigation-buttons">{% csrf_token %}
-        {% for i in '123' %}
+        {% for slot in save_slots %}
             <li>
-                <button type="submit" name="slot" value="{{ i }}" class="btn btn-default btn-small">
-                    <div>Slot {{ i }}</div>
-                    {% if not slot.i.is_started %}
+                <button type="submit" name="slot" value="{{ slot.index }}" class="btn btn-default btn-small">
+                    <div>Slot {{ slot.index }}</div>
+                    {% if not slot.is_started %}
                         <div>NEW GAME</div>
                     {% else %}
                         <div>Capitulo {{ slot.current_chapter }}</div>
@@ -23,6 +17,5 @@
             </li>
         {% endfor %}
     </form>
-{% endif %}
 
 {% endblock %}
