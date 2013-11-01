@@ -21,7 +21,7 @@ class SaveSlot(models.Model):
     def set_as_active(self):
         self.player_owner.active_save_slot = self
         self.player_owner.save()
-        logger.debug('Slot number %d set as active for player %s' % (self.pk, self.player_owner.user.username))
+        logger.debug('Slot number %d set as active for player %s' % (self.index, self.player_owner.user.username))
 
     def add_item(self, item):
         self.inventory.add(item)
@@ -69,8 +69,13 @@ Player %s reached an ending on chapter %s' % (self.player_owner.user.username,
         p = Progress(paragraph=paragraph, save_slot=self)
         p.save()
 
+    @property
+    def index(self):
+        return list(self.player_owner.save_slots.all()).index(self) + 1
+
+
     def __unicode__(self):
-        return "SaveSlot %d for player %s" % (self.pk, self.player_owner)
+        return "SaveSlot %d for player %s" % (self.index, self.player_owner)
 
     class Meta:
         app_label = "player"

@@ -36,9 +36,9 @@ class NewGameView(BaseGameView):
             Player.setup(user)
 
         cxt['player'] = self.request.user.player
-        slots = self.request.user.player.save_slots.all()
-        cxt['save_slots'] = sorted(slots, key=lambda x: x.pk)
+        sorted_slots = sorted(cxt['player'].save_slots.all(), key=lambda x: x.index)
 
+        cxt['save_slots'] = sorted_slots
         return self.render_to_response(cxt)
 
     def post(self, request, *args, **kwargs):
@@ -48,7 +48,8 @@ class NewGameView(BaseGameView):
             return HttpResponse(400)
 
         player = self.request.user.player
-        slot = player.save_slots.all()[selected_slot-1]
+        slots = [x for x in player.save_slots.all()]
+        slot = slots[selected_slot-1]
 
         if not slot.is_started:
             slot.is_started = True
@@ -59,7 +60,7 @@ class NewGameView(BaseGameView):
         slot.events.clear()
         slot.progress.clear()
         slot.save()
-        logger.debug('Started a new game for player %s on their slot #%d' % (player.user.username, slot.current_chapter))
+        logger.debug('Started a new game for player %s on their slot #%d' % (player.user.username, slot.index))
         return redirect('play-chapter', chapter=slot.current_chapter)
 
 
