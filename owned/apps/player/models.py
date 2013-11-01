@@ -44,26 +44,26 @@ class SaveSlot(models.Model):
 
         for item in paragraph.adds_items.all():
             self.inventory.add(item)
-            logger.debug('\
-Added item "%s" to player %s\'s inventory' % (item.name,
+            logger.debug(
+'Added item "%s" to player %s\'s inventory' % (item.name,
                                               self.player_owner.user.username))
 
         for item in paragraph.removes_items.all():
             self.inventory.remove(item)
-            logger.debug('\
-Removed item "%s" from player %s\'s inventory' % (item.name,
+            logger.debug(
+'Removed item "%s" from player %s\'s inventory' % (item.name,
                                                   self.player_owner.user.username))
 
         for event in paragraph.adds_events.all():
             self.events.add(event)
-            logger.debug('\
-Added event "%s" to player %s\'s events' % (event.label,
+            logger.debug(
+'Added event "%s" to player %s\'s events' % (event.label,
                                             self.player_owner.user.username))
 
         if paragraph.is_ending:
             self.is_finished = True
-            logger.debug('\
-Player %s reached an ending on chapter %s' % (self.player_owner.user.username,
+            logger.debug(
+'Player %s reached an ending on chapter %s' % (self.player_owner.user.username,
                                               paragraph.id))
 
         p = Progress(paragraph=paragraph, save_slot=self)
