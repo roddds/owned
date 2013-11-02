@@ -16,10 +16,10 @@ class BaseGameView(TemplateView):
         cxt = {}
         cxt['url_prefix'] = "/game/continue/"
         cxt['paragraph'] = Paragraph.objects.get(pk=self.kwargs['chapter'])
-        cxt['player'] = self.request.user.player.get()
-        cxt['slot'] = self.request.user.player.get().active_save_slot
+        cxt['player'] = self.request.user.player
+        cxt['slot'] = self.request.user.player.active_save_slot
         cxt['options'] = [{'choice': x, 'requirements_met': x.requirements_met(cxt['slot'])} for x in cxt['paragraph'].option_set.all()]
-        cxt['chapter'] = self.request.user.player.get().active_save_slot.current_chapter
+        cxt['chapter'] = self.request.user.player.active_save_slot.current_chapter
         return cxt
 
 
