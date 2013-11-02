@@ -5,7 +5,17 @@ import logging
 logger = logging.getLogger("player")
 
 
+class SlotManager(models.Manager):
+    def ordered(self):
+        return self.all().order_by("id")
+
+    def get_slot(self, index):
+        return self.ordered()[index-1]
+
+
 class SaveSlot(models.Model):
+    objects = SlotManager()
+
     player_owner = models.ForeignKey('Player', related_name='save_slots')
     inventory = models.ManyToManyField('book.Item')
     events = models.ManyToManyField('book.Event')
