@@ -38,10 +38,9 @@ class NewGameView(BaseGameView):
         if not hasattr(user, 'player'):
             Player.setup(user)
 
-        cxt['player'] = self.request.user.player.get()
-        sorted_slots = sorted(cxt['player'].save_slots.all(), key=lambda x: x.index)
+        cxt['player'] = self.request.user.player
+        cxt['save_slots'] = cxt['player'].save_slots.ordered()
 
-        cxt['save_slots'] = sorted_slots
         return self.render_to_response(cxt)
 
     def post(self, request, *args, **kwargs):
@@ -50,20 +49,12 @@ class NewGameView(BaseGameView):
         if selected_slot not in (1, 2, 3):
             return HttpResponse(400)
 
-        player = self.request.user.player.get()
-        slots = [x for x in player.save_slots.all()]
-        slot = slots[selected_slot-1]
+        player = self.request.user.player
+        slot = player.save_slots.get_slot(selected_slot)
 
-        if not slot.is_started:
-            slot.is_started = True
+        slot.new_game()
 
-        slot.set_as_active()
-        slot.current_chapter = 1
-        slot.inventory.clear()
-        slot.events.clear()
-        slot.progress.clear()
-        slot.save()
-        logger.debug('Started a new game for player %s on their slot #%d' % (player.user.username, slot.index))
+        logger.debug('Started a new game for player %s on their slot #%d' % (player.user.username, slot.slot_number))
         return redirect('play-chapter', chapter=slot.current_chapter)
 
 
