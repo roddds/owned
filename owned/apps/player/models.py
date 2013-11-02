@@ -32,6 +32,17 @@ class SaveSlot(models.Model):
         self.player_owner.save()
         logger.debug('Slot number %d set as active for player %s' % (self.index, self.player_owner.user.username))
 
+    def new_game(self):
+        self.set_as_active()
+        self.current_chapter = 1
+        self.is_started = True
+        self.inventory.clear()
+        self.events.clear()
+        self.progress.clear()
+        self.save()
+        return self
+
+
     def add_item(self, item):
         self.inventory.add(item)
 
