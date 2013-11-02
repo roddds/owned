@@ -30,7 +30,7 @@ class SaveSlot(models.Model):
     def set_as_active(self):
         self.player_owner.active_save_slot = self
         self.player_owner.save()
-        logger.debug('Slot number %d set as active for player %s' % (self.index, self.player_owner.user.username))
+        logger.debug('Slot number %d set as active for player %s' % (self.slot_number, self.player_owner.user.username))
 
     def new_game(self):
         self.set_as_active()
@@ -64,25 +64,25 @@ class SaveSlot(models.Model):
 
         for item in paragraph.adds_items.all():
             self.inventory.add(item)
-            logger.debug(
+            logger.info(
 'Added item "%s" to player %s\'s inventory' % (item.name,
                                               self.player_owner.user.username))
 
         for item in paragraph.removes_items.all():
             self.inventory.remove(item)
-            logger.debug(
+            logger.info(
 'Removed item "%s" from player %s\'s inventory' % (item.name,
                                                   self.player_owner.user.username))
 
         for event in paragraph.adds_events.all():
             self.events.add(event)
-            logger.debug(
+            logger.info(
 'Added event "%s" to player %s\'s events' % (event.label,
                                             self.player_owner.user.username))
 
         if paragraph.is_ending:
             self.is_finished = True
-            logger.debug(
+            logger.info(
 'Player %s reached an ending on chapter %s' % (self.player_owner.user.username,
                                               paragraph.id))
 
