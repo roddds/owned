@@ -96,7 +96,7 @@ class SaveSlot(models.Model):
         return number
 
     def __unicode__(self):
-        return "SaveSlot %d for player %s" % (self.index, self.player_owner)
+        return "SaveSlot %d for player %s" % (self.slot_number, self.player_owner)
 
     class Meta:
         app_label = "player"
