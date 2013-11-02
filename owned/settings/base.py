@@ -17,3 +17,6 @@ sys.path.append(PROJECT_DIR.child('libs'))
 STATICFILES_DIRS = ( PROJECT_DIR.child('static'), )
 TEMPLATE_DIRS = ( PROJECT_DIR.child('templates'), )
 FIXTURE_DIRS = ( PROJECT_DIR.child('static'), )
+
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',
+                           'lazysignup.backends.LazySignupBackend')
