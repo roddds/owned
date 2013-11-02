@@ -90,9 +90,10 @@ class SaveSlot(models.Model):
         p.save()
 
     @property
-    def index(self):
-        return list(self.player_owner.save_slots.all()).index(self) + 1
-
+    def slot_number(self):
+        number = list(self.player_owner.save_slots.ordered()).index(self) + 1
+        logger.debug("%s identified as number %s" % (self.id, number))
+        return number
 
     def __unicode__(self):
         return "SaveSlot %d for player %s" % (self.index, self.player_owner)
