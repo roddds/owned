@@ -6,8 +6,8 @@
     <form method="post" class="navigation-buttons">{% csrf_token %}
         {% for slot in save_slots %}
             <li>
-                <button type="submit" name="slot" value="{{ slot.index }}" class="btn btn-default btn-small">
-                    <div>Slot {{ slot.index }}</div>
+                <button type="submit" name="slot" value="{{ slot.slot_number }}" class="btn btn-default btn-small">
+                    <div>Slot {{ slot.slot_number }}</div>
                     {% if not slot.is_started %}
                         <div>NEW GAME</div>
                     {% else %}
