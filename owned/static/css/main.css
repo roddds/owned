@@ -2,7 +2,7 @@ body {
   background-color: grey;
   width: 100%;
   height: 100%; }
-  body .modal-dialog button.btn {
+  body .modal-dialog a.btn {
     width: 180px; }
   body .modal-dialog .modal-footer {
     text-align: center; }
@@ -75,6 +75,8 @@ body {
               padding: 6px; }
           body .wrapper #middle #topbar .loginbar .btn-logout {
             float: right; }
+          body .wrapper #middle #topbar .loginbar .lazy-user-message a {
+            margin: 0; }
           body .wrapper #middle #topbar .loginbar .userinfo {
             margin-top: 4px;
             margin-left: 10px;

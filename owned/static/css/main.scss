@@ -5,7 +5,7 @@ body {
     height: 100%;
 
     .modal-dialog {
-        button.btn {
+        a.btn {
             width: 180px;
         }
         .modal-footer {
@@ -104,6 +104,12 @@ body {
 
                     .btn-logout {
                         float: right;
+                    }
+
+                    .lazy-user-message {
+                        a {
+                            margin: 0;
+                        }
                     }
 
                     .userinfo {
