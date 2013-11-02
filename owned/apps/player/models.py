@@ -1,6 +1,5 @@
 from django.db import models
 from book.models import Paragraph, Item, Event
-from registration.signals import user_activated
 
 import logging
 logger = logging.getLogger("player")
