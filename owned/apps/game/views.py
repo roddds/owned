@@ -1,7 +1,9 @@
+from django.contrib import auth
 from django.http import HttpResponse
 from django.shortcuts import redirect
+from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView
-from django.contrib import auth
+from lazysignup.decorators import allow_lazy_user
 from book.models import Paragraph
 from player.models import Player
 
