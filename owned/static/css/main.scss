@@ -4,6 +4,17 @@ body {
     width: 100%;
     height: 100%;
 
+    h1, h2, h3 {
+        font-family: "Armata", sans-serif;
+    }
+
+    .staticpage {
+        p {
+            line-height: 14px;
+        }
+    }
+
+
     .modal-dialog {
         a.btn {
             width: 180px;
@@ -329,7 +340,7 @@ body {
     }
 
     .signup {
-        h1, form, p {
+        form, p {
             font-family: "Armata", sans-serif;
         }
 

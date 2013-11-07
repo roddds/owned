@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.views.generic.base import RedirectView, TemplateView
 from django.contrib import admin
 from lazysignup.views import convert
+# from game.forms import RegistrationFormUniqueEmail
 admin.autodiscover()
 
 
@@ -10,7 +11,9 @@ urlpatterns = patterns('',
     url(r'^', include('core.urls')),
     url(r'^', include('core.auth_urls')),
 
-    url(r'^convert/$', convert, {'template_name':'convert/convert.html'},
+    url(r'^convert/$', convert, {'template_name':'convert/convert.html',
+                                 # 'form_class': RegistrationFormUniqueEmail},
+                                 },
                                 name='lazysignup_convert'),
     url(r'^done/$', TemplateView.as_view(template_name='convert/convertion_complete.html'),
                                          name='lazysignup_convert_done'),

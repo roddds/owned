@@ -2,6 +2,10 @@ body {
   background-color: grey;
   width: 100%;
   height: 100%; }
+  body h1, body h2, body h3 {
+    font-family: "Armata", sans-serif; }
+  body .staticpage p {
+    line-height: 14px; }
   body .modal-dialog a.btn {
     width: 180px; }
   body .modal-dialog .modal-footer {
@@ -223,7 +227,7 @@ body {
         display: inline-block; }
         body .book-text .navigation-buttons li button {
           width: 150px; }
-  body .signup h1, body .signup form, body .signup p {
+  body .signup form, body .signup p {
     font-family: "Armata", sans-serif; }
   body .signup .signupform ul, body .signup .signupform li, body .signup .signinform ul, body .signup .signinform li {
     display: inline;
