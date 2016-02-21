@@ -28,63 +28,47 @@ class Item(models.Model):
 
 class Option(models.Model):
     text = models.TextField()
-    target = models.PositiveIntegerField(null=True)
+    target = models.PositiveIntegerField()
 
-    required_items = models.ManyToManyField('book.Item', blank=True, related_name='item_required_in')
-    excluding_items = models.ManyToManyField('book.Item', blank=True, related_name='item_excluding_in')
+    required_items = models.ManyToManyField('book.Item', blank=True, related_name='enables_option')
+    excluding_items = models.ManyToManyField('book.Item', blank=True, related_name='excludes_option')
 
-    required_events = models.ManyToManyField('book.Event', blank=True, related_name='event_required_in')
-    excluding_events = models.ManyToManyField('book.Event', blank=True, related_name='event_excluding_in')
+    required_events = models.ManyToManyField('book.Event', blank=True, related_name='enables_option')
+    excluding_events = models.ManyToManyField('book.Event', blank=True, related_name='excludes_option')
 
-    paragraph = models.ForeignKey('Paragraph', null=True)
+    paragraph = models.ForeignKey('book.Paragraph')
 
     def requirements_met(self, saveslot):
         logger.debug("checking requirements for option %d" % self.target)
 
-        if not all (self.required_items.exists(),
-                    self.required_events.exists(),
-                    self.excluding_items.exists(),
-                    self.excluding_events.exists()):
+        if not any ([self.required_items.exists(),
+                     self.required_events.exists(),
+                     self.excluding_items.exists(),
+                     self.excluding_events.exists()]):
             logger.debug("option %d has no requirements" % self.target)
             return True
 
-        logger.debug("getting player's inventory and events")
-        inventory = saveslot.inventory.all()
-        events = saveslot.events.all()
-
-        logger.debug("checking requirements")
-        required_items = self.required_items.all()
-        logger.debug("option %d has %d required items" % (self.target, required_items.count()))
-        required_events = self.required_events.all()
-        logger.debug("option %d has %d required events" % (self.target, required_events.count()))
-
-        excluding_items = self.excluding_items.all()
-        logger.debug("option %d has %d excluding items" % (self.target, excluding_items.count()))
-        excluding_events = self.excluding_events.all()
-        logger.debug("option %d has %d excluding events" % (self.target, excluding_events.count()))
-
-        for item in required_items:
-            if item not in inventory:
-                logger.debug("%d DISABLED: item %s not in inventory" % (self.target, item.name))
+        if self.required_items.exists():
+            logger.debug("item requirements for option %d not met" % self.target)
+            if not self.required_items.filter(id__in=saveslot.inventory.all()).exists():
                 return False
 
-        for event in required_events:
-            if event not in events:
-                logger.debug("%d DISABLED: event %s not in events" % (self.target, event.label))
+        if self.required_events.exists():
+            logger.debug("event requirements for option %d not met" % self.target)
+            if not self.required_events.filter(id__in=saveslot.events.all()).exists():
                 return False
 
-        for item in excluding_items:
-            if item in inventory:
-                logger.debug("%d DISABLED: excluding item %s in inventory" % (self.target, item.name))
+        if self.excluding_items.exists():
+            logger.debug("item exclusion for option %d not met" % self.target)
+            if self.excluding_items.filter(id__in=saveslot.inventory.all()).exists():
                 return False
 
-        for event in excluding_events:
-            if event in events:
-                logger.debug("%d DISABLED: excluding event %s in events" % (self.target, event.label))
+        if self.excluding_events.exists():
+            logger.debug("event exclusion for option %d not met" % self.target)
+            if self.excluding_events.filter(id__in=saveslot.events.all()).exists():
                 return False
 
         return True
-
 
     class Meta:
         app_label = 'book'
