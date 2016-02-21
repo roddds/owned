@@ -7,3 +7,5 @@ owned/static_root/*
 *.json
 *.sqlite
 static_root/*
+htmlcov/*
+.coverage
