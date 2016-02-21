@@ -151,10 +151,10 @@ def run():
                         pk, status = flag
                         req = Event.objects.get(pk=pk)
                         if status == "1":
-                            op.events_required_to_have.add(req)
+                            op.required_events.add(req)
                             print "added event requirement of having %s to option %d on paragraph %d" % (req.label, i, paragraph.pk)
                         else:
-                            op.events_required_not_to_have.add(req)
+                            op.excluding_events.add(req)
                             print "added item requirement of not having %s to option %d on paragraph %d" % (req.label, i, paragraph.pk)
                         op.save()
 
@@ -164,10 +164,10 @@ def run():
                         pk, status = flag
                         req = Item.objects.get(pk=pk)
                         if status == "1":
-                            op.items_required_to_have.add(req)
+                            op.required_items.add(req)
                             print "added item requirement of having %s to option %d on paragraph %d" % (req.name, i, paragraph.pk)
                         else:
-                            op.items_required_not_to_have.add(req)
+                            op.excluding_items.add(req)
                             print "added item requirement of not having %s to option %d on paragraph %d" % (req.name, i, paragraph.pk)
                         op.save()
 

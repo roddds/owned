@@ -30,21 +30,21 @@ class Option(models.Model):
     text = models.TextField()
     target = models.PositiveIntegerField(null=True)
 
-    items_required_to_have = models.ManyToManyField('book.Item', blank=True, related_name='item_required_in')
-    items_required_not_to_have = models.ManyToManyField('book.Item', blank=True, related_name='item_excluding_in')
+    required_items = models.ManyToManyField('book.Item', blank=True, related_name='item_required_in')
+    excluding_items = models.ManyToManyField('book.Item', blank=True, related_name='item_excluding_in')
 
-    events_required_to_have = models.ManyToManyField('book.Event', blank=True, related_name='event_required_in')
-    events_required_not_to_have = models.ManyToManyField('book.Event', blank=True, related_name='event_excluding_in')
+    required_events = models.ManyToManyField('book.Event', blank=True, related_name='event_required_in')
+    excluding_events = models.ManyToManyField('book.Event', blank=True, related_name='event_excluding_in')
 
     paragraph = models.ForeignKey('Paragraph', null=True)
 
     def requirements_met(self, saveslot):
         logger.debug("checking requirements for option %d" % self.target)
 
-        if not (self.items_required_to_have.exists()     and
-                self.events_required_to_have.exists()    and
-                self.items_required_not_to_have.exists() and
-                self.events_required_not_to_have.exists()):
+        if not all (self.required_items.exists(),
+                    self.required_events.exists(),
+                    self.excluding_items.exists(),
+                    self.excluding_events.exists()):
             logger.debug("option %d has no requirements" % self.target)
             return True
 
@@ -53,16 +53,15 @@ class Option(models.Model):
         events = saveslot.events.all()
 
         logger.debug("checking requirements")
-        required_items = self.items_required_to_have.all()
-        logger.debug("option %d has %d required items" % (self.target, len(required_items)))
-        required_events = self.events_required_to_have.all()
-        logger.debug("option %d has %d required events" % (self.target, len(required_events)))
+        required_items = self.required_items.all()
+        logger.debug("option %d has %d required items" % (self.target, required_items.count()))
+        required_events = self.required_events.all()
+        logger.debug("option %d has %d required events" % (self.target, required_events.count()))
 
-        excluding_items = self.items_required_not_to_have.all()
-        logger.debug("option %d has %d excluding items" % (self.target, len(excluding_items)))
-        excluding_events = self.events_required_not_to_have.all()
-        logger.debug("option %d has %d excluding events" % (self.target, len(excluding_events)))
-
+        excluding_items = self.excluding_items.all()
+        logger.debug("option %d has %d excluding items" % (self.target, excluding_items.count()))
+        excluding_events = self.excluding_events.all()
+        logger.debug("option %d has %d excluding events" % (self.target, excluding_events.count()))
 
         for item in required_items:
             if item not in inventory:
