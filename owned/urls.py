@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.views.generic.base import RedirectView, TemplateView
 from django.contrib import admin
 from lazysignup.views import convert
@@ -6,8 +6,7 @@ from lazysignup.views import convert
 admin.autodiscover()
 
 
-urlpatterns = patterns('',
-
+urlpatterns = [
     url(r'^', include('core.urls')),
     url(r'^', include('core.auth_urls')),
 
@@ -24,5 +23,4 @@ urlpatterns = patterns('',
 
     url(r'^new_game$', RedirectView.as_view(url="game/new")),
     url(r'^continue$', RedirectView.as_view(url="game/continue"))
-
-)
+]

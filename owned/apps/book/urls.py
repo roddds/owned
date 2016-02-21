@@ -1,6 +1,6 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from book.views import ReadChapter
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^read/(?P<chapter>[\d]+)/$', ReadChapter.as_view())
-)
+]

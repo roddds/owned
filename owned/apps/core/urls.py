@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from core.views import (HomeView,
                         GlossaryView,
                         HowToView,
@@ -9,7 +9,7 @@ from core.views import (HomeView,
                         BlogView,
                         FAQView)
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^$', HomeView.as_view()),
 
     url(r'^halp$', GlossaryView.as_view()),
@@ -20,4 +20,4 @@ urlpatterns = patterns('',
     url(r'^recs$', ReccommendationsView.as_view()),
     url(r'^blog$', BlogView.as_view()),
     url(r'^faq$', FAQView.as_view()),
-)
+]

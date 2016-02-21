@@ -12,7 +12,6 @@ Urls de autenticação do Owned
 """
 
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from django.contrib.auth import views as auth_views
@@ -25,7 +24,7 @@ from registration.forms import RegistrationFormUniqueEmail
 class RegistrationViewUniqueEmail(RegistrationView):
     form_class = RegistrationFormUniqueEmail
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^login/$', auth_views.login, {'template_name': 'registration/login.html'}, name='auth_login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'registration/logout.html'}, name='auth_logout'),
 
@@ -47,4 +46,4 @@ urlpatterns = patterns('',
     url(r'^registro/complete/$', TemplateView.as_view(template_name='registration/registration_complete.html'), name='registration_complete'),
     url(r'^registro/closed/$', TemplateView.as_view(template_name='registration/registration_closed.html'), name='registration_disallowed'),
     # (r'', include('registration.auth_urls')),
-)
+]
