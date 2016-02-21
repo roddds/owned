@@ -5,4 +5,5 @@ owned/static_root/*
 /*.png
 *.ipynb
 *.json
+*.sqlite
 static_root/*
