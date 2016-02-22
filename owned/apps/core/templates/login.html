@@ -1,4 +1,4 @@
-{% load  lazysignup_tags %}
+{% load lazysignup_tags %}
 
 {% block login %}
 <div class="loginbar">
@@ -21,7 +21,7 @@
         <a class="btn btn-default btn-small btn-logout" href="/logout">Logout</a>
 {% else %}
         <div class="userinfo lazy-user-message">
-            Novo aqui? <a href='{% url "lazysignup_convert" %}'>Salve seu jogo</a> criando um nome e uma senha
+            Crie uma conta e <a href='{% url "lazysignup_convert" %}'>salve seu progresso</a>!
         </div>
         <a class="btn btn-default btn-small btn-logout" href="/logout">Logout</a>
 {% endif %}
