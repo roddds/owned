@@ -213,7 +213,8 @@ body {
     body .book-text .text-options a {
       text-decoration: none;
       background: #333;
-      font-family: 'Armata', sans-serif; }
+      font-family: 'Armata', sans-serif;
+      margin: 2px; }
     body .book-text .spacer {
       height: 80px; }
     body .book-text .bold-paragraph {
