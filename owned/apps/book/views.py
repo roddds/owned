@@ -1,24 +1,20 @@
 from django.views.generic import TemplateView
-from book.models import Paragraph
+from .models import Paragraph
 
 
-class BaseBookView(TemplateView):
-    def get_context(self):
-        cxt = {}
-        cxt['url_prefix'] = "/book/read/"
-        cxt['paragraph'] = Paragraph.objects.get(pk=self.kwargs['chapter'])
-        cxt['options'] = cxt['paragraph'].option_set.all()
-        cxt['player'] = self.request.user.player
-        cxt['saveslot'] = self.request.user.player.saveslot
-
-        return cxt
-
-
-class ReadChapter(BaseBookView):
+class ReadChapter(TemplateView):
     template_name = 'read.html'
 
+    def get_context(self):
+        return {
+            'url_prefix': "/book/read/",
+            'paragraph': Paragraph.objects.get(pk=self.kwargs['chapter']),
+            'options': cxt['paragraph'].option_set.all(),
+            'player': self.request.user.player,
+            'saveslot': self.request.user.player.saveslot,
+        }
+
     def get(self, request, **kwargs):
-        cxt = self.get_context()
+        context = self.get_context()
 
-
-        return self.render_to_response(cxt)
+        return self.render_to_response(context)
