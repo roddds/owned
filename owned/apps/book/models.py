@@ -1,6 +1,7 @@
 from django.db import models
 
 import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -41,10 +42,10 @@ class Option(models.Model):
     def requirements_met(self, saveslot):
         logger.debug("checking requirements for option %d" % self.target)
 
-        if not any ([self.required_items.exists(),
-                     self.required_events.exists(),
-                     self.excluding_items.exists(),
-                     self.excluding_events.exists()]):
+        if not any([self.required_items.exists(),
+                    self.required_events.exists(),
+                    self.excluding_items.exists(),
+                    self.excluding_events.exists()]):
             logger.debug("option %d has no requirements" % self.target)
             return True
 
@@ -87,10 +88,11 @@ class Paragraph(models.Model):
 
     def display_text(self):
         return self.text
+
     display_text.allow_tags = True
 
     class Meta:
         app_label = 'book'
 
     def __unicode__(self):
-        return '%s: %s' % (self.title, " ".join(self.text.split()[:5])+'...')
+        return '%s: %s' % (self.title, " ".join(self.text.split()[:5]) + '...')
