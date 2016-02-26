@@ -1,13 +1,13 @@
 from django.conf.urls import url
-from core.views import (HomeView,
-                        GlossaryView,
-                        HowToView,
-                        DownloadView,
-                        CreditsView,
-                        ContactView,
-                        ReccommendationsView,
-                        BlogView,
-                        FAQView)
+from owned.core.views import (HomeView,
+                              GlossaryView,
+                              HowToView,
+                              DownloadView,
+                              CreditsView,
+                              ContactView,
+                              ReccommendationsView,
+                              BlogView,
+                              FAQView)
 
 urlpatterns = [
     url(r'^$', HomeView.as_view()),

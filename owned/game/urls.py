@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from game.views import NewGameView, ContinueGameView, PlayChapterView
+from owned.game.views import NewGameView, ContinueGameView, PlayChapterView
 
 urlpatterns = [
     url(r'^new$', NewGameView.as_view(), name="new-game-select"),

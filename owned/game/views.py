@@ -3,8 +3,8 @@ from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView
 from lazysignup.decorators import allow_lazy_user
-from book.models import Paragraph
-from users.models import User
+from owned.book.models import Paragraph
+from owned.users.models import User
 
 import logging
 logger = logging.getLogger("game")

@@ -5,8 +5,10 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 from django.views import defaults as default_views
+from lazysignup.views import convert
+
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name="home"),
@@ -19,7 +21,22 @@ urlpatterns = [
     url(r'^users/', include("owned.users.urls", namespace="users")),
     url(r'^accounts/', include('allauth.urls')),
 
-    # Your stuff: custom urls includes go here
+    # -----
+    url(r'^', include('owned.core.urls')),
+    # url(r'^', include('owned.core.auth_urls')),
+
+    url(r'^convert/$', convert, {'template_name':'convert/convert.html',
+                                 # 'form_class': RegistrationFormUniqueEmail},
+                                 },
+                                name='lazysignup_convert'),
+    url(r'^done/$', TemplateView.as_view(template_name='convert/convertion_complete.html'),
+                                         name='lazysignup_convert_done'),
+
+    url(r'^book/', include('owned.book.urls')),
+    url(r'^game/', include('owned.game.urls')),
+
+    url(r'^new_game$', RedirectView.as_view(url="game/new")),
+    url(r'^continue$', RedirectView.as_view(url="game/continue"))
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
