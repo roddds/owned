@@ -45,6 +45,9 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'owned.users',  # custom users app
     # Your stuff: custom apps go here
+    'owned.core',
+    'owned.book',
+    'owned.game',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
