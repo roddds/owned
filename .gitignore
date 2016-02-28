@@ -63,3 +63,6 @@ tests/.hitch
 
 # MailHog binary
 mailhog
+
+# old sqlite databases
+*.sqlite
