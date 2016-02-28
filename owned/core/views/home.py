@@ -3,7 +3,7 @@ from django.views.generic.base import View, TemplateResponseMixin
 
 
 class HomeView(TemplateResponseMixin, View):
-    template_name = 'home.html'
+    template_name = 'core/home.html'
 
     def get(self, request, *args, **kwargs):
         context = {}
