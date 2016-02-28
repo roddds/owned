@@ -1,0 +1,391 @@
+body {
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+
+    h1, h2, h3 {
+        font-family: "Armata", sans-serif;
+    }
+
+    .staticpage {
+        p {
+            line-height: 14px;
+        }
+    }
+
+
+    .modal-dialog {
+        a.btn {
+            width: 180px;
+        }
+        .modal-footer {
+            text-align: center;
+        }
+    }
+
+
+    .btn {
+        border-radius: 0px;
+        font-family: 'Armata', sans-serif;
+    }
+
+    .navigation-buttons {
+        float: right;
+        list-style: none;
+        padding: 1px;
+        padding-right: 5px;
+        li {
+            padding-bottom: 7px;
+            a {
+                text-decoration: none;
+                background: #333;
+                width: 180px;
+                min-width: 165px;
+                font-family: 'Armata', sans-serif;
+            }
+            a:hover {background: #6DD2E5;}
+        }
+    }
+
+    .wrapper {
+        background-color: black;
+
+        #left {
+            left: 0px;
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+
+        #right {
+            right: 0px;
+        }
+
+        .bar {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left;
+            width: 23%;
+            height: 100%;
+            position: fixed;
+            background-image: url(../img/sidebar.png);
+            opacity: 0.5;
+        }
+
+        #middle {
+            background-color: #AAA;
+            width: 850px;
+            min-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 100;
+
+            #topbar {
+                background: #333;
+                border-top: 8px solid #555;
+                height: 50px;
+                color: white;
+                a {
+                    margin-right: 10px;
+                }
+                
+                .loginbar {
+                    font-family: 'Armata', sans-serif;
+                    margin-top: 7px;
+                    overflow: hidden;
+                    form {
+                        float: right;
+                        input, label {
+                            float: left;
+                        }
+                        label {
+                            text-transform: uppercase;
+                            font-family: 'Armata', sans-serif;
+                            margin: 5px 10px 10px 10px;
+                        }
+                        .btn {
+                            margin-left: 10px;
+                        }
+                        #id_username, #id_password {
+                            width: 140px;
+                            height: 29px;
+                            padding: 6px;
+                        }
+                    }
+
+                    .btn-logout {
+                        float: right;
+                    }
+
+                    .lazy-user-message {
+                        a {
+                            margin: 0;
+                        }
+                    }
+
+                    .userinfo {
+                        margin-top: 4px;
+                        margin-left: 10px;
+                        float: left;
+                    }
+                }
+            }
+
+            #header {
+                height: 180px;
+                border-bottom: 1px solid black;
+                border-top: 1px solid black;
+
+                .navigation-wrapper {
+                    margin-top: 12px;
+
+                    .headerlogo {
+                        background-image: url(../img/logo_flat.png);
+                        background-size: 100%;
+                        height: 155px;
+                        width: 425px;
+                        margin-left: 20px;
+                        float: left;
+                        border-radius: 70px;
+                        display: block;
+                    }
+
+                    #nav-right {
+                        padding-right: 20px;
+                    }
+                }
+            }
+    
+            .inventory {
+                float: right;
+                margin-top: 50px;
+                margin-right: 35px;
+                background-color: #000;
+                width: 110px;
+                opacity: 0.65;
+                .inventory-items {
+                    img {
+                        opacity: 0.65;
+                        width: 42px;
+                        margin: 5px;
+                        transition: opacity 500ms;
+                    }
+                    img:hover {
+                        opacity: 1;
+                    }
+                }
+
+                .inventory-title {
+                    text-align: center;
+                    font-family: 'Armata', sans-serif;
+                    font-weight: bold;
+                    color: #CCC;
+                    letter-spacing: 1px;
+                    margin-bottom: 5px;
+                    margin-top: 10px;
+                }
+            }
+
+            .clear {
+                clear: both;
+            }
+
+            #content-wrapper {
+                #content {
+                    background-color: white;
+                    position: relative;
+                    height: 95%;
+                    margin: 10px;
+                    border-radius: 25px;
+                    border-top-right-radius: 0;
+                    border-bottom-left-radius: 0;
+
+                    #square-top {
+                        float: right;
+                    }
+                    #square-bottom {
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0px;
+                    }
+                    .square {
+                        background-color: #AAA;
+                        height: 30px;
+                        width: 30px;
+                    }
+                }
+            }
+
+            #footer {
+                position: relative;
+                background: #222;
+                height: 150px;
+                font-family: 'Armata', sans-serif;
+                overflow: hidden;
+                
+                #footerlogo {
+                    box-shadow: 0px 0px 5px #00A3FF;
+                    border-radius: 22px;
+                    width: 125px;
+                    position: relative;
+                    display: inline-block;
+                    top: 25px;
+                    left: 15px;
+                    img {
+                        width: 125px;
+                    }
+                }
+
+                #license img {
+                    border-width: 0;
+                    box-shadow: 0px 0px 5px white;
+                    position: relative;
+                    display: inline-block;
+                    left: 32px;
+                    top: 40px;
+                }
+
+                ul#footer-navigation {
+                    width: 450px;
+                    position: relative;
+                    display: inline-block;
+                    bottom: 50px;
+                    left: 160px;
+                    padding: 0;
+                    li {
+                        width: 33%;
+                        float: left;
+                        list-style: none;
+                    }
+                }
+
+                #copyright-notice {
+                    width: 450px;
+                    height: 50px;
+                    position: relative;
+                    display: inline-block;
+                    bottom: 42px;
+                    left: 160px;
+                    padding: 0;
+                    p {
+                        font-size: 9px;
+                        color: white;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+    
+    .book-text {
+        padding: 50px;
+        min-height: 600px;
+        width: 85%;
+        font-family: 'Open sans', serif;
+
+        .text-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        
+        .text-body {
+            margin-bottom: 3em;
+
+            p {
+                text-indent: 30px;
+                font-size: 15px;
+                text-align: justify;
+                margin: 0px;
+
+                strong {
+                    font-weight: 700;
+                }
+
+                .warning {
+                    color: #800000;
+                }
+            }
+        }
+
+        .text-options {
+            a {
+                text-decoration: none;
+                background: #333;
+                font-family: 'Armata', sans-serif;
+                margin: 2px;
+            }
+
+        }
+
+        .spacer {
+            height: 80px;
+        }
+
+        .bold-paragraph {
+            margin: 15px 0 15px;
+        }
+
+        .navigation-buttons {
+            text-align: center;
+            float: center;
+            margin-top: 50px;
+            li {
+                padding: 10px;
+                display: inline-block;
+                button {
+                    width: 150px;
+                }
+            }
+        }
+    }
+
+    .signup {
+        form, p {
+            font-family: "Armata", sans-serif;
+        }
+
+        .signupform, .signinform {
+            ul, li {
+                display: inline;
+                float: right;
+                margin: 0;
+                color: #666;
+                font-size: 12px;
+                text-align: right;
+            }
+
+            label {
+                display: block;
+            }
+
+            input, a {
+                margin-bottom: 20px;
+                border: 1px solid #d7dae0;
+                box-shadow: 0 0 0 4px #eef6ff;
+                padding: 10px;
+                box-sizing: border-box;
+                font-size: 16px;
+                transition: box-shadow 100ms,border 100ms;
+                width: 400px;
+                display: inline-block;
+            }
+
+            input:focus {
+                -webkit-box-shadow: 0 0 1px 4px rgba(0,0,0,0.2);
+                box-shadow: 0 0 1px 4px rgba(0,0,0,0.2);
+            }
+            input.red {
+                border: 1px solid #fd9898;
+                box-shadow: 0px 0px 5px 2px rgba(235, 187, 187, 0.6);
+            }
+
+            input[type=submit], {
+                width: 28%;
+            }
+
+            a {
+                width: 35%;
+            }
+        }
+    }
+}
