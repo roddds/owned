@@ -40,6 +40,8 @@ THIRD_PARTY_APPS = (
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     'lazysignup',  # anonymous users
+
+    'registration' # old registration app
 )
 
 # Apps specific for this project go here.
