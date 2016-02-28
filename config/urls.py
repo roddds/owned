@@ -11,8 +11,13 @@ from lazysignup.views import convert
 
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name="home"),
-    url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name="about"),
+    url(r'^', include('owned.core.urls', namespace="core")),
+
+    url(r'^new_game$', RedirectView.as_view(url="game/new")),
+    url(r'^continue$', RedirectView.as_view(url="game/continue")),
+
+    url(r'^book/', include('owned.book.urls', namespace="book")),
+    url(r'^game/', include('owned.game.urls', namespace="game")),
 
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, include(admin.site.urls)),
@@ -22,7 +27,6 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # -----
-    url(r'^', include('owned.core.urls')),
     # url(r'^', include('owned.core.auth_urls')),
 
     url(r'^convert/$', convert, {'template_name':'convert/convert.html',
@@ -31,13 +35,6 @@ urlpatterns = [
                                 name='lazysignup_convert'),
     url(r'^done/$', TemplateView.as_view(template_name='convert/convertion_complete.html'),
                                          name='lazysignup_convert_done'),
-
-    url(r'^book/', include('owned.book.urls')),
-    url(r'^game/', include('owned.game.urls')),
-
-    url(r'^new_game$', RedirectView.as_view(url="game/new")),
-    url(r'^continue$', RedirectView.as_view(url="game/continue"))
-
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
