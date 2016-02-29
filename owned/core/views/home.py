@@ -15,10 +15,6 @@ class GlossaryView(HomeView):
     template_name = "core/glossario.html"
 
 
-class HowToView(HomeView):
-    template_name = "core/comojogar.html"
-
-
 class DownloadView(HomeView):
     template_name = "core/baixar.html"
 
@@ -33,10 +29,6 @@ class ContactView(HomeView):
 
 class ReccommendationsView(HomeView):
     template_name = "core/recomendacoes.html"
-
-
-class BlogView(HomeView):
-    template_name = "core/blog.html"
 
 
 class FAQView(HomeView):
