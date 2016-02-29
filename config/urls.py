@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # -----
-    # url(r'^', include('owned.core.auth_urls')),
+    url(r'^', include('owned.core.auth_urls')),
 
     url(r'^convert/$', convert, {'template_name':'convert/convert.html',
                                  # 'form_class': RegistrationFormUniqueEmail},
