@@ -1,5 +1,5 @@
 body {
-  background-color: grey;
+  background-color: #000;
   width: 100%;
   height: 100%; }
   body h1, body h2, body h3 {
@@ -86,7 +86,7 @@ body {
             margin-left: 10px;
             float: left; }
       body .wrapper #middle #header {
-        height: 180px;
+        height: 145px;
         border-bottom: 1px solid black;
         border-top: 1px solid black; }
         body .wrapper #middle #header .navigation-wrapper {
@@ -94,9 +94,9 @@ body {
           body .wrapper #middle #header .navigation-wrapper .headerlogo {
             background-image: url(../img/logo_flat.png);
             background-size: 100%;
-            height: 155px;
-            width: 425px;
-            margin-left: 20px;
+            height: 115px;
+            width: 320px;
+            margin-left: 60px;
             float: left;
             border-radius: 70px;
             display: block; }
@@ -191,7 +191,7 @@ body {
             color: white;
             display: inline-block; }
   body .book-text {
-    padding: 50px;
+    padding: 25px 50px;
     min-height: 600px;
     width: 85%;
     font-family: 'Open sans', serif; }
