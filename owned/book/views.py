@@ -15,7 +15,7 @@ class BaseBookView(TemplateView):
 
 
 class ReadChapter(BaseBookView):
-    template_name = 'read.html'
+    template_name = 'game/read.html'
 
     def get(self, request, **kwargs):
         cxt = self.get_context()

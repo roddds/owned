@@ -1,4 +1,5 @@
-{% extends "base.html" %}
+{% extends "core/base.html" %}
+{% load staticfiles %}
 
 
 {% block content %}
@@ -33,7 +34,7 @@
 <div class="inventory-title">INVENTORY</div>
 <div class="inventory-items">
     {% for item in inventory %}
-        <img src="{% static 'img/inventory/{{ item.image_filename }}' %}" title="{{ item.name }}"></img>
+        <img src="{{STATIC_URL}}img/inventory/{{item.image_filename}}" title="{{ item.name }}"></img>
     {% endfor %}
 </div>
 {% endblock %}

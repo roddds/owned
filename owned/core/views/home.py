@@ -12,32 +12,32 @@ class HomeView(TemplateResponseMixin, View):
 
 
 class GlossaryView(HomeView):
-    template_name = "glossario.html"
+    template_name = "core/glossario.html"
 
 
 class HowToView(HomeView):
-    template_name = "comojogar.html"
+    template_name = "core/comojogar.html"
 
 
 class DownloadView(HomeView):
-    template_name = "baixar.html"
+    template_name = "core/baixar.html"
 
 
 class CreditsView(HomeView):
-    template_name = "creditos.html"
+    template_name = "core/creditos.html"
 
 
 class ContactView(HomeView):
-    template_name = "participe.html"
+    template_name = "core/participe.html"
 
 
 class ReccommendationsView(HomeView):
-    template_name = "recomendacoes.html"
+    template_name = "core/recomendacoes.html"
 
 
 class BlogView(HomeView):
-    template_name = "blog.html"
+    template_name = "core/blog.html"
 
 
 class FAQView(HomeView):
-    template_name = "faq.html"
+    template_name = "core/faq.html"
