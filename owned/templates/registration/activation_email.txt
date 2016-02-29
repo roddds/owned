@@ -1,0 +1,5 @@
+Esse email poderia perder muito mais tempo descrevendo pra quê ele serve e tudo o mais, mas você sabe como isso funciona.
+
+http://{{ site.domain }}/ativar/{{ activation_key }}/
+
+Se não foi você que se registrou no endereço acima, tudo bem. Deixe isso pra lá.
