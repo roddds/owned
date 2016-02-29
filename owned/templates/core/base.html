@@ -41,7 +41,7 @@
 
                 <div id="header">
                     <div class="navigation-wrapper">
-                        
+
                         <a href="/"><div class="headerlogo"></div></a>
 
                         <ul class="navigation-buttons" id="nav-right">
@@ -56,7 +56,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div id="content-wrapper">
                     <div id="content">
                         <div class="square" id="square-top"></div>
@@ -81,12 +81,12 @@
                     </div>
 
                     <ul id="footer-navigation">
-                        <li><a href="/piratebay">&gt; Baixe OWNED</a></li>
-                        <li><a href="/blog">&gt; Blog do OWNED</a></li>
-                        <li><a href="/recs">&gt; Recomendações</a></li>
-                        <li><a href="/enlarge_your_penis">&gt; Participe</a></li>
-                        <li><a href="/whodunit">&gt; Créditos</a></li>
-                        <li><a href="/faq">&gt; FAQ</a></li>
+                        <li><a href="{% url 'core:credits' %}">&gt; Créditos</a></li>
+                        <li><a href="{% url 'core:recommendations' %}">&gt; Recomendações</a></li>
+                        <li><a href="{% url 'core:faq' %}">&gt; FAQ</a></li>
+                        <li><a href="{% url 'core:glossary' %}">&gt; Glossário</a></li>
+                        <li><a href="{% url 'core:download' %}">&gt; Baixe OWNED</a></li>
+                        <li><a href="{% url 'core:contact' %}">&gt; Participe</a></li>
                     </ul>
 
                     <div id="copyright-notice">
@@ -107,7 +107,7 @@
 
         <script src="{% static 'js/bootstrap.js' %}"></script>
         <!-- <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
-        
+
 
         <script>
             var _gaq=[['_setAccount','UA-XXXXXXXX-X'],['_trackPageview']];
