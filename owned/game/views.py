@@ -23,7 +23,7 @@ class BaseGameView(TemplateView):
 
 
 class NewGameView(BaseGameView):
-    template_name = "new_game.html"
+    template_name = "game/new_game.html"
 
     @method_decorator(allow_lazy_user)
     def get(self, *args, **kwargs):
@@ -34,8 +34,8 @@ class NewGameView(BaseGameView):
         if not user.is_authenticated():
             return redirect("auth_login")
 
-        if not hasattr(user, 'player'):
-            User.setup(user)
+        if user.save_slots.count() == 0:
+            user.setup()
 
         cxt['player'] = self.request.user
         cxt['save_slots'] = cxt['player'].save_slots.ordered()
@@ -48,13 +48,13 @@ class NewGameView(BaseGameView):
         if selected_slot not in (1, 2, 3):
             return HttpResponse(400)
 
-        player = self.request.user.player
-        slot = player.save_slots.get_slot(selected_slot)
+        user = self.request.user
+        slot = user.save_slots.get_slot(selected_slot)
 
         slot.new_game()
 
-        logger.debug('Started a new game for player %s on their slot #%d' % (player.username, slot.slot_number))
-        return redirect('play-chapter', chapter=slot.current_chapter)
+        logger.debug('Started a new game for player %s on their slot #%d' % (user.username, slot.slot_number))
+        return redirect('game:play-chapter', chapter=slot.current_chapter)
 
 
 class PlayChapterView(BaseGameView):
