@@ -26,6 +26,14 @@ class User(AbstractUser):
     endings = models.CharField(max_length=35,
                                default="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0")
 
+    def setup(self):
+        logger.debug("Player %s created" % self.username)
+        save_slots = [SaveSlot.objects.create(player_owner=self) for x in range(3)]
+        logger.debug("Created 3 save slots for player %s" % self.username)
+        self.save()
+        return self
+
+
     def __str__(self):
         return self.username
 
@@ -95,25 +103,25 @@ class SaveSlot(models.Model):
             self.inventory.add(item)
             logger.info(
                 'Added item "%s" to player %s\'s inventory' % (
-                    item.name, self.player_owner.user.username))
+                    item.name, self.player_owner.username))
 
         for item in paragraph.removes_items.all():
             self.inventory.remove(item)
             logger.info(
                 'Removed item "%s" from player %s\'s inventory' % (
-                    item.name, self.player_owner.user.username))
+                    item.name, self.player_owner.username))
 
         for event in paragraph.adds_events.all():
             self.events.add(event)
             logger.info(
                 'Added event "%s" to player %s\'s events' % (
-                    event.label, self.player_owner.user.username))
+                    event.label, self.player_owner.username))
 
         if paragraph.is_ending:
             self.is_finished = True
             logger.info(
                 'Player %s reached an ending on chapter %s' % (
-                    self.player_owner.user.username, paragraph.id))
+                    self.player_owner.username, paragraph.id))
 
         p = Progress(paragraph=paragraph, save_slot=self)
         p.save()

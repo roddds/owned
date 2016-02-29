@@ -53,12 +53,12 @@ class NewGameView(BaseGameView):
 
         slot.new_game()
 
-        logger.debug('Started a new game for player %s on their slot #%d' % (player.user.username, slot.slot_number))
+        logger.debug('Started a new game for player %s on their slot #%d' % (player.username, slot.slot_number))
         return redirect('play-chapter', chapter=slot.current_chapter)
 
 
 class PlayChapterView(BaseGameView):
-    template_name = 'read.html'
+    template_name = 'game/read.html'
 
     def get(self, request, chapter, *args, **kwargs):
         cxt = self.get_context()
@@ -77,14 +77,12 @@ class ContinueGameView(BaseGameView):
         if not user.is_authenticated():
             return redirect("auth_login")
 
-        if not hasattr(user, 'player'):
-            Player.setup(user)
+        if user.save_slots.count() == 0:
+            user.setup()
 
-        player = Player.objects.get(user=user)
-
-        if not player.active_save_slot:
-            slot = player.save_slots.get_slot(1)
+        if not user.active_save_slot:
+            slot = user.save_slots.get_slot(1)
             slot.new_game()
 
-        chapter = player.active_save_slot.current_chapter
-        return redirect("play-chapter", chapter=chapter)
+        chapter = user.active_save_slot.current_chapter
+        return redirect("game:play-chapter", chapter=chapter)
