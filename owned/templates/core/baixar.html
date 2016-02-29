@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Baixe o OWNED{% endblock %}
+
+{% block content %}
+
+<h1>Baixar o OWNED</h1>
+
+<hr>
+
+<p>Owned pode ser baixado para qualquer um desses formatos. Fora as adaptações necessárias, há poucas diferenças entre as versões.</p>
+
+<h3>Versão Gratuita</h3>
+
+<p>Em formato PDF, com links internos - Leia com Adobe Reader</p>
+
+<p>Em breve: em site, para jogar em máquinas (para Windows, Mac OS, Linux, alguns celulares). Para ler, basta ter um navegador instalado.</p>
+
+<h3>Versão Paga</h3>
+
+<p>Compre a versão impressa do livro pela editora 7Letras (vem com guia de estratégia e informações sobre o processo de criação do livro), <a href="http://www.7letras.com.br/owned-um-novo-jogador.html">no site da editora.</a></p>
+
+<p>Em breve, OWNED também estará à venda no formato .epub com os mesmos extras do livro impresso</p>
+
+<hr>
+
+<p class="text-center">
+    <a class="btn btn-default" href="{% static 'download/owned.pdf' %}">
+        <img src="{% static 'img/fa-cloud-download.png' %}" />
+        Baixar o OWNED
+    </a>
+</p>
+
+{% endblock %}
