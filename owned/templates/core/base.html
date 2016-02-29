@@ -45,16 +45,16 @@
                         <a href="/"><div class="headerlogo"></div></a>
 
                         <ul class="navigation-buttons" id="nav-right">
-                            <li><a class="button button-flat-highlight" href="/howto">Como Jogar</a></li>
-                            <li><a class="button button-flat-highlight" href="/whodunit">Créditos</a></li>
-                            <li><a class="button button-flat-highlight" href="/recs">Recomendações</a></li>
-                            <li><a class="button button-flat-highlight" href="/faq">FAQ</a></li>
+                            <li><a class="button button-flat-highlight" href="{% url 'core:how_to' %}">Como Jogar</a></li>
+                            <li><a class="button button-flat-highlight" href="{% url 'core:credits' %}">Créditos</a></li>
+                            <li><a class="button button-flat-highlight" href="{% url 'core:recommendations' %}">Recomendações</a></li>
+                            <li><a class="button button-flat-highlight" href="{% url 'core:faq' %}">FAQ</a></li>
                         </ul>
                         <ul class="navigation-buttons" id="nav-left">
-                            <li><a class="button button-flat-highlight" href="/halp">Glossário</a></li>
-                            <li><a class="button button-flat-highlight" href="/piratebay">Baixar o Owned</a></li>
-                            <li><a class="button button-flat-highlight" href="/enlarge_your_penis">Participe</a></li>
-                            <li><a class="button button-flat-highlight" href="/blog">Blog do Owned</a></li>
+                            <li><a class="button button-flat-highlight" href="{% url 'core:glossary' %}">Glossário</a></li>
+                            <li><a class="button button-flat-highlight" href="{% url 'core:download' %}">Baixar o Owned</a></li>
+                            <li><a class="button button-flat-highlight" href="{% url 'core:contact' %}">Participe</a></li>
+                            <li><a class="button button-flat-highlight" href="{% url 'core:blog' %}">Blog do Owned</a></li>
                         </ul>
                     </div>
                 </div>

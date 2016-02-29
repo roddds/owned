@@ -10,14 +10,14 @@ from owned.core.views import (HomeView,
                               FAQView)
 
 urlpatterns = [
-    url(r'^$', HomeView.as_view()),
+    url(r'^$', HomeView.as_view(), name='home'),
 
-    url(r'^halp$', GlossaryView.as_view()),
-    url(r'^howto$', HowToView.as_view()),
-    url(r'^piratebay$', DownloadView.as_view()),
-    url(r'^whodunit$', CreditsView.as_view()),
-    url(r'^enlarge_your_penis$', ContactView.as_view()),
-    url(r'^recs$', ReccommendationsView.as_view()),
-    url(r'^blog$', BlogView.as_view()),
-    url(r'^faq$', FAQView.as_view()),
+    url(r'^glossary$', GlossaryView.as_view(), name='glossary'),
+    url(r'^how_to$', HowToView.as_view(), name='how_to'),
+    url(r'^download$', DownloadView.as_view(), name='download'),
+    url(r'^credits$', CreditsView.as_view(), name='credits'),
+    url(r'^contact$', ContactView.as_view(), name='contact'),
+    url(r'^recommendations$', ReccommendationsView.as_view(), name='recommendations'),
+    url(r'^blog$', BlogView.as_view(), name='blog'),
+    url(r'^faq$', FAQView.as_view(), name='faq'),
 ]
