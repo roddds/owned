@@ -6,13 +6,15 @@ This is a web-based implementation of the choose-your-own-adventure book `Owned 
 <http://simonecampos.net>`_. This code will eventually replace the current, outdated website,
 located currently at `novojogador.com.br <http://novojogador.com.br>`_.
 
+To read more about the book, go `the author's website <http://simonecampos.net/owned>`_ or this
+`news article <http://blogs.estadao.com.br/link/um-jogo-em-capitulos/>`_.
+
 LICENSE: BSD
 
 Initial Setup
 -------------
 
-The steps below will get you up and running with a local development environment. For the instructions on how to get everything setup using Docker, go `here <http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html>`_
-. We assume you have the following installed:
+The steps below will get you up and running with a local development environment. For the instructions on how to get everything setup using Docker, go `here <http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html>`_. We assume you have the following installed:
 
 * pip
 * virtualenv
