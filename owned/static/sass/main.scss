@@ -50,6 +50,7 @@ body {
     .container-fluid {
         background-color: black;
 
+    .bars {
         .left-bar {
             left: 0px;
             -webkit-transform: scaleX(-1);
@@ -70,6 +71,7 @@ body {
             background-image: url(../img/sidebar.png);
             opacity: 0.5;
         }
+    }
 
         #middle {
             background-color: #AAA;
