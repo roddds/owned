@@ -1,0 +1,251 @@
+body {
+  background-color: #000;
+  width: 100%;
+  height: 100%; }
+  body h1, body h2, body h3 {
+    font-family: "Armata", sans-serif; }
+  body .staticpage p {
+    line-height: 14px; }
+  body .modal-dialog a.btn {
+    width: 180px; }
+  body .modal-dialog .modal-footer {
+    text-align: center; }
+  body .btn {
+    border-radius: 0px;
+    font-family: 'Armata', sans-serif; }
+  body .navigation-buttons {
+    float: right;
+    list-style: none;
+    padding: 1px;
+    padding-right: 5px; }
+    body .navigation-buttons li {
+      padding-bottom: 7px; }
+      body .navigation-buttons li a {
+        text-decoration: none;
+        background: #333;
+        width: 180px;
+        min-width: 165px;
+        font-family: 'Armata', sans-serif; }
+      body .navigation-buttons li a:hover {
+        background: #6DD2E5; }
+  body .container-fluid {
+    background-color: black; }
+    body .container-fluid .left-bar:after {
+      content: url(../img/sidebar.png); }
+    body .container-fluid .right-bar:after {
+      content: url(../img/sidebar-inv.png); }
+    body .container-fluid .bar {
+      opacity: 0.5;
+      overflow: hidden;
+      padding: 0; }
+    body .container-fluid .middle {
+      background-color: #AAA;
+      z-index: 100; }
+      body .container-fluid .middle #topbar {
+        background: #333;
+        border-top: 8px solid #555;
+        height: 50px;
+        color: white; }
+        body .container-fluid .middle #topbar a {
+          margin-right: 10px; }
+        body .container-fluid .middle #topbar .loginbar {
+          font-family: 'Armata', sans-serif;
+          margin-top: 7px;
+          overflow: hidden; }
+          body .container-fluid .middle #topbar .loginbar form {
+            float: right; }
+            body .container-fluid .middle #topbar .loginbar form input, body .container-fluid .middle #topbar .loginbar form label {
+              float: left; }
+            body .container-fluid .middle #topbar .loginbar form label {
+              text-transform: uppercase;
+              font-family: 'Armata', sans-serif;
+              margin: 5px 10px 10px 10px; }
+            body .container-fluid .middle #topbar .loginbar form .btn {
+              margin-left: 10px; }
+            body .container-fluid .middle #topbar .loginbar form #id_login, body .container-fluid .middle #topbar .loginbar form #id_password {
+              width: 140px;
+              height: 29px;
+              padding: 6px; }
+          body .container-fluid .middle #topbar .loginbar .btn-logout {
+            float: right; }
+          body .container-fluid .middle #topbar .loginbar .lazy-user-message a {
+            margin: 0; }
+          body .container-fluid .middle #topbar .loginbar .userinfo {
+            margin-top: 4px;
+            margin-left: 10px;
+            float: left; }
+      body .container-fluid .middle #header {
+        height: 145px;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black; }
+        body .container-fluid .middle #header .navigation-wrapper {
+          margin-top: 12px; }
+          body .container-fluid .middle #header .navigation-wrapper .headerlogo {
+            background-image: url(../img/logo_flat.png);
+            background-size: 100%;
+            height: 115px;
+            width: 320px;
+            margin-left: 60px;
+            float: left;
+            border-radius: 70px;
+            display: block; }
+          body .container-fluid .middle #header .navigation-wrapper #nav-right {
+            padding-right: 20px; }
+      body .container-fluid .middle .inventory {
+        float: right;
+        margin-top: 50px;
+        margin-right: 35px;
+        background-color: #000;
+        width: 110px;
+        opacity: 0.65; }
+        body .container-fluid .middle .inventory .inventory-items img {
+          opacity: 0.65;
+          width: 42px;
+          margin: 5px;
+          transition: opacity 500ms; }
+        body .container-fluid .middle .inventory .inventory-items img:hover {
+          opacity: 1; }
+        body .container-fluid .middle .inventory .inventory-title {
+          text-align: center;
+          font-family: 'Armata', sans-serif;
+          font-weight: bold;
+          color: #CCC;
+          letter-spacing: 1px;
+          margin-bottom: 5px;
+          margin-top: 10px; }
+      body .container-fluid .middle .clear {
+        clear: both; }
+      body .container-fluid .middle #content-wrapper #content {
+        background-color: white;
+        position: relative;
+        height: 95%;
+        margin: 10px;
+        border-radius: 25px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0; }
+        body .container-fluid .middle #content-wrapper #content #square-top {
+          float: right; }
+        body .container-fluid .middle #content-wrapper #content #square-bottom {
+          position: absolute;
+          bottom: 0px;
+          left: 0px; }
+        body .container-fluid .middle #content-wrapper #content .square {
+          background-color: #AAA;
+          height: 30px;
+          width: 30px; }
+      body .container-fluid .middle #footer {
+        position: relative;
+        background: #222;
+        height: 150px;
+        font-family: 'Armata', sans-serif;
+        overflow: hidden; }
+        body .container-fluid .middle #footer #footerlogo {
+          box-shadow: 0px 0px 5px #00A3FF;
+          border-radius: 22px;
+          width: 125px;
+          position: relative;
+          display: inline-block;
+          top: 25px;
+          left: 15px; }
+          body .container-fluid .middle #footer #footerlogo img {
+            width: 125px; }
+        body .container-fluid .middle #footer #license img {
+          border-width: 0;
+          box-shadow: 0px 0px 5px white;
+          position: relative;
+          display: inline-block;
+          left: 32px;
+          top: 40px; }
+        body .container-fluid .middle #footer ul#footer-navigation {
+          width: 450px;
+          position: relative;
+          display: inline-block;
+          bottom: 50px;
+          left: 160px;
+          padding: 0; }
+          body .container-fluid .middle #footer ul#footer-navigation li {
+            width: 33%;
+            float: left;
+            list-style: none; }
+        body .container-fluid .middle #footer #copyright-notice {
+          width: 450px;
+          height: 50px;
+          position: relative;
+          display: inline-block;
+          bottom: 42px;
+          left: 160px;
+          padding: 0; }
+          body .container-fluid .middle #footer #copyright-notice p {
+            font-size: 9px;
+            color: white;
+            display: inline-block; }
+  body .book-text {
+    padding: 25px 50px;
+    min-height: 600px;
+    width: 85%;
+    font-family: 'Open sans', serif; }
+    body .book-text .text-title {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 25px; }
+    body .book-text .text-body {
+      margin-bottom: 3em; }
+      body .book-text .text-body p {
+        text-indent: 30px;
+        font-size: 15px;
+        text-align: justify;
+        margin: 0px; }
+        body .book-text .text-body p strong {
+          font-weight: 700; }
+        body .book-text .text-body p .warning {
+          color: #800000; }
+    body .book-text .text-options a {
+      text-decoration: none;
+      background: #333;
+      font-family: 'Armata', sans-serif;
+      margin: 2px; }
+    body .book-text .spacer {
+      height: 80px; }
+    body .book-text .bold-paragraph {
+      margin: 15px 0 15px; }
+    body .book-text .navigation-buttons {
+      text-align: center;
+      float: center;
+      margin-top: 50px; }
+      body .book-text .navigation-buttons li {
+        padding: 10px;
+        display: inline-block; }
+        body .book-text .navigation-buttons li button {
+          width: 150px; }
+  body .signup form, body .signup p {
+    font-family: "Armata", sans-serif; }
+  body .signup .signupform ul, body .signup .signupform li, body .signup .signinform ul, body .signup .signinform li {
+    display: inline;
+    float: right;
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+    text-align: right; }
+  body .signup .signupform label, body .signup .signinform label {
+    display: block; }
+  body .signup .signupform input, body .signup .signupform a, body .signup .signinform input, body .signup .signinform a {
+    margin-bottom: 20px;
+    border: 1px solid #d7dae0;
+    box-shadow: 0 0 0 4px #eef6ff;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: box-shadow 100ms,border 100ms;
+    width: 400px;
+    display: inline-block;
+    }
+  body .signup .signupform input:focus, body .signup .signinform input:focus {
+    -webkit-box-shadow: 0 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 1px 4px rgba(0, 0, 0, 0.2); }
+  body .signup .signupform input.red, body .signup .signinform input.red {
+    border: 1px solid #fd9898;
+    box-shadow: 0px 0px 5px 2px rgba(235, 187, 187, 0.6); }
+  body .signup .signupform input[type=submit], body .signup .signinform input[type=submit] {
+    width: 28%; }
+  body .signup .signupform a, body .signup .signinform a {
+    width: 35%; }

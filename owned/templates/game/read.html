@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ paragraph.title }}{% endblock %}
+
+{% block content %}
+<div class="text-title">
+    {{ paragraph.title }}
+</div>
+
+<div class="text-body">
+    {{ paragraph.text | safe}}
+</div>
+
+<div class="text-options">
+    {% for option in options %}
+        <div class="option">
+        {% if option.requirements_met %}
+            <a class="btn btn-default btn-small" href="{{ url_prefix }}{{ option.choice.target }}">
+                {{ option.choice.text | safe }}
+            </a>
+        {% else %}
+            <a class="btn btn-default btn-small disabled" href="">
+                {{ option.choice.text | safe }}
+            </a>
+        {% endif %}
+        </div>
+    {% endfor %}
+</div>
+<div class="spacer"></div>
+
+{% endblock %}
+
+{% block inventory_block %}
+<div class="inventory-title">INVENTORY</div>
+<div class="inventory-items">
+    {% for item in inventory %}
+        <img src="{{STATIC_URL}}img/inventory/{{item.image_filename}}" title="{{ item.name }}"></img>
+    {% endfor %}
+</div>
+{% endblock %}

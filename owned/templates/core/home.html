@@ -1,0 +1,50 @@
+{% extends "core/base.html" %}
+
+{% block title %}OWNED{% endblock %}
+
+{% block content %}
+
+<h1>OWNED - Um Novo Jogador</h1>
+
+<hr>
+
+<p><strong>OWNED - um novo jogador</strong> é um jogo interativo. Você decide o final.</p>
+
+<p>Em <strong>OWNED</strong> você é André, um técnico de informática viciado em videogames que vai tentar conquistar pelo menos uma dentre <strong>sete</strong> garotas. Para jogar, basta clicar em uma das opções no final de cada trecho de história, dando um rumo à vida de André.</p>
+
+<p>Você pode salvar o jogo e pode jogar de novo quantas vezes quiser. É grátis!</p>
+
+<p><span class="warning">Recomendado para maiores de 18 anos.</span></p>
+
+<ul class="navigation-buttons">
+    {% if user.is_authenticated %}
+        <li><a class="button button-flat-highlight" data-toggle="modal" href="/new_game">New game</a></li>
+    {% else %}
+        <li><a class="button button-flat-highlight" data-toggle="modal" href="#new_game">New game</a></li>
+    {% endif %}
+
+    <li><a class="button button-flat-highlight" href="/continue">Continue</a></li>
+</ul>
+
+{% endblock %}
+
+{% block modal %}
+    <div class="modal fade" id="new_game" tabindex="-1" role="dialog" aria-labelledby="new_game_label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">New game</h4>
+        </div>
+        <div class="modal-body">
+          Para poder salvar o jogo, você precisa estar logado. Escolha uma opção:
+        </div>
+        <div class="modal-footer">
+          <p><a href="/registro" class="btn btn-default">Criar sua conta</a></p>
+          <p><a href="/login" class="btn btn-primary">Fazer login</a></p>
+          <p><a href="/continue" class="btn btn-danger">Jogar sem salvar</a></p>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{% endblock %}

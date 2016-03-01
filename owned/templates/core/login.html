@@ -1,0 +1,30 @@
+{% load lazysignup_tags %}
+
+{% block login %}
+<div class="loginbar">
+{% if not user.is_authenticated %}
+    <form action="/accounts/login/" method="post" id="login-form">{% csrf_token %}
+        <label for="id_login" class="required">Login:</label>
+        <input id="id_login" maxlength="254" name="login" type="text" class="form-control">
+        
+        <label for="id_password" class="required">Senha:</label>
+        <input id="id_password" name="password" type="password" class="form-control">
+
+        <input type="submit" value="Login" class="btn btn-default btn-small">
+        <a href="/registro/" class="btn btn-default btn-small">Cadastrar</a>
+    </form>
+{% elif not user|is_lazy_user %}
+        <div class="userinfo">
+            JOGADOR: {{ user.username }}
+        </div>
+        <a class="btn btn-default btn-small btn-logout" href="/password/change">Alterar senha</a>
+        <a class="btn btn-default btn-small btn-logout" href="/logout">Logout</a>
+{% else %}
+        <div class="userinfo lazy-user-message">
+            Crie uma conta e <a href='{% url "lazysignup_convert" %}'>salve seu progresso</a>!
+        </div>
+        <a class="btn btn-default btn-small btn-logout" href="/logout">Logout</a>
+{% endif %}
+</div>
+
+{% endblock %}
