@@ -22,13 +22,11 @@
 
 <body>
     {% block modal %}{% endblock %}
-    <div class="bars">
-        <div class="left-bar bar"></div>
-        <div class="right-bar bar"></div>
-    </div>
-
     <div class="container-fluid">
-        <div class="col-md-8 center-block middle">
+
+        <div class="col-md-2 left-bar bar"></div>
+
+        <div class="col-md-8 middle">
             <div id="topbar">
                 {% include "core/login.html" %}
             </div>
@@ -82,6 +80,8 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-2 right-bar bar"></div>
     </div>
     <a href="https://github.com/roddds/owned" class="forkme">
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>

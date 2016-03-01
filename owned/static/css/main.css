@@ -28,31 +28,18 @@ body {
         font-family: 'Armata', sans-serif; }
       body .navigation-buttons li a:hover {
         background: #6DD2E5; }
-  body .bars .left-bar {
-    left: 0px;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1); }
-  body .bars .right-bar {
-    right: 0px; }
-  body .bars .bar {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left;
-    width: 23%;
-    height: 100%;
-    position: fixed;
-    background-image: url(../img/sidebar.png);
-    opacity: 0.5; }
   body .container-fluid {
     background-color: black; }
-    body .container-fluid .center-block {
-      float: none; }
+    body .container-fluid .left-bar:after {
+      content: url(../img/sidebar.png); }
+    body .container-fluid .right-bar:after {
+      content: url(../img/sidebar-inv.png); }
+    body .container-fluid .bar {
+      opacity: 0.5;
+      overflow: hidden;
+      padding: 0; }
     body .container-fluid .middle {
       background-color: #AAA;
-      width: 850px;
-      min-width: 850px;
-      margin: 0 auto;
-      position: relative;
       z-index: 100; }
       body .container-fluid .middle #topbar {
         background: #333;
