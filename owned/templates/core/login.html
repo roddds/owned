@@ -3,9 +3,9 @@
 {% block login %}
 <div class="loginbar">
 {% if not user.is_authenticated %}
-    <form action="/login/" method="post" id="login-form">{% csrf_token %}
-        <label for="id_username" class="required">Login:</label>
-        <input id="id_username" maxlength="254" name="username" type="text" class="form-control">
+    <form action="/accounts/login/" method="post" id="login-form">{% csrf_token %}
+        <label for="id_login" class="required">Login:</label>
+        <input id="id_login" maxlength="254" name="login" type="text" class="form-control">
         
         <label for="id_password" class="required">Senha:</label>
         <input id="id_password" name="password" type="password" class="form-control">
