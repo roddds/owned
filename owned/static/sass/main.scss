@@ -47,9 +47,6 @@ body {
         }
     }
 
-    .container-fluid {
-        background-color: black;
-
     .bars {
         .left-bar {
             left: 0px;
@@ -73,7 +70,14 @@ body {
         }
     }
 
-        #middle {
+    .container-fluid {
+        background-color: black;
+
+        .center-block {
+            float: none;
+        }
+
+        .middle {
             background-color: #AAA;
             width: 850px;
             min-width: 850px;
