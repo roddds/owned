@@ -47,16 +47,16 @@ body {
         }
     }
 
-    .wrapper {
+    .container-fluid {
         background-color: black;
 
-        #left {
+        .left-bar {
             left: 0px;
             -webkit-transform: scaleX(-1);
             transform: scaleX(-1);
         }
 
-        #right {
+        .right-bar {
             right: 0px;
         }
 
