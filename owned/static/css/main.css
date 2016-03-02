@@ -76,8 +76,8 @@ body {
             float: left; }
       body .container-fluid .middle #header {
         height: 145px;
-        border-bottom: 1px solid black;
-        border-top: 1px solid black; }
+        margin-top: 28px;
+        border-bottom: 1px solid black; }
         body .container-fluid .middle #header .navigation-wrapper {
           margin-top: 12px; }
           body .container-fluid .middle #header .navigation-wrapper .headerlogo {
@@ -87,8 +87,7 @@ body {
             width: 320px;
             margin-left: 60px;
             float: left;
-            border-radius: 70px;
-            display: block; }
+            display: inline; }
           body .container-fluid .middle #header .navigation-wrapper #nav-right {
             padding-right: 20px; }
       body .container-fluid .middle .inventory {

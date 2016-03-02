@@ -121,8 +121,8 @@ body {
 
             #header {
                 height: 145px;
+                margin-top: 28px;
                 border-bottom: 1px solid black;
-                border-top: 1px solid black;
 
                 .navigation-wrapper {
                     margin-top: 12px;
@@ -134,8 +134,7 @@ body {
                         width: 320px;
                         margin-left: 60px;
                         float: left;
-                        border-radius: 70px;
-                        display: block;
+                        display: inline;
                     }
 
                     #nav-right {
