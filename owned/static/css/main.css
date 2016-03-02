@@ -1,7 +1,5 @@
 body {
-  background-color: #000;
-  width: 100%;
-  height: 100%; }
+  background-color: #000; }
   body h1, body h2, body h3 {
     font-family: "Armata", sans-serif; }
   body .staticpage p {
@@ -14,12 +12,12 @@ body {
     border-radius: 0px;
     font-family: 'Armata', sans-serif; }
   body .navigation-buttons {
-    float: right;
     list-style: none;
     padding: 1px;
     padding-right: 5px; }
     body .navigation-buttons li {
-      padding-bottom: 7px; }
+      padding: 13px;
+      float: left; }
       body .navigation-buttons li a {
         text-decoration: none;
         background: #333;
@@ -39,57 +37,49 @@ body {
       overflow: hidden;
       padding: 0; }
     body .container-fluid .middle {
-      background-color: #AAA;
-      z-index: 100; }
-      body .container-fluid .middle #topbar {
+      background-color: #AAA; }
+      body .container-fluid .middle .topbar {
         background: #333;
         border-top: 8px solid #555;
         height: 50px;
         color: white; }
-        body .container-fluid .middle #topbar a {
+        body .container-fluid .middle .topbar a {
           margin-right: 10px; }
-        body .container-fluid .middle #topbar .loginbar {
+        body .container-fluid .middle .topbar .loginbar {
           font-family: 'Armata', sans-serif;
           margin-top: 7px;
           overflow: hidden; }
-          body .container-fluid .middle #topbar .loginbar form {
+          body .container-fluid .middle .topbar .loginbar form {
             float: right; }
-            body .container-fluid .middle #topbar .loginbar form input, body .container-fluid .middle #topbar .loginbar form label {
+            body .container-fluid .middle .topbar .loginbar form input, body .container-fluid .middle .topbar .loginbar form label {
               float: left; }
-            body .container-fluid .middle #topbar .loginbar form label {
+            body .container-fluid .middle .topbar .loginbar form label {
               text-transform: uppercase;
               font-family: 'Armata', sans-serif;
               margin: 5px 10px 10px 10px; }
-            body .container-fluid .middle #topbar .loginbar form .btn {
+            body .container-fluid .middle .topbar .loginbar form .btn {
               margin-left: 10px; }
-            body .container-fluid .middle #topbar .loginbar form #id_login, body .container-fluid .middle #topbar .loginbar form #id_password {
+            body .container-fluid .middle .topbar .loginbar form #id_login, body .container-fluid .middle .topbar .loginbar form #id_password {
               width: 140px;
               height: 29px;
               padding: 6px; }
-          body .container-fluid .middle #topbar .loginbar .btn-logout {
+          body .container-fluid .middle .topbar .loginbar .btn-logout {
             float: right; }
-          body .container-fluid .middle #topbar .loginbar .lazy-user-message a {
+          body .container-fluid .middle .topbar .loginbar .lazy-user-message a {
             margin: 0; }
-          body .container-fluid .middle #topbar .loginbar .userinfo {
+          body .container-fluid .middle .topbar .loginbar .userinfo {
             margin-top: 4px;
             margin-left: 10px;
             float: left; }
-      body .container-fluid .middle #header {
-        height: 145px;
-        margin-top: 28px;
+      body .container-fluid .middle .header {
+        padding: 30px 0;
         border-bottom: 1px solid black; }
-        body .container-fluid .middle #header .navigation-wrapper {
-          margin-top: 12px; }
-          body .container-fluid .middle #header .navigation-wrapper .headerlogo {
-            background-image: url(../img/logo_flat.png);
-            background-size: 100%;
-            height: 115px;
-            width: 320px;
-            margin-left: 60px;
-            float: left;
-            display: inline; }
-          body .container-fluid .middle #header .navigation-wrapper #nav-right {
-            padding-right: 20px; }
+        body .container-fluid .middle .header .headerlogo {
+          width: 100%;
+          display: block; }
+          body .container-fluid .middle .header .headerlogo img {
+            margin: auto;
+            width: 100%; }
       body .container-fluid .middle .inventory {
         float: right;
         margin-top: 50px;
@@ -134,7 +124,7 @@ body {
           width: 30px; }
   body .book-text {
     padding: 25px 50px;
-    min-height: 83vh;
+    min-height: 75vh;
     width: 85%;
     font-family: 'Open sans', serif; }
     body .book-text .text-title {
@@ -162,8 +152,8 @@ body {
     body .book-text .bold-paragraph {
       margin: 15px 0 15px; }
     body .book-text .navigation-buttons {
+      width: 100%;
       text-align: center;
-      float: center;
       margin-top: 50px; }
       body .book-text .navigation-buttons li {
         padding: 10px;
@@ -216,12 +206,11 @@ body {
     .footer .logos #footerlogo {
       width: 125px; }
   .footer .navigation {
-    padding-left: 0;
-    padding-right: 0; }
+    padding: 0; }
     .footer .navigation ul.nav {
-      width: 510px; }
+      width: 80%; }
       .footer .navigation ul.nav li {
-        width: 33%;
+        min-width: 20%;
         float: left; }
   .footer .copyright-notice {
     color: white;
