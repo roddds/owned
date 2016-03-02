@@ -8,6 +8,8 @@ django_coverage_plugin==1.2.2
 flake8==2.5.2
 django-test-plus==1.0.11
 factory_boy==2.6.0
+model-mommy==1.2.6
+
 
 # pytest!
 pytest-django==2.9.1

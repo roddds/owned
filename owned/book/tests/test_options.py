@@ -103,7 +103,7 @@ class TestChapterOption(TestCase):
 
         self.assertFalse(self.option.requirements_met(self.slot))
 
-    def test_option_event_met_item_not_met(self):
+    def test_option_event_exclusion_item_not(self):
         "testa opção com exclusão de evento atendida mas de item não"
         event = mommy.make('book.Event')
         item = mommy.make('book.Item')
@@ -115,7 +115,7 @@ class TestChapterOption(TestCase):
 
         self.assertFalse(self.option.requirements_met(self.slot))
 
-    def test_option_item_met_event_not_met(self):
+    def test_option_item_exclusion_event_not(self):
         "testa opção com exclusão de item atendida mas de evento não"
         event = mommy.make('book.Event')
         item = mommy.make('book.Item')
