@@ -132,52 +132,6 @@ body {
           background-color: #AAA;
           height: 30px;
           width: 30px; }
-      body .container-fluid .middle #footer {
-        position: relative;
-        background: #222;
-        height: 150px;
-        font-family: 'Armata', sans-serif;
-        overflow: hidden; }
-        body .container-fluid .middle #footer #footerlogo {
-          box-shadow: 0px 0px 5px #00A3FF;
-          border-radius: 22px;
-          width: 125px;
-          position: relative;
-          display: inline-block;
-          top: 25px;
-          left: 15px; }
-          body .container-fluid .middle #footer #footerlogo img {
-            width: 125px; }
-        body .container-fluid .middle #footer #license img {
-          border-width: 0;
-          box-shadow: 0px 0px 5px white;
-          position: relative;
-          display: inline-block;
-          left: 32px;
-          top: 40px; }
-        body .container-fluid .middle #footer ul#footer-navigation {
-          width: 450px;
-          position: relative;
-          display: inline-block;
-          bottom: 50px;
-          left: 160px;
-          padding: 0; }
-          body .container-fluid .middle #footer ul#footer-navigation li {
-            width: 33%;
-            float: left;
-            list-style: none; }
-        body .container-fluid .middle #footer #copyright-notice {
-          width: 450px;
-          height: 50px;
-          position: relative;
-          display: inline-block;
-          bottom: 42px;
-          left: 160px;
-          padding: 0; }
-          body .container-fluid .middle #footer #copyright-notice p {
-            font-size: 9px;
-            color: white;
-            display: inline-block; }
   body .book-text {
     padding: 25px 50px;
     min-height: 600px;
@@ -248,3 +202,29 @@ body {
     width: 28%; }
   body .signup .signupform a, body .signup .signinform a {
     width: 35%; }
+
+.footer {
+  background: #222;
+  font-family: "Armata", sans-serif;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0; }
+  .footer .logos {
+    padding: 0;
+    text-align: center; }
+    .footer .logos img {
+      padding: 5px; }
+    .footer .logos #footerlogo {
+      width: 125px; }
+  .footer .navigation {
+    padding-left: 0;
+    padding-right: 0; }
+    .footer .navigation ul.nav {
+      width: 510px; }
+      .footer .navigation ul.nav li {
+        width: 33%;
+        float: left; }
+  .footer .copyright-notice {
+    color: white;
+    font-size: 0.7em;
+    padding-top: 8px; }

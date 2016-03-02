@@ -58,24 +58,24 @@
                     <div class="square" id="square-bottom"></div>
                 </div>
             </div>
-            <div id="footer">
-                <div id="footerlogo">
-                    <img src="{% static 'img/logo_flat.png' %}"></img>
-                </div>
-                <div id="license">
+            <div class="row footer">
+                <div class="col-md-2 logos">
+                    <img src="{% static 'img/logo_flat.png' %}" id="footerlogo"></img>
                     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">
                         <img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png" />
                     </a>
                 </div>
-                <ul id="footer-navigation">
-                    <li><a href="{% url 'core:credits' %}">&gt; Créditos</a></li>
-                    <li><a href="{% url 'core:recommendations' %}">&gt; Recomendações</a></li>
-                    <li><a href="{% url 'core:faq' %}">&gt; FAQ</a></li>
-                    <li><a href="{% url 'core:glossary' %}">&gt; Glossário</a></li>
-                    <li><a href="{% url 'core:download' %}">&gt; Baixe OWNED</a></li>
-                    <li><a href="{% url 'core:contact' %}">&gt; Participe</a></li>
-                </ul>
-                <div id="copyright-notice">
+                <div class="col-md-6 navigation">
+                    <ul class="nav">
+                        <li><a href="{% url 'core:credits' %}">> Créditos</a></li>
+                        <li><a href="{% url 'core:recommendations' %}">> Recomendações</a></li>
+                        <li><a href="{% url 'core:faq' %}">> FAQ</a></li>
+                        <li><a href="{% url 'core:glossary' %}">> Glossário</a></li>
+                        <li><a href="{% url 'core:download' %}">> Baixe OWNED</a></li>
+                        <li><a href="{% url 'core:contact' %}">> Participe</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 copyright-notice">
                     <p>A obra Owned - um novo jogador de Simone Campos foi licenciada com uma Licença Creative Commons - Atribuição - Uso Não-Comercial - Partilha nos Mesmos Termos 3.0 Não Adaptada</p>
                 </div>
             </div>

@@ -202,65 +202,6 @@ body {
                     }
                 }
             }
-
-            #footer {
-                position: relative;
-                background: #222;
-                height: 150px;
-                font-family: 'Armata', sans-serif;
-                overflow: hidden;
-
-                #footerlogo {
-                    box-shadow: 0px 0px 5px #00A3FF;
-                    border-radius: 22px;
-                    width: 125px;
-                    position: relative;
-                    display: inline-block;
-                    top: 25px;
-                    left: 15px;
-                    img {
-                        width: 125px;
-                    }
-                }
-
-                #license img {
-                    border-width: 0;
-                    box-shadow: 0px 0px 5px white;
-                    position: relative;
-                    display: inline-block;
-                    left: 32px;
-                    top: 40px;
-                }
-
-                ul#footer-navigation {
-                    width: 450px;
-                    position: relative;
-                    display: inline-block;
-                    bottom: 50px;
-                    left: 160px;
-                    padding: 0;
-                    li {
-                        width: 33%;
-                        float: left;
-                        list-style: none;
-                    }
-                }
-
-                #copyright-notice {
-                    width: 450px;
-                    height: 50px;
-                    position: relative;
-                    display: inline-block;
-                    bottom: 42px;
-                    left: 160px;
-                    padding: 0;
-                    p {
-                        font-size: 9px;
-                        color: white;
-                        display: inline-block;
-                    }
-                }
-            }
         }
     }
 
@@ -375,5 +316,44 @@ body {
                 width: 35%;
             }
         }
+    }
+}
+
+.footer {
+    background: #222;
+    font-family: "Armata", sans-serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0;
+
+    .logos {
+        padding: 0;
+        text-align: center;
+
+        img {
+            padding: 5px;
+        }
+
+        #footerlogo {
+            width: 125px;
+        }
+    }
+
+    .navigation {
+        padding-left: 0;
+        padding-right: 0;
+        ul.nav {
+            width: 510px;
+            li {
+                width: 33%;
+                float: left;
+            }
+        }
+    }
+
+    .copyright-notice {
+        color: white;
+        font-size: 0.7em;
+        padding-top: 8px;
     }
 }
