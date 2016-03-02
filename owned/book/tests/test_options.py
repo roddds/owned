@@ -70,7 +70,7 @@ class TestChapterOption(TestCase):
 
         self.assertFalse(self.option.requirements_met(self.slot))
 
-    ## exclusion
+    # exclusion
 
     def test_option_item_exclusion_not_met(self):
         "testa opção com exclusão de item não atendida"
@@ -126,4 +126,3 @@ class TestChapterOption(TestCase):
         self.option.excluding_events.add(event)
 
         self.assertFalse(self.option.requirements_met(self.slot))
-

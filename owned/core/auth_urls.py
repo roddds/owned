@@ -11,7 +11,6 @@ Urls de autenticação do Owned
 
 """
 
-from django.conf.urls import include
 from django.conf.urls import url
 
 from django.contrib.auth import views as auth_views
@@ -21,8 +20,10 @@ from registration.backends.default.views import ActivationView
 from registration.backends.default.views import RegistrationView
 from registration.forms import RegistrationFormUniqueEmail
 
+
 class RegistrationViewUniqueEmail(RegistrationView):
     form_class = RegistrationFormUniqueEmail
+
 
 urlpatterns = [
     url(r'^login/$', auth_views.login, {'template_name': 'registration/login.html'}, name='auth_login'),

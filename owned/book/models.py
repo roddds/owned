@@ -41,10 +41,10 @@ class Option(models.Model):
     def requirements_met(self, saveslot):
         logger.debug("checking requirements for option %d" % self.target)
 
-        if not any ([self.required_items.exists(),
-                     self.required_events.exists(),
-                     self.excluding_items.exists(),
-                     self.excluding_events.exists()]):
+        if not any([self.required_items.exists(),
+                    self.required_events.exists(),
+                    self.excluding_items.exists(),
+                    self.excluding_events.exists()]):
             logger.debug("option %d has no requirements" % self.target)
             return True
 

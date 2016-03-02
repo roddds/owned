@@ -28,11 +28,12 @@ class User(AbstractUser):
 
     def setup(self):
         logger.debug("Player %s created" % self.username)
-        save_slots = [SaveSlot.objects.create(player_owner=self) for x in range(3)]
+
+        [SaveSlot.objects.create(player_owner=self) for x in range(3)]
+
         logger.debug("Created 3 save slots for player %s" % self.username)
         self.save()
         return self
-
 
     def __str__(self):
         return self.username

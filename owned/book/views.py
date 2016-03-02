@@ -20,5 +20,4 @@ class ReadChapter(BaseBookView):
     def get(self, request, **kwargs):
         cxt = self.get_context()
 
-
         return self.render_to_response(cxt)

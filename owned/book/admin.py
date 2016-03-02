@@ -1,14 +1,15 @@
 from django.contrib import admin
-from django.db import models
 from .models import Paragraph, Option, Event, Item
+
 
 class OptionAdmin(admin.StackedInline):
     model = Option
 
+
 class ParagraphAdmin(admin.ModelAdmin):
     list_display = ('title', 'display_text')
 
-    inlines = [OptionAdmin,]
+    inlines = [OptionAdmin, ]
 
 
 admin.site.register(Paragraph, ParagraphAdmin)

@@ -29,12 +29,12 @@ urlpatterns = [
     # -----
     url(r'^', include('owned.core.auth_urls')),
 
-    url(r'^convert/$', convert, {'template_name':'convert/convert.html',
+    url(r'^convert/$', convert, {'template_name': 'convert/convert.html',
                                  # 'form_class': RegistrationFormUniqueEmail},
                                  },
-                                name='lazysignup_convert'),
+        name='lazysignup_convert'),
     url(r'^done/$', TemplateView.as_view(template_name='convert/convertion_complete.html'),
-                                         name='lazysignup_convert_done'),
+        name='lazysignup_convert_done'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

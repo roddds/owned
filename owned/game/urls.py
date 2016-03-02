@@ -1,4 +1,4 @@
-from django.conf.urls import include, url
+from django.conf.urls import url
 from owned.game.views import NewGameView, ContinueGameView, PlayChapterView
 
 urlpatterns = [

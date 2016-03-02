@@ -4,7 +4,6 @@ from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView
 from lazysignup.decorators import allow_lazy_user
 from owned.book.models import Paragraph
-from owned.users.models import User
 
 import logging
 logger = logging.getLogger("game")
@@ -17,7 +16,9 @@ class BaseGameView(TemplateView):
         cxt['paragraph'] = Paragraph.objects.get(pk=self.kwargs['chapter'])
         cxt['player'] = self.request.user
         cxt['slot'] = self.request.user.active_save_slot
-        cxt['options'] = [{'choice': x, 'requirements_met': x.requirements_met(cxt['slot'])} for x in cxt['paragraph'].option_set.all()]
+        cxt['options'] = [{'choice': x,
+                           'requirements_met': x.requirements_met(cxt['slot'])}
+                          for x in cxt['paragraph'].option_set.all()]
         cxt['chapter'] = self.request.user.active_save_slot.current_chapter
         return cxt
 
