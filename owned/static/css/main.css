@@ -134,7 +134,7 @@ body {
           width: 30px; }
   body .book-text {
     padding: 25px 50px;
-    min-height: 600px;
+    min-height: 83vh;
     width: 85%;
     font-family: 'Open sans', serif; }
     body .book-text .text-title {
@@ -190,8 +190,7 @@ body {
     font-size: 16px;
     transition: box-shadow 100ms,border 100ms;
     width: 400px;
-    display: inline-block;
-    }
+    display: inline-block; }
   body .signup .signupform input:focus, body .signup .signinform input:focus {
     -webkit-box-shadow: 0 0 1px 4px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 1px 4px rgba(0, 0, 0, 0.2); }
