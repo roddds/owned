@@ -26,14 +26,14 @@ body {
         background: #6DD2E5; }
   body .container-fluid {
     background-color: black; }
-    body .container-fluid .left-bar:after {
-      content: url(../img/sidebar.png); }
-    body .container-fluid .right-bar:after {
-      content: url(../img/sidebar-inv.png); }
     body .container-fluid .bar {
       opacity: 0.5;
       position: fixed;
       padding: 0; }
+    body .container-fluid .right-bar img {
+      transform: scaleX(-1); }
+    body .container-fluid .bar img {
+      height: 100%; }
     body .container-fluid .middle {
       background-color: #AAA; }
       body .container-fluid .middle .topbar {
