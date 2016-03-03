@@ -35,6 +35,12 @@ class User(AbstractUser):
         self.save()
         return self
 
+    @staticmethod
+    def generate_username():
+        start = uuid.uuid4().hex[:5]
+        end = uuid.uuid4().hex[-5:]
+        return start + '_owned_anon_player_' + end
+
     def __str__(self):
         return self.username
 
