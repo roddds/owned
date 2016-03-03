@@ -40,32 +40,27 @@ class Option(models.Model):
 
     def requirements_met(self, saveslot):
         logger.debug("checking requirements for option %d" % self.target)
-
-        if not any([self.required_items.exists(),
-                    self.required_events.exists(),
-                    self.excluding_items.exists(),
-                    self.excluding_events.exists()]):
-            logger.debug("option %d has no requirements" % self.target)
-            return True
+        inventory = saveslot.inventory.all()
+        events = saveslot.events.all()
 
         if self.required_items.exists():
-            logger.debug("item requirements for option %d not met" % self.target)
-            if not self.required_items.filter(id__in=saveslot.inventory.all()).exists():
-                return False
-
-        if self.required_events.exists():
-            logger.debug("event requirements for option %d not met" % self.target)
-            if not self.required_events.filter(id__in=saveslot.events.all()).exists():
+            if not self.required_items.filter(id__in=inventory).exists():
+                logger.debug("item requirements for option %d not met" % self.target)
                 return False
 
         if self.excluding_items.exists():
-            logger.debug("item exclusion for option %d not met" % self.target)
-            if self.excluding_items.filter(id__in=saveslot.inventory.all()).exists():
+            if self.excluding_items.filter(id__in=inventory).exists():
+                logger.debug("item exclusion for option %d not met" % self.target)
+                return False
+
+        if self.required_events.exists():
+            if not self.required_events.filter(id__in=events).exists():
+                logger.debug("event requirements for option %d not met" % self.target)
                 return False
 
         if self.excluding_events.exists():
-            logger.debug("event exclusion for option %d not met" % self.target)
-            if self.excluding_events.filter(id__in=saveslot.events.all()).exists():
+            if self.excluding_events.filter(id__in=events).exists():
+                logger.debug("event exclusion for option %d not met" % self.target)
                 return False
 
         return True
