@@ -47,18 +47,13 @@ body {
 
     .container-fluid {
         background-color: black;
-    
-        .left-bar:after {
-            content: url(../img/sidebar.png);
-        }
 
-        .right-bar:after {
-            content: url(../img/sidebar-inv.png);
-        }
+        .left-bar:after  { content: url(../img/sidebar.png); }
+        .right-bar:after { content: url(../img/sidebar-inv.png); }
 
         .bar {
             opacity: 0.5;
-            overflow: hidden;
+            position: fixed;
             padding: 0;
         }
 

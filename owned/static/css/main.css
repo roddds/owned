@@ -34,7 +34,7 @@ body {
       content: url(../img/sidebar-inv.png); }
     body .container-fluid .bar {
       opacity: 0.5;
-      overflow: hidden;
+      position: fixed;
       padding: 0; }
     body .container-fluid .middle {
       background-color: #AAA; }
