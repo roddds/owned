@@ -29,8 +29,6 @@ body {
 
     .navigation-buttons {
         list-style: none;
-        padding: 1px;
-        padding-right: 5px;
         li {
             padding: 13px;
             float: left;
@@ -115,13 +113,8 @@ body {
                 padding: 30px 0;
                 border-bottom: 1px solid black;
 
-                .headerlogo {
-                    width: 100%;
-                    display: block;
-                    img {
-                    margin: auto;
-                        width: 100%;
-                    }
+                .headerlogo img {
+                    padding: 5%;
                 }
             }
 

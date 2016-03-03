@@ -12,9 +12,7 @@ body {
     border-radius: 0px;
     font-family: 'Armata', sans-serif; }
   body .navigation-buttons {
-    list-style: none;
-    padding: 1px;
-    padding-right: 5px; }
+    list-style: none; }
     body .navigation-buttons li {
       padding: 13px;
       float: left; }
@@ -74,12 +72,8 @@ body {
       body .container-fluid .middle .header {
         padding: 30px 0;
         border-bottom: 1px solid black; }
-        body .container-fluid .middle .header .headerlogo {
-          width: 100%;
-          display: block; }
-          body .container-fluid .middle .header .headerlogo img {
-            margin: auto;
-            width: 100%; }
+        body .container-fluid .middle .header .headerlogo img {
+          padding: 5%; }
       body .container-fluid .middle .inventory {
         float: right;
         margin-top: 50px;
