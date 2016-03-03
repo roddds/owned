@@ -35,7 +35,7 @@ class NewGameView(BaseGameView):
         if not user.is_authenticated():
             return redirect("auth_login")
 
-        if user.save_slots.count() == 0:
+        if not user.save_slots.exists():
             user.setup()
 
         cxt['player'] = self.request.user
@@ -78,7 +78,7 @@ class ContinueGameView(BaseGameView):
         if not user.is_authenticated():
             return redirect("auth_login")
 
-        if user.save_slots.count() == 0:
+        if not user.save_slots.exists():
             user.setup()
 
         if not user.active_save_slot:
