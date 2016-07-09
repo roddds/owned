@@ -4,32 +4,31 @@
 {% block title %}Baixe o OWNED{% endblock %}
 
 {% block content %}
+<div class="staticpage">
+    <h1>Baixar o OWNED</h1>
+    <hr>
 
-<h1>Baixar o OWNED</h1>
+    <p>Owned pode ser baixado para qualquer um desses formatos. Fora as adaptações necessárias, há poucas diferenças entre as versões.</p>
 
-<hr>
+    <h3>Versão Gratuita</h3>
 
-<p>Owned pode ser baixado para qualquer um desses formatos. Fora as adaptações necessárias, há poucas diferenças entre as versões.</p>
+    <p>Em formato PDF, com links internos - Leia com Adobe Reader</p>
 
-<h3>Versão Gratuita</h3>
+    <p>Em breve: em site, para jogar em máquinas (para Windows, Mac OS, Linux, alguns celulares). Para ler, basta ter um navegador instalado.</p>
 
-<p>Em formato PDF, com links internos - Leia com Adobe Reader</p>
+    <h3>Versão Paga</h3>
 
-<p>Em breve: em site, para jogar em máquinas (para Windows, Mac OS, Linux, alguns celulares). Para ler, basta ter um navegador instalado.</p>
+    <p>Compre a versão impressa do livro pela editora 7Letras (vem com guia de estratégia e informações sobre o processo de criação do livro), <a href="http://www.7letras.com.br/owned-um-novo-jogador.html">no site da editora.</a></p>
 
-<h3>Versão Paga</h3>
+    <p>Em breve, OWNED também estará à venda no formato .epub com os mesmos extras do livro impresso</p>
 
-<p>Compre a versão impressa do livro pela editora 7Letras (vem com guia de estratégia e informações sobre o processo de criação do livro), <a href="http://www.7letras.com.br/owned-um-novo-jogador.html">no site da editora.</a></p>
+    <hr>
 
-<p>Em breve, OWNED também estará à venda no formato .epub com os mesmos extras do livro impresso</p>
-
-<hr>
-
-<p class="text-center">
-    <a class="btn btn-default" href="{% static 'download/owned.pdf' %}">
-        <img src="{% static 'img/fa-cloud-download.png' %}" />
-        Baixar o OWNED
-    </a>
-</p>
-
+    <p class="text-center">
+        <a class="btn btn-default" href="{% static 'download/owned.pdf' %}">
+            <img src="{% static 'img/fa-cloud-download.png' %}" />
+            Baixar o OWNED
+        </a>
+    </p>
+</div>
 {% endblock %}
