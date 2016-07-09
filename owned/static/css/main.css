@@ -4,6 +4,9 @@ body {
     font-family: "Armata", sans-serif; }
   body .staticpage p {
     line-height: 14px; }
+  body .staticpage .image-and-subtitle {
+    float: right;
+    text-align: center; }
   body .modal-dialog a.btn {
     width: 180px; }
   body .modal-dialog .modal-footer {
