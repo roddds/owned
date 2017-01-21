@@ -5,7 +5,7 @@ import environ
 
 env = environ.Env()
 
-PAGE_ACCESS_TOKEN = env('DJANGO_EMAIL_BACKEND')
+PAGE_ACCESS_TOKEN = env('PAGE_ACCESS_TOKEN')
 
 
 def call_send_api(message_data):
