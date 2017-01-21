@@ -18,6 +18,7 @@ urlpatterns = [
 
     url(r'^book/', include('owned.book.urls', namespace="book")),
     url(r'^game/', include('owned.game.urls', namespace="game")),
+    url(r'^chatbot/', include('owned.chatbot.urls', namespace="chatbot")),
 
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, include(admin.site.urls)),

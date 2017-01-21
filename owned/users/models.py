@@ -99,6 +99,9 @@ class SaveSlot(models.Model):
     def has_event(self, event):
         return self.events.filter(id=event.id).exists()
 
+    def get_current_chapter(self):
+        return Paragraph.objects.get(id=self.current_chapter)
+
     def play_chapter(self, chapter):
         self.current_chapter = chapter
         self.save()

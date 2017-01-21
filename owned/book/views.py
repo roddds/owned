@@ -7,7 +7,7 @@ class BaseBookView(TemplateView):
         cxt = {}
         cxt['url_prefix'] = "/book/read/"
         cxt['paragraph'] = Paragraph.objects.get(pk=self.kwargs['chapter'])
-        cxt['options'] = cxt['paragraph'].option_set.all()
+        cxt['options'] = cxt['paragraph'].options.all()
         cxt['player'] = self.request.user
         cxt['saveslot'] = self.request.user.saveslot
 

@@ -36,12 +36,12 @@ class Option(models.Model):
     required_events = models.ManyToManyField('book.Event', blank=True, related_name='enables_option')
     excluding_events = models.ManyToManyField('book.Event', blank=True, related_name='excludes_option')
 
-    paragraph = models.ForeignKey('book.Paragraph')
+    paragraph = models.ForeignKey('book.Paragraph', related_name='options')
 
     def requirements_met(self, saveslot):
         logger.debug("checking requirements for option %d" % self.target)
-        inventory = saveslot.inventory.all()
-        events = saveslot.events.all()
+        inventory = saveslot.inventory.all().values_list('id', flat=True)
+        events = saveslot.events.all().values_list('id', flat=True)
 
         if self.required_items.exists():
             if not self.required_items.filter(id__in=inventory).exists():
