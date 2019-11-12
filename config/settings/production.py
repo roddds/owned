@@ -55,7 +55,7 @@ SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 # ------------------------------------------------------------------------------
 # Hosts/domain names that are valid for this site
 # See https://docs.djangoproject.com/en/1.6/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['novojogador.com.br'])
+ALLOWED_HOSTS = ('novojogador.com.br', 'novojogador.herokuapp.com')
 # END SITE CONFIGURATION
 
 INSTALLED_APPS += ("gunicorn", )
