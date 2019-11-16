@@ -11,17 +11,40 @@ export interface Option {
   text: string;
   target: number;
   paragraph: number;
-  requiredEvents?: Array<number>;
-  excludingEvents?: Array<number>;
-  requiredItems?: Array<number>;
-  excludingItems?: Array<number>;
+  requiredEvents?: number[];
+  excludingEvents?: number[];
+  requiredItems?: number[];
+  excludingItems?: number[];
 }
 
 export interface Chapter {
   title: string;
   text: string;
   isEnding?: boolean;
-  addsItems?: Array<number>;
-  removesItems?: Array<number>;
-  addsEvents?: Array<number>;
+  addsItems?: number[];
+  removesItems?: number[];
+  addsEvents?: number[];
+}
+
+export interface Events {
+  [key: string]: Event;
+}
+
+export interface Items {
+  [key: string]: Item;
+}
+
+export interface Options {
+  [key: string]: Option;
+}
+
+export interface Chapters {
+  [key: string]: Chapter;
+}
+
+export interface BookData {
+  event: Events;
+  item: Items;
+  option: Options;
+  chapter: Chapters;
 }
