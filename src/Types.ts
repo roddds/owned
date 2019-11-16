@@ -10,7 +10,6 @@ export interface Item {
 export interface Option {
   text: string;
   target: number;
-  paragraph: number;
   requiredEvents?: number[];
   excludingEvents?: number[];
   requiredItems?: number[];
@@ -24,6 +23,7 @@ export interface Chapter {
   addsItems?: number[];
   removesItems?: number[];
   addsEvents?: number[];
+  options?: number[];
 }
 
 export interface Events {
