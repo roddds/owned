@@ -28,6 +28,51 @@ function hasRequiredState(optionId: number, context: any) {
   return hasEvents && hasItems && avoidedEvents && avoidedItems;
 }
 
+interface TextProps {
+  chapter: {
+    title: string;
+    text: string;
+    options: number[];
+  };
+  context: Object;
+  onChoose: Function;
+}
+
+const Text: React.FC<TextProps> = ({ chapter, context, onChoose }) => {
+  return (
+    <>
+      <Title hasTextAlign='centered' isSize={2}>
+        {chapter.title}
+      </Title>
+      <Content>
+        <div
+          className='body-text'
+          dangerouslySetInnerHTML={{ __html: chapter.text }}
+        />
+        {chapter.options.map(opt => (
+          <Container key={opt}>
+            <Button
+              isColor='light'
+              key={opt}
+              disabled={!hasRequiredState(opt, context)}
+              onClick={() =>
+                onChoose({
+                  type: 'SELECT_OPTION',
+                  target: Book.option[opt].target,
+                  option: opt,
+                  chapter: chapter
+                })
+              }
+            >
+              {Book.option[opt].text}
+            </Button>
+          </Container>
+        ))}
+      </Content>
+    </>
+  );
+};
+
 const App: React.FC = () => {
   const [current, send] = useMachine(
     GameState,
@@ -44,33 +89,11 @@ const App: React.FC = () => {
     <Container>
       <Columns isCentered>
         <Column isSize='2/3'>
-          <Title hasTextAlign='centered' isSize={2}>
-            {chapter.title}
-          </Title>
-          <Content>
-            <div
-              className='body-text'
-              dangerouslySetInnerHTML={{ __html: chapter.text }}
-            />
-          </Content>
-          {chapter.options.map(opt => (
-            <Container key={opt}>
-              <Button
-                isColor='light'
-                key={opt}
-                disabled={!hasRequiredState(opt, current.context)}
-                onClick={() =>
-                  send({
-                    type: 'SELECT_OPTION',
-                    target: Book.option[opt].target,
-                    chapter: chapter
-                  })
-                }
-              >
-                {Book.option[opt].text}
-              </Button>
-            </Container>
-          ))}
+          <Text
+            chapter={chapter}
+            context={current.context}
+            onChoose={(e: any) => send(e)}
+          />
         </Column>
         <Column isSize='1/3'>
           <ul>
