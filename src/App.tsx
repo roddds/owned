@@ -75,6 +75,9 @@ const App: React.FC = () => {
             ))}
           </ul>
           <pre>{JSON.stringify(current.context, null, 4)}</pre>
+          <button onClick={() => localStorage.setItem('game-state', '{}')}>
+            clear
+          </button>
         </Column>
       </Columns>
     </Container>
