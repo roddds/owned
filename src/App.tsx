@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bulma/css/bulma.css';
-import { Container, Columns, Column, Button } from 'bloomer';
+import { Container, Columns, Column, Button, Title, Content } from 'bloomer';
 import { useMachine } from '@xstate/react';
 import GameState from './GameState';
 import Book from './Book';
@@ -44,11 +44,15 @@ const App: React.FC = () => {
     <Container>
       <Columns isCentered>
         <Column isSize='2/3'>
-          <div
-            className='body-text'
-            dangerouslySetInnerHTML={{ __html: chapter.text }}
-          />
-
+          <Title hasTextAlign='centered' isSize={2}>
+            {chapter.title}
+          </Title>
+          <Content>
+            <div
+              className='body-text'
+              dangerouslySetInnerHTML={{ __html: chapter.text }}
+            />
+          </Content>
           {chapter.options.map(opt => (
             <Container key={opt}>
               <Button
