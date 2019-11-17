@@ -23,7 +23,7 @@ export interface Chapter {
   addsItems?: number[];
   removesItems?: number[];
   addsEvents?: number[];
-  options?: number[];
+  options: number[];
 }
 
 export interface Events {
