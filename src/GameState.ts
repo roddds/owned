@@ -61,19 +61,24 @@ const GameState = Machine<StateType>(
         };
       }),
 
-      updateInventory: assign((context, event) => {
-        console.log(event.chapter);
-        if (!event.chapter.addsItems) {
+      updateInventory: assign((context, { chapter }) => {
+        const { addsItems = [], removesItems = [] } = chapter;
+
+        if (!addsItems && !removesItems) {
           return context;
         }
+
+        const inventory = [...context.inventory, ...addsItems].filter(
+          (i: number) => !removesItems.includes(i)
+        );
+
         return {
           ...context,
-          inventory: [...context.inventory, ...event.chapter.addsItems]
+          inventory: Array.from(new Set(inventory))
         };
       }),
 
       updateEvents: assign((context, event) => {
-        console.log(event.chapter);
         if (!event.chapter.addsEvents) {
           return context;
         }
