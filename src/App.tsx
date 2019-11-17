@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bulma/css/bulma.css';
-import { Container, Columns, Column } from 'bloomer';
+import { Container, Columns, Column, Button } from 'bloomer';
 import { useMachine } from '@xstate/react';
 import GameState from './GameState';
 import Book from './Book';
@@ -44,26 +44,32 @@ const App: React.FC = () => {
     <Container>
       <Columns isCentered>
         <Column isSize='2/3'>
-          <div dangerouslySetInnerHTML={{ __html: chapter.text || '' }} />
+          <div
+            className='body-text'
+            dangerouslySetInnerHTML={{ __html: chapter.text || '' }}
+          />
 
           {chapter.options.map(opt => (
-            <button
-              key={opt}
-              disabled={!hasRequiredState(opt, current.context)}
-              onClick={() =>
-                send({
-                  type: 'SELECT_OPTION',
-                  target: Book.option[opt].target,
-                  chapter: chapter
-                })
-              }
-            >
-              {Book.option[opt].text}
-            </button>
+            <Container>
+              <Button
+                isColor='light'
+                key={opt}
+                disabled={!hasRequiredState(opt, current.context)}
+                onClick={() =>
+                  send({
+                    type: 'SELECT_OPTION',
+                    target: Book.option[opt].target,
+                    chapter: chapter
+                  })
+                }
+              >
+                {Book.option[opt].text}
+              </Button>
+            </Container>
           ))}
         </Column>
         <Column isSize='1/3'>
-          <pre>{JSON.stringify(current.context, null, 1)}</pre>
+          <pre>{JSON.stringify(current.context, null, 4)}</pre>
         </Column>
       </Columns>
     </Container>
