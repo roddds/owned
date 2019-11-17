@@ -1,6 +1,13 @@
 import React from 'react';
-import 'bulma/css/bulma.css';
-import { Container, Columns, Column, Button, Title, Content } from 'bloomer';
+import {
+  Container,
+  Columns,
+  Column,
+  Button,
+  Title,
+  Content,
+  Box
+} from 'bloomer';
 import { useMachine } from '@xstate/react';
 import GameState from './GameState';
 import Book from './Book';
@@ -96,20 +103,27 @@ const App: React.FC = () => {
           />
         </Column>
         <Column isSize='1/3'>
-          <ul>
-            {current.context.inventory.map(item => (
-              <li key={item}>{Book.item[item].name}</li>
-            ))}
-          </ul>
-          <pre>{JSON.stringify(current.context, null, 4)}</pre>
-          <button
+          <Box>
+            <Title isSize={4}>Inventory</Title>
+            <ul>
+              {!current.context.inventory.length && <li>Nothing here</li>}
+              {current.context.inventory.map(item => (
+                <li key={item}>{Book.item[item].name}</li>
+              ))}
+            </ul>
+          </Box>
+          <Box>
+            <pre>{JSON.stringify(current.context, null, 4)}</pre>
+          </Box>
+          <Button
+            isColor='warning'
             onClick={() => {
               localStorage.setItem('game-state', '{}');
               window.location.reload();
             }}
           >
             reset
-          </button>
+          </Button>
         </Column>
       </Columns>
     </Container>
