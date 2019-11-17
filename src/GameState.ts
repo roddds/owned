@@ -8,6 +8,7 @@ import { Machine, assign } from 'xstate';
 interface StateType {
   chapter: number;
   history: number[];
+  choices: number[];
   inventory: number[];
   events: number[];
 }
@@ -19,6 +20,7 @@ const GameState = Machine<StateType>(
     context: {
       chapter: 1,
       history: [],
+      choices: [],
       inventory: [],
       events: []
     },
@@ -36,6 +38,7 @@ const GameState = Machine<StateType>(
             actions: [
               'selectOption',
               'setHistory',
+              'saveChoices',
               'updateInventory',
               'updateEvents'
             ],
@@ -58,6 +61,13 @@ const GameState = Machine<StateType>(
         return {
           ...context,
           history: [...context.history, event.target]
+        };
+      }),
+
+      saveChoices: assign((context, event) => {
+        return {
+          ...context,
+          choices: [...context.choices, event.option]
         };
       }),
 
