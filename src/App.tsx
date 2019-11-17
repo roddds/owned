@@ -50,7 +50,7 @@ const App: React.FC = () => {
           />
 
           {chapter.options.map(opt => (
-            <Container>
+            <Container key={opt}>
               <Button
                 isColor='light'
                 key={opt}
