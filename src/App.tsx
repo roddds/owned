@@ -69,6 +69,11 @@ const App: React.FC = () => {
           ))}
         </Column>
         <Column isSize='1/3'>
+          <ul>
+            {current.context.inventory.map(item => (
+              <li key={item}>{Book.item[item].name}</li>
+            ))}
+          </ul>
           <pre>{JSON.stringify(current.context, null, 4)}</pre>
         </Column>
       </Columns>
