@@ -46,7 +46,7 @@ const App: React.FC = () => {
         <Column isSize='2/3'>
           <div
             className='body-text'
-            dangerouslySetInnerHTML={{ __html: chapter.text || '' }}
+            dangerouslySetInnerHTML={{ __html: chapter.text }}
           />
 
           {chapter.options.map(opt => (
