@@ -11,6 +11,7 @@ import {
 import { useMachine } from '@xstate/react';
 import GameState from './GameState';
 import Book from './Book';
+import ItemIcon from './ItemIcon';
 import './App.css';
 
 function hasRequiredState(optionId: number, context: any) {
@@ -105,12 +106,13 @@ const App: React.FC = () => {
         <Column isSize='1/3'>
           <Box>
             <Title isSize={4}>Inventory</Title>
-            <ul>
-              {!current.context.inventory.length && <li>Nothing here</li>}
-              {current.context.inventory.map(item => (
-                <li key={item}>{Book.item[item].name}</li>
-              ))}
-            </ul>
+            {!current.context.inventory.length && <p>Nothing here</p>}
+            {current.context.inventory.map(item => (
+              <ItemIcon
+                title={Book.item[item].name}
+                path={Book.item[item].path}
+              />
+            ))}
           </Box>
           <Box>
             <pre>{JSON.stringify(current.context, null, 4)}</pre>
