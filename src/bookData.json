@@ -55,115 +55,115 @@
   "item": {
     "1": {
       "name": "Amuleto",
-      "imageFilename": "1-amulet.svg"
+      "path": "1-amulet.svg"
     },
     "2": {
       "name": "Chave-Mestra",
-      "imageFilename": "2-master-key.svg"
+      "path": "2-master-key.svg"
     },
     "3": {
       "name": "Cópia do HD de Laila",
-      "imageFilename": "3-laila-hd-copy.svg"
+      "path": "3-laila-hd-copy.svg"
     },
     "4": {
       "name": "E-Mail de Confirmação",
-      "imageFilename": "4-email.svg"
+      "path": "4-email.svg"
     },
     "5": {
       "name": "iPod de Mayumi",
-      "imageFilename": "5-ipod.svg"
+      "path": "5-ipod.svg"
     },
     "6": {
       "name": "Moedeira",
-      "imageFilename": "6-coin-purse.svg"
+      "path": "6-coin-purse.svg"
     },
     "7": {
       "name": "Nota de Cem Reais",
-      "imageFilename": "7-100-bill.svg"
+      "path": "7-100-bill.svg"
     },
     "8": {
       "name": "Tupperware da Mayumi",
-      "imageFilename": "8-tupperware.svg"
+      "path": "8-tupperware.svg"
     },
     "9": {
       "name": "Panfleto",
-      "imageFilename": "9-panfleto.svg"
+      "path": "9-brochure.svg"
     },
     "10": {
       "name": "Moedeira (cheia)",
-      "imageFilename": "10-coin-purse-full.svg"
+      "path": "10-coin-purse-full.svg"
     },
     "11": {
       "name": "Console Vintage Original",
-      "imageFilename": "11-console-vintage.svg"
+      "path": "11-console-vintage.svg"
     },
     "12": {
       "name": "Coxinha",
-      "imageFilename": "12-coxinha.svg"
+      "path": "12-coxinha.svg"
     },
     "13": {
       "name": "HD Externo do Edgar",
-      "imageFilename": "13-edgar-hd.svg"
+      "path": "13-edgar-hd.svg"
     },
     "14": {
       "name": "Prejuízo de 10%",
-      "imageFilename": "14-loss.svg"
+      "path": "14-loss.svg"
     },
     "15": {
       "name": "Submetralhadora",
-      "imageFilename": "15-smg.svg"
+      "path": "15-smg.svg"
     },
     "16": {
       "name": "Munição de Submetralhadora",
-      "imageFilename": "16-ammo.svg"
+      "path": "16-ammo.svg"
     },
     "17": {
       "name": "Pistola",
-      "imageFilename": "17-pistol.svg"
+      "path": "17-pistol.svg"
     },
     "18": {
       "name": "Saquinho (Patuá)",
-      "imageFilename": "18-charm.svg"
+      "path": "18-charm.svg"
     },
     "19": {
       "name": "Maleta 007",
-      "imageFilename": "19-suitcase.svg"
+      "path": "19-suitcase.svg"
     },
     "20": {
       "name": "Chave de Saída",
-      "imageFilename": "20-exit-key.svg"
+      "path": "20-exit-key.svg"
     },
     "21": {
       "name": "Chave de Fenda",
-      "imageFilename": "21-screwdriver.svg"
+      "path": "21-screwdriver.svg"
     },
     "22": {
       "name": "Vassoura",
-      "imageFilename": "22-broom.svg"
+      "path": "22-broom.svg"
     },
     "23": {
       "name": "Chave Comum",
-      "imageFilename": "23-regular-key.svg"
+      "path": "23-regular-key.svg"
     },
     "24": {
       "name": "Fuzil",
-      "imageFilename": "24-rifle.svg"
+      "path": "24-rifle.svg"
     },
     "25": {
       "name": "Granadas",
-      "imageFilename": "25-grenade.svg"
+      "path": "25-grenade.svg"
     },
     "26": {
       "name": "Mochila",
-      "imageFilename": "26-backpack.svg"
+      "path": "26-backpack.svg"
     },
     "27": {
       "name": "Kit de Primeiros Socorros",
-      "imageFilename": "27-first-aid-kit.svg"
+      "path": "27-first-aid-kit.svg"
     },
     "28": {
       "name": "Óculos de Sol Modelo Audrey Hepburn",
-      "imageFilename": "28-sunglasses.svg"
+      "path": "28-sunglasses.svg"
     }
   },
   "option": {

@@ -4,7 +4,7 @@ export interface Event {
 
 export interface Item {
   name: string;
-  imageFilename: string;
+  path: string;
 }
 
 export interface Option {
