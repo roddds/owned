@@ -1,11 +1,6 @@
 import { Machine, assign } from 'xstate';
 
-/*
-  events:
-    readChapter
-*/
-
-interface StateType {
+export interface StateType {
   chapter: number;
   history: number[];
   choices: number[];

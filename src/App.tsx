@@ -13,6 +13,7 @@ import GameState from './GameState';
 import IconCredits from './IconCredits';
 import Book from './Book';
 import ItemIcon from './ItemIcon';
+import PrettyState from './PrettyState';
 import './App.css';
 
 function hasRequiredState(optionId: number, context: any) {
@@ -119,9 +120,7 @@ const App: React.FC = () => {
             ))}
             <IconCredits />
           </Box>
-          <Box style={{ maxHeight: '400px', overflowY: 'scroll' }}>
-            <pre>{JSON.stringify(current.context, null, 4)}</pre>
-          </Box>
+          <PrettyState context={current.context} />
           <Button
             isColor='warning'
             onClick={() => {
