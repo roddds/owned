@@ -1,7 +1,10 @@
 import React from 'react';
 
 const IconCredits = () => (
-  <small style={{ display: 'block' }}>
+  <small
+    style={{ display: 'block', opacity: '40%' }}
+    className='is-unselectable'
+  >
     Icons by{' '}
     <a
       target='blank'
