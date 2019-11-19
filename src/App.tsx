@@ -119,7 +119,7 @@ const App: React.FC = () => {
             ))}
             <IconCredits />
           </Box>
-          <Box>
+          <Box style={{ maxHeight: '400px', overflowY: 'scroll' }}>
             <pre>{JSON.stringify(current.context, null, 4)}</pre>
           </Box>
           <Button
