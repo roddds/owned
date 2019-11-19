@@ -10,6 +10,7 @@ import {
 } from 'bloomer';
 import { useMachine } from '@xstate/react';
 import GameState from './GameState';
+import IconCredits from './IconCredits';
 import Book from './Book';
 import ItemIcon from './ItemIcon';
 import './App.css';
@@ -113,6 +114,7 @@ const App: React.FC = () => {
                 path={Book.item[item].path}
               />
             ))}
+            <IconCredits />
           </Box>
           <Box>
             <pre>{JSON.stringify(current.context, null, 4)}</pre>
