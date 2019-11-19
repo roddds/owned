@@ -88,6 +88,9 @@ const App: React.FC = () => {
     JSON.parse(localStorage.getItem('game-state') || '{}')
   );
 
+  (window as any).Book = Book;
+  (window as any).Game = current;
+
   const chapter = Book.chapter[current.context.chapter];
 
   React.useEffect(() => {
