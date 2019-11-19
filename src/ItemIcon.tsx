@@ -1,5 +1,5 @@
 import React from 'react';
-import icons from './InventoryIcons';
+import icons from './inventoryIcons';
 
 interface ItemProps {
   path: string;
