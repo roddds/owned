@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Container,
-  Columns,
-  Column,
-  Button,
-  Title,
-  Content,
-  Box
-} from 'bloomer';
+import { Container, Columns, Column, Button, Title, Box } from 'bloomer';
 import { useMachine } from '@xstate/react';
 import GameState from './GameState';
 import IconCredits from './IconCredits';

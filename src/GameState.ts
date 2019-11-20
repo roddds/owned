@@ -1,6 +1,6 @@
 import { Machine, assign } from 'xstate';
 
-export interface StateType {
+export interface ContextType {
   chapter: number;
   history: number[];
   choices: number[];
@@ -8,7 +8,7 @@ export interface StateType {
   events: number[];
 }
 
-const GameState = Machine<StateType>(
+const GameState = Machine<ContextType>(
   {
     id: 'game-state',
     initial: 'reading',
