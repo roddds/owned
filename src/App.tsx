@@ -111,14 +111,17 @@ const App: React.FC = () => {
         <Column isSize='1/3'>
           <Box>
             <Title isSize={4}>Inventory</Title>
-            {!current.context.inventory.length && <p>Nothing here</p>}
             {current.context.inventory.map(item => (
               <ItemIcon
                 title={Book.item[item].name}
                 path={Book.item[item].path}
               />
             ))}
-            <IconCredits />
+            {current.context.inventory.length ? (
+              <IconCredits />
+            ) : (
+              <p>Nothing here</p>
+            )}
           </Box>
           <PrettyState context={current.context} />
           <Button
