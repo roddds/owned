@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button } from 'bloomer';
+import { Button, Section } from 'bloomer';
 import { ContextType } from './GameState';
 import { Option as OptionType } from './Types';
 
@@ -35,22 +35,23 @@ function hasRequiredState(option: OptionType, context: any) {
 const Option = (props: OptionProps) => {
   const { option, optionId, onChoose, context, chapter } = props;
   return (
-    <Container key={option.target}>
-      <Button
-        isColor='light'
-        disabled={!hasRequiredState(option, context)}
-        onClick={() =>
-          onChoose({
-            type: 'SELECT_OPTION',
-            target: option.target,
-            option: optionId,
-            chapter: chapter
-          })
-        }
-      >
-        {option.text}
-      </Button>
-    </Container>
+    <Button
+      style={{ margin: '1px 0' }}
+      key={option.target}
+      isFullWidth
+      isColor='dark'
+      disabled={!hasRequiredState(option, context)}
+      onClick={() =>
+        onChoose({
+          type: 'SELECT_OPTION',
+          target: option.target,
+          option: optionId,
+          chapter: chapter
+        })
+      }
+    >
+      {option.text}
+    </Button>
   );
 };
 

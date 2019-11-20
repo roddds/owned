@@ -59,6 +59,7 @@ const App: React.FC = () => {
           </Box>
           <PrettyState context={context} />
           <Button
+            isFullWidth
             isColor='warning'
             onClick={() => {
               localStorage.setItem('game-state', '{}');
