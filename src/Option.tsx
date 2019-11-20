@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Section } from 'bloomer';
+import { Button } from 'bloomer';
 import { ContextType } from './GameState';
 import { Option as OptionType } from './Types';
 
