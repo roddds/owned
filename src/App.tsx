@@ -15,8 +15,8 @@ const sidebarColumnBackground = (direction: 'left' | 'right') => ({
   backgroundImage: `
     linear-gradient(
       to right,
-      rgba(255,255,255,0.95) 0%,
-      rgba(255,255,255,0.95) 70%,
+      rgba(255,255,255,0.90) 0%,
+      rgba(255,255,255,0.95) 80%,
       rgba(255,255,255,1) 99%),
       url(${SidebarImage})`,
   backgroundPosition: 'center',
