@@ -7,6 +7,7 @@ import Book from './Book';
 import ItemIcon from './ItemIcon';
 import PrettyState from './PrettyState';
 import Text from './Text';
+import Option from './Option';
 import './App.css';
 
 const App: React.FC = () => {
@@ -15,10 +16,15 @@ const App: React.FC = () => {
     JSON.parse(localStorage.getItem('game-state') || '{}')
   );
 
+  const {
+    context,
+    context: { inventory }
+  } = current;
+
   (window as any).Book = Book;
   (window as any).Game = current;
 
-  const chapter = Book.chapter[current.context.chapter];
+  const chapter = Book.chapter[context.chapter];
 
   React.useEffect(() => {
     localStorage.setItem('game-state', JSON.stringify(current));
@@ -28,28 +34,30 @@ const App: React.FC = () => {
     <Container>
       <Columns isCentered>
         <Column isSize='2/3'>
-          <Text
-            chapter={chapter}
-            context={current.context}
-            onChoose={(e: any) => send(e)}
-          />
+          <Text chapter={chapter}>
+            {chapter.options.map(opt => (
+              <Option
+                optionId={opt}
+                option={Book.option[opt]}
+                onChoose={(e: any) => send(e)}
+                chapter={chapter}
+                context={context}
+              />
+            ))}
+          </Text>
         </Column>
         <Column isSize='1/3'>
           <Box>
             <Title isSize={4}>Inventory</Title>
-            {current.context.inventory.map(item => (
+            {inventory.map(item => (
               <ItemIcon
                 title={Book.item[item].name}
                 path={Book.item[item].path}
               />
             ))}
-            {current.context.inventory.length ? (
-              <IconCredits />
-            ) : (
-              <p>Nothing here</p>
-            )}
+            {inventory.length ? <IconCredits /> : <p>Nothing here</p>}
           </Box>
-          <PrettyState context={current.context} />
+          <PrettyState context={context} />
           <Button
             isColor='warning'
             onClick={() => {

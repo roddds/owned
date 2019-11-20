@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container, Button } from 'bloomer';
-import ContextType from './GameState';
+import { ContextType } from './GameState';
 import { Option as OptionType } from './Types';
 
 interface OptionProps {
   optionId: number;
   option: OptionType;
   onChoose: Function;
-  context: typeof ContextType;
+  context: ContextType;
   chapter: any;
 }
 
