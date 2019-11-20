@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Columns, Column, Button, Title, Box } from 'bloomer';
+import { Container, Columns, Column, Button, Title, Box, Hero } from 'bloomer';
 import { useMachine } from '@xstate/react';
 import GameState from './GameState';
 import IconCredits from './IconCredits';
@@ -8,7 +8,22 @@ import ItemIcon from './ItemIcon';
 import PrettyState from './PrettyState';
 import Text from './Text';
 import Option from './Option';
+import SidebarImage from './sidebar/sidebar.png';
 import './App.css';
+
+const sidebarColumnBackground = (direction: 'left' | 'right') => ({
+  backgroundImage: `
+    linear-gradient(
+      to right,
+      rgba(255,255,255,0.95) 0%,
+      rgba(255,255,255,0.95) 70%,
+      rgba(255,255,255,1) 99%),
+      url(${SidebarImage})`,
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  transform: `scaleX(${direction === 'left' ? '-1' : '1'})`
+});
 
 const App: React.FC = () => {
   const [current, send] = useMachine(
@@ -31,9 +46,12 @@ const App: React.FC = () => {
   }, [current]);
 
   return (
-    <Container>
+    <Container isMarginless isFluid isFullWidth>
       <Columns isCentered>
-        <Column isSize='2/3'>
+        <Column isSize={2}>
+          <Hero isFullHeight style={sidebarColumnBackground('right')} />
+        </Column>
+        <Column isSize={{ desktop: 6, mobile: 12 }}>
           <Text chapter={chapter}>
             {chapter.options.map(opt => (
               <Option
@@ -46,7 +64,7 @@ const App: React.FC = () => {
             ))}
           </Text>
         </Column>
-        <Column isSize='1/3'>
+        <Column isSize={3}>
           <Box>
             <Title isSize={4}>Inventory</Title>
             {inventory.map(item => (
@@ -68,6 +86,9 @@ const App: React.FC = () => {
           >
             reset
           </Button>
+        </Column>
+        <Column isSize={2}>
+          <Hero isFullHeight style={sidebarColumnBackground('left')} />
         </Column>
       </Columns>
     </Container>
