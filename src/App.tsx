@@ -73,6 +73,11 @@ const App: React.FC = () => {
                 path={Book.item[item].path}
               />
             ))}
+            <ul>
+              {context.events.map(c => (
+                <li>{Book.event[c].name}</li>
+              ))}
+            </ul>
             {inventory.length ? <IconCredits /> : <p>Nothing here</p>}
           </Box>
           <PrettyState context={context} />
