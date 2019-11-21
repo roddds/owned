@@ -17,7 +17,7 @@ const sidebarColumnBackground = (direction: 'left' | 'right') => ({
       to right,
       rgba(255,255,255,0.90) 0%,
       rgba(255,255,255,0.95) 80%,
-      rgba(255,255,255,1) 99%),
+      rgba(255,255,255,1) 100%),
       url(${SidebarImage})`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
