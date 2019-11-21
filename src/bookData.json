@@ -1767,7 +1767,8 @@
       "text": "Se você NÃO tem o item Tupperware de Mayumi E NÃO esteve numa boate E conseguiu falar com Elza na ZYX Traduções, vá para 178.",
       "target": 178,
       "excludingItems": [8],
-      "excludingEvents": [10, 11]
+      "requiredEvents": [11],
+      "excludingEvents": [10]
     },
     "366": {
       "text": "Se você NÃO tem o Tupperware de Mayumi E NÃO esteve numa boate E conseguiu falar com Dafne na ZYX Traduções, vá para 84.",
