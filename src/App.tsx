@@ -84,7 +84,7 @@ const App: React.FC = () => {
               window.location.reload();
             }}
           >
-            reset
+            New Game
           </Button>
         </Column>
         <Column isSize={2}>
