@@ -1,55 +1,55 @@
 {
   "event": {
     "1": {
-      "label": "Esteve num acampamento"
+      "name": "Esteve num acampamento"
     },
     "2": {
-      "label": "Jantou na casa de alguém"
+      "name": "Jantou na casa de alguém"
     },
     "3": {
-      "label": "Foi ao cinema"
+      "name": "Foi ao cinema"
     },
     "4": {
-      "label": "Aceitou o Amuleto"
+      "name": "Aceitou o Amuleto"
     },
     "5": {
-      "label": "Ficou no carro de Fernando na favela"
+      "name": "Ficou no carro de Fernando na favela"
     },
     "6": {
-      "label": "Foi atrás de Fernando na favela"
+      "name": "Foi atrás de Fernando na favela"
     },
     "7": {
-      "label": "Tem falado sobre um livro com alguém no chat"
+      "name": "Tem falado sobre um livro com alguém no chat"
     },
     "8": {
-      "label": "Falou com DAFNE"
+      "name": "Falou com DAFNE"
     },
     "9": {
-      "label": "Entrou num quarto usando uma chave-mestra"
+      "name": "Entrou num quarto usando uma chave-mestra"
     },
     "10": {
-      "label": "Esteve numa boate"
+      "name": "Esteve numa boate"
     },
     "11": {
-      "label": "Falou com ELZA"
+      "name": "Falou com ELZA"
     },
     "12": {
-      "label": "Disse a Samara: “você está confusa” - no 171 ou 263"
+      "name": "Disse a Samara: “você está confusa” - no 171 ou 263"
     },
     "13": {
-      "label": "Disse a Samara que NÃO tiraria os poderes de Laila se pudesse"
+      "name": "Disse a Samara que NÃO tiraria os poderes de Laila se pudesse"
     },
     "14": {
-      "label": "Disse a Samara que tiraria os poderes de Laila se pudesse"
+      "name": "Disse a Samara que tiraria os poderes de Laila se pudesse"
     },
     "15": {
-      "label": "Dassou por um temporal"
+      "name": "Passou por um temporal"
     },
     "16": {
-      "label": "Entrou num quarto fechado usando uma chave-mestra"
+      "name": "Entrou num quarto fechado usando uma chave-mestra"
     },
     "17": {
-      "label": "Deu o Amuleto a alguém (Rosana)"
+      "name": "Deu o Amuleto a alguém (Rosana)"
     }
   },
   "item": {

@@ -1,5 +1,5 @@
 export interface Event {
-  label: string;
+  name: string;
 }
 
 export interface Item {
