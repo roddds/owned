@@ -1,11 +1,15 @@
 .body-text {
   font-size: 1.3rem;
+}
+
+.content,
+.body-text {
   padding-bottom: 2rem;
 }
 
 .text-column {
   overflow-y: auto;
-  max-height: 100vh;
+  height: 100vh;
 }
 
 body,

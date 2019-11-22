@@ -47,11 +47,11 @@ const App: React.FC = () => {
 
   return (
     <Container isMarginless isFluid isFullWidth isPaddingless>
-      <Columns isCentered>
-        <Column isSize={2}>
+      <Columns isCentered isMarginless>
+        <Column isSize={2} isPaddingless>
           <Hero isFullHeight style={sidebarColumnBackground('right')} />
         </Column>
-        <Column className='text-column' isSize={{ desktop: 6, mobile: 12 }}>
+        <Column className='text-column' isSize={{ desktop: 5, mobile: 12 }}>
           <Text chapter={chapter}>
             {chapter.options.map(opt => (
               <Option
@@ -92,7 +92,7 @@ const App: React.FC = () => {
             New Game
           </Button>
         </Column>
-        <Column isSize={2}>
+        <Column isSize={2} isPaddingless>
           <Hero isFullHeight style={sidebarColumnBackground('left')} />
         </Column>
       </Columns>
