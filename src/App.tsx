@@ -5,7 +5,6 @@ import GameState from './GameState';
 import IconCredits from './IconCredits';
 import Book from './Book';
 import ItemIcon from './ItemIcon';
-import PrettyState from './PrettyState';
 import Text from './Text';
 import Option from './Option';
 import SidebarImage from './sidebar/sidebar.png';
@@ -79,7 +78,6 @@ const App: React.FC = () => {
             </ul>
             {inventory.length ? <IconCredits /> : <p>Nothing here</p>}
           </Box>
-          <PrettyState context={context} />
           <Button
             isFullWidth
             isColor='warning'
