@@ -46,7 +46,7 @@ const App: React.FC = () => {
   }, [current]);
 
   return (
-    <Container isMarginless isFluid isFullWidth>
+    <Container isMarginless isFluid isFullWidth isPaddingless>
       <Columns isCentered>
         <Column isSize={2}>
           <Hero isFullHeight style={sidebarColumnBackground('right')} />
