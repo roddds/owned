@@ -51,7 +51,7 @@ const App: React.FC = () => {
         <Column isSize={2}>
           <Hero isFullHeight style={sidebarColumnBackground('right')} />
         </Column>
-        <Column isSize={{ desktop: 6, mobile: 12 }}>
+        <Column className='text-column' isSize={{ desktop: 6, mobile: 12 }}>
           <Text chapter={chapter}>
             {chapter.options.map(opt => (
               <Option

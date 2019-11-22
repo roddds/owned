@@ -1,3 +1,14 @@
 .body-text {
   font-size: 1.3rem;
+  padding-bottom: 2rem;
+}
+
+.text-column {
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+body,
+html {
+  overflow: hidden;
 }
