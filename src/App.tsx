@@ -48,7 +48,7 @@ const App: React.FC = () => {
   return (
     <Container isMarginless isFluid isFullWidth isPaddingless>
       <Columns isCentered isMarginless>
-        <Column isSize={2} isPaddingless>
+        <Column isSize={2} isPaddingless isHidden='mobile'>
           <Hero isFullHeight style={sidebarColumnBackground('right')} />
         </Column>
         <Column className='text-column' isSize={{ desktop: 5, mobile: 12 }}>
@@ -92,7 +92,7 @@ const App: React.FC = () => {
             New Game
           </Button>
         </Column>
-        <Column isSize={2} isPaddingless>
+        <Column isSize={2} isPaddingless isHidden='mobile'>
           <Hero isFullHeight style={sidebarColumnBackground('left')} />
         </Column>
       </Columns>
