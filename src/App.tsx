@@ -14,15 +14,14 @@ import './App.css';
 const sidebarColumnBackground = (direction: 'left' | 'right') => ({
   backgroundImage: `
     linear-gradient(
-      to right,
+      to ${direction},
       rgba(255,255,255,0.90) 0%,
       rgba(255,255,255,0.95) 80%,
       rgba(255,255,255,1) 100%),
       url(${SidebarImage})`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  transform: `scaleX(${direction === 'left' ? '-1' : '1'})`
+  backgroundRepeat: 'no-repeat'
 });
 
 const App: React.FC = () => {
