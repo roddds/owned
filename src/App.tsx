@@ -1,27 +1,14 @@
 import React from 'react';
-import { Container, Columns, Column, Button, Title, Box, Hero } from 'bloomer';
+import { Container, Columns, Column, Button, Title, Box } from 'bloomer';
 import { useMachine } from '@xstate/react';
+import Sidebar from './Sidebar';
 import GameState from './GameState';
 import IconCredits from './IconCredits';
 import Book from './Book';
 import ItemIcon from './ItemIcon';
 import Text from './Text';
 import Option from './Option';
-import SidebarImage from './sidebar/sidebar.png';
 import './App.css';
-
-const sidebarColumnBackground = (direction: 'left' | 'right') => ({
-  backgroundImage: `
-    linear-gradient(
-      to ${direction},
-      rgba(255,255,255,0.90) 0%,
-      rgba(255,255,255,0.95) 80%,
-      rgba(255,255,255,1) 100%),
-      url(${SidebarImage})`,
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-});
 
 const App: React.FC = () => {
   const [current, send] = useMachine(
@@ -46,9 +33,7 @@ const App: React.FC = () => {
   return (
     <Container isMarginless isFluid isFullWidth isPaddingless>
       <Columns isCentered isMarginless>
-        <Column isSize={2} isPaddingless isHidden='mobile'>
-          <Hero isFullHeight style={sidebarColumnBackground('right')} />
-        </Column>
+        <Sidebar side='left' />
         <Column className='text-column' isSize={{ desktop: 5, mobile: 12 }}>
           <Text chapter={chapter}>
             {chapter.options.map(opt => (
@@ -89,9 +74,7 @@ const App: React.FC = () => {
             New Game
           </Button>
         </Column>
-        <Column isSize={2} isPaddingless isHidden='mobile'>
-          <Hero isFullHeight style={sidebarColumnBackground('left')} />
-        </Column>
+        <Sidebar side='right' />
       </Columns>
     </Container>
   );

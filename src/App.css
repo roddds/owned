@@ -6,13 +6,3 @@
 .body-text {
   padding-bottom: 2rem;
 }
-
-.text-column {
-  overflow-y: auto;
-  height: 100vh;
-}
-
-body,
-html {
-  overflow: hidden;
-}
