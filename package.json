@@ -2,7 +2,7 @@
   "name": "owned",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://roddds.github.io/owned",
+  "homepage": "https://novojogador.com.br",
   "dependencies": {
     "@types/jest": "24.0.23",
     "@types/node": "12.12.8",
