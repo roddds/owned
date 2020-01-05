@@ -22,7 +22,7 @@ const App = () => {
             style={{ width: '100%' }}
           >
             <Column>
-              <img src={logo} style={{ maxWidth: '50%' }} />
+              <img src={logo} alt='Owned logo' style={{ maxWidth: '50%' }} />
               <Title>Owned - Um Novo Jogador</Title>
               <Button
                 onClick={() => {
