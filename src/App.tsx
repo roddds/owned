@@ -10,6 +10,7 @@ import {
 } from 'bloomer';
 import Sidebar from './Sidebar';
 import Game from './Game';
+import logo from './logo_flat.png';
 import { newGame } from './GameState';
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
             style={{ width: '100%' }}
           >
             <Column>
+              <img src={logo} style={{ maxWidth: '50%' }} />
               <Title>Owned - Um Novo Jogador</Title>
               <Button
                 onClick={() => {
