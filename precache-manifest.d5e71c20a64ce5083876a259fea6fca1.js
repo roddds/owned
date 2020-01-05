@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c02a75547eebfc2eadc699eec7bfcbc7",
+    "revision": "7fed4ad58fc6ff9cd9900d376da5791e",
     "url": "/index.html"
   },
   {
-    "revision": "06cf185ce3988d02470c",
+    "revision": "406d091a62a47dd484f6",
     "url": "/static/css/2.c4418c31.chunk.css"
   },
   {
-    "revision": "f5dc882e749f17a8df21",
+    "revision": "234484142eec7c1ff044",
     "url": "/static/css/main.5ce37c8b.chunk.css"
   },
   {
-    "revision": "06cf185ce3988d02470c",
-    "url": "/static/js/2.fdd7ee22.chunk.js"
+    "revision": "406d091a62a47dd484f6",
+    "url": "/static/js/2.d33cff69.chunk.js"
   },
   {
-    "revision": "f5dc882e749f17a8df21",
-    "url": "/static/js/main.6975ea05.chunk.js"
+    "revision": "234484142eec7c1ff044",
+    "url": "/static/js/main.1bd94fe9.chunk.js"
   },
   {
     "revision": "c7a736d99c8eaa4cbcc8",
@@ -134,6 +134,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "fd014722e81eca3a6e218acd398923c6",
     "url": "/static/media/9-brochure.fd014722.svg"
+  },
+  {
+    "revision": "f84c8df7cb2f7ec135f2cefea4bdebd8",
+    "url": "/static/media/logo_flat.f84c8df7.png"
   },
   {
     "revision": "984cc0017de94bd26e00ab80d4f33802",
