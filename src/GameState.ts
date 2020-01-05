@@ -1,4 +1,6 @@
+import React from 'react';
 import { Machine, assign } from 'xstate';
+import { useMachine } from '@xstate/react';
 
 export interface ContextType {
   chapter: number;
@@ -8,7 +10,27 @@ export interface ContextType {
   events: number[];
 }
 
-const GameState = Machine<ContextType>(
+export const save = (state: Object) =>
+  localStorage.setItem('game-state', JSON.stringify(state));
+
+export const load = () =>
+  JSON.parse(localStorage.getItem('game-state') || '{}');
+
+export const useGameState = () => {
+  const [current, send] = useMachine(GameState, load());
+
+  React.useEffect(() => {
+    save(current);
+  }, [current]);
+
+  return { current, send };
+};
+
+export const newGame = () => {
+  save({});
+};
+
+export const GameState = Machine<ContextType>(
   {
     id: 'game-state',
     initial: 'reading',
@@ -125,5 +147,3 @@ const GameState = Machine<ContextType>(
     }
   }
 );
-
-export default GameState;

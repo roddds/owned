@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container, Columns, Column, Button, Title, Box } from 'bloomer';
-import { useMachine } from '@xstate/react';
 import Sidebar from './Sidebar';
-import GameState from './GameState';
+import { useGameState, newGame } from './GameState';
 import IconCredits from './IconCredits';
 import Book from './Book';
 import ItemIcon from './ItemIcon';
@@ -10,11 +9,12 @@ import Text from './Text';
 import Option from './Option';
 import './App.css';
 
-const Game: React.FC = () => {
-  const [current, send] = useMachine(
-    GameState,
-    JSON.parse(localStorage.getItem('game-state') || '{}')
-  );
+interface Props {
+  quit: () => void;
+}
+
+const Game: React.FC<Props> = ({ quit }: Props) => {
+  const { current, send } = useGameState();
 
   const {
     context,
@@ -25,10 +25,6 @@ const Game: React.FC = () => {
   (window as any).Game = current;
 
   const chapter = Book.chapter[context.chapter];
-
-  React.useEffect(() => {
-    localStorage.setItem('game-state', JSON.stringify(current));
-  }, [current]);
 
   return (
     <>
@@ -61,15 +57,8 @@ const Game: React.FC = () => {
           </ul>
           {inventory.length ? <IconCredits /> : <p>Nothing here</p>}
         </Box>
-        <Button
-          isFullWidth
-          isColor='warning'
-          onClick={() => {
-            localStorage.setItem('game-state', '{}');
-            window.location.reload();
-          }}
-        >
-          New Game
+        <Button isFullWidth isColor='warning' onClick={quit}>
+          Save and Quit
         </Button>
       </Column>
     </>
