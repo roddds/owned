@@ -25,6 +25,11 @@ const Game: React.FC<Props> = ({ quit }: Props) => {
 
   const chapter = Book.chapter[context.chapter];
 
+  const playOption = (e: any) => {
+    window.scrollTo(0, 0);
+    send(e);
+  };
+
   return (
     <>
       <Column className='text-column' isSize={{ desktop: 5, mobile: 12 }}>
@@ -33,7 +38,7 @@ const Game: React.FC<Props> = ({ quit }: Props) => {
             <Option
               optionId={opt}
               option={Book.option[opt]}
-              onChoose={(e: any) => send(e)}
+              onChoose={playOption}
               chapter={chapter}
               context={context}
             />
