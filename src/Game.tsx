@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container, Columns, Column, Button, Title, Box } from 'bloomer';
-import Sidebar from './Sidebar';
-import { useGameState, newGame } from './GameState';
+import { Column, Button, Title, Box } from 'bloomer';
+import { useGameState } from './GameState';
 import IconCredits from './IconCredits';
 import Book from './Book';
 import ItemIcon from './ItemIcon';

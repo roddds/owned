@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Container,
-  Columns,
-  Column,
-  Content,
-  Button,
-  Title,
-  Box
-} from 'bloomer';
+import { Container, Columns, Column, Button, Title } from 'bloomer';
 import Sidebar from './Sidebar';
 import Game from './Game';
 import logo from './logo_flat.png';
